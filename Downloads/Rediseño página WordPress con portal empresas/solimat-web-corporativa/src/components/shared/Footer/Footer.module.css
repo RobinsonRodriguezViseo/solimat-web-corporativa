@@ -1,0 +1,150 @@
+.footer {
+  margin-top: auto;
+  background: var(--color-900);
+  color: #fff;
+}
+
+.top {
+  padding: 56px 0 40px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr 1.1fr;
+  gap: 44px;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}
+
+@media (max-width: 560px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.brandLogo {
+  height: 52px;
+  margin-bottom: 18px;
+}
+
+.tagline {
+  margin: 0 0 18px;
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.socials {
+  display: flex;
+  gap: 10px;
+}
+
+.socialLink {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.socialLink:hover {
+  color: var(--color-300);
+}
+
+.heading {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-200);
+  margin-bottom: 16px;
+}
+
+.linkList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.link {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 14px;
+}
+
+.link:hover {
+  color: var(--color-300);
+}
+
+.contact {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.7;
+}
+
+.contactName {
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 2px;
+}
+
+.contactPhone {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--color-200);
+  font-weight: 600;
+}
+
+.contactEmail {
+  margin-top: 2px;
+}
+
+.contactMore {
+  display: inline-block;
+  margin-top: 12px;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.contactMore:hover {
+  color: var(--color-300);
+}
+
+.bottom {
+  background: var(--color-950);
+  padding: 15px 0;
+}
+
+.bottomBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.legalLinks {
+  display: flex;
+  gap: 20px;
+}
+
+.legalLink {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.legalLink:hover {
+  color: var(--color-300);
+}

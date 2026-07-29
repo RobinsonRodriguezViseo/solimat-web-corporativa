@@ -1,0 +1,127 @@
+.article {
+  max-width: 908px;
+  margin: 34px auto 8px;
+  padding: 10px 24px 30px;
+  background: linear-gradient(
+    160deg,
+    rgba(245, 182, 150, 0.12) 0%,
+    rgba(255, 255, 255, 0.55) 36%,
+    rgba(255, 255, 255, 0.5) 62%,
+    rgba(74, 133, 196, 0.09) 100%
+  );
+  border: 1px solid var(--c-line-soft);
+  border-radius: var(--r-xl);
+  box-shadow: var(--sh-1);
+}
+
+.header {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 36px 0 0;
+}
+
+.topRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--c-accent);
+  white-space: nowrap;
+}
+
+.backLink:hover {
+  color: var(--c-accent-dark);
+}
+
+.date {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--c-accent);
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.title {
+  margin: 0 0 26px;
+  font-size: clamp(28px, 3.4vw, 40px);
+  font-weight: 700;
+  color: var(--c-accent-deep);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.mediaSection {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.heroImage {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--r-xl);
+  box-shadow: var(--sh-2);
+  border: 1px solid var(--c-line-soft);
+}
+
+.bodySection {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 40px 0 8px;
+}
+
+.fullNotice {
+  margin-top: 8px;
+  padding: 18px 22px;
+  background: var(--c-bg-subtle);
+  border: 1px solid var(--c-line-soft);
+  border-radius: var(--r-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.fullNoticeText {
+  font-size: 14px;
+  color: var(--c-text-muted);
+}
+
+.shareSection {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 26px 0 10px;
+}
+
+.notFound {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 80px 24px;
+  text-align: center;
+}
+
+.notFoundTitle {
+  margin: 0 0 12px;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--c-accent-deep);
+}
+
+.notFoundText {
+  margin: 0 0 24px;
+  font-size: 16px;
+  color: var(--c-text-muted);
+}

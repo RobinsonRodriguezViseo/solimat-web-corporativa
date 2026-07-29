@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="theme.css">
+<style>
+a { text-decoration:none; }
+.topbar-link:hover { color:#fff !important; }
+.navdd { position:relative; padding-bottom:14px; margin-bottom:-14px; }
+.navdd__trigger { display:inline-flex; align-items:center; gap:7px; padding:9px 15px; border:0; background:transparent; font-family:inherit; font-size:14.5px; font-weight:500; color:var(--c-accent); border-radius:7px; cursor:pointer; transition:var(--t); }
+.navdd__trigger svg { transition:transform .25s ease; }
+.navdd:hover .navdd__trigger, .navdd:focus-within .navdd__trigger { background:var(--c-accent-deep); color:#fff; }
+.navdd:hover .navdd__trigger svg, .navdd:focus-within .navdd__trigger svg { transform:rotate(180deg); }
+.navdd__menu { position:absolute; top:100%; left:0; min-width:238px; background:#f3f6fa; border:1px solid var(--c-line-soft); border-radius:12px; box-shadow:var(--sh-3); padding:8px; display:flex; flex-direction:column; opacity:0; visibility:hidden; transform:translateY(-6px); transition:opacity .2s ease, transform .2s ease, visibility .2s; z-index:60; }
+.navdd:hover .navdd__menu, .navdd:focus-within .navdd__menu { opacity:1; visibility:visible; transform:translateY(0); }
+.navdd__menu a { padding:11px 15px; border-radius:8px; font-size:14px; color:var(--c-text); font-weight:500; white-space:nowrap; transition:var(--t); }
+.navdd__menu a:hover { background:#fff; color:var(--c-accent); padding-left:19px; }
+.navdd__menu a.is-current { background:var(--c-accent-soft); color:var(--c-accent-dark); font-weight:600; }
+.ftr-link:hover { color:var(--color-300) !important; }
+.ix-link { display:block; padding:9px 0 9px 14px; border-left:2px solid var(--c-line); font-size:13.5px; color:var(--c-text-muted); transition:all var(--t); line-height:1.4; }
+.ix-link:hover { border-left-color:var(--c-accent); color:var(--c-accent-dark); padding-left:18px; }
+.as-sec { scroll-margin-top:100px; margin-bottom:52px; }
+.as-body p { margin:0 0 12px; font-size:15px; line-height:1.68; color:var(--c-text-muted); }
+.as-body strong { color:var(--c-text-strong); font-weight:600; }
+.as-body ul { margin:0 0 14px; padding-left:20px; }
+.as-body li { font-size:15px; line-height:1.65; color:var(--c-text-muted); margin-bottom:7px; }
+.as-body a { color:var(--c-accent); font-weight:600; }
+.as-body a:hover { color:var(--c-accent-dark); }
+.as-gal { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.as-units { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+.unit-card { background:#fff; border:1px solid var(--c-line-soft); border-radius:var(--r-lg); box-shadow:var(--sh-1); overflow:hidden; transition:all var(--t); }
+.unit-card:hover { transform:translateY(-3px); box-shadow:var(--sh-3); }
+.as-cta:hover { background:var(--c-accent-dark) !important; }
+.pillar:hover { border-color:var(--c-accent-line) !important; }
+@media (max-width:1000px) {
+  .as-layout { grid-template-columns:1fr !important; gap:28px !important; }
+  .as-index { position:static !important; }
+  .as-split { grid-template-columns:1fr !important; }
+  .as-split img { height:280px !important; min-height:0 !important; }
+  .as-gal { grid-template-columns:1fr 1fr !important; }
+  .as-units { grid-template-columns:1fr !important; }
+}
+</style>
+</helmet>
+
+<div style="min-height:100vh; display:flex; flex-direction:column; background:var(--c-bg);">
+
+<!-- Barra Urgencias -->
+<div style="background:var(--color-900); color:rgba(255,255,255,.82);">
+  <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:16px; height:38px; font-size:12.5px;">
+    <div style="display:flex; align-items:center; gap:8px; font-weight:500; letter-spacing:.04em;">
+      <span style="display:inline-flex; width:7px; height:7px; border-radius:50%; background:#F0455A; box-shadow:0 0 0 3px rgba(240,69,90,.25);"></span>
+      <span style="text-transform:uppercase; letter-spacing:.1em; font-size:11px;">Urgencias 24h</span>
+      <a class="topbar-link" href="tel:900111072" style="color:var(--color-200); font-weight:600;">900 111 072</a>
+      <span style="opacity:.35;">·</span>
+      <a class="topbar-link" href="tel:+34925727272" style="color:rgba(255,255,255,.7);">+34 925 72 72 72 <span style="opacity:.6;">(fuera de España)</span></a>
+    </div>
+    <a class="topbar-link" href="Red De Centros.dc.html" style="color:rgba(255,255,255,.82); display:inline-flex; align-items:center; gap:6px;">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Centros de atención
+    </a>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="hdr">
+  <div class="container hdr__bar" style="gap:24px;">
+    <a class="hdr__logo" href="Home Solimat.dc.html" style="display:flex; align-items:center;"><img src="images/solimat-logo.svg" alt="Solimat" style="height:34px;"></a>
+    <nav style="display:flex; align-items:center; gap:2px; margin-left:8px;">
+      <div class="navdd">
+        <button class="navdd__trigger" type="button">Conócenos <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="navdd__menu">
+          <a href="Quienes Somos.dc.html">Quiénes somos</a>
+          <a href="Nuestros Datos.dc.html">Nuestros datos</a>
+          <a href="Podemos Ser Tu Mutua.dc.html">Podemos ser tu mutua</a>
+          <a href="Trabaja Con Nosotros.dc.html">Trabaja con nosotros</a>
+          <a href="Noticias.dc.html">Noticias</a>
+          <a href="Podemos Ayudarte.dc.html">¿Podemos ayudarte?</a>
+        </div>
+      </div>
+      <div class="navdd">
+        <button class="navdd__trigger" type="button">Servicios <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="navdd__menu">
+          <a href="Nuestro Equipo.dc.html">Nuestro equipo</a>
+          <a href="Prestaciones Economicas.dc.html">Prestaciones Económicas</a>
+          <a class="is-current" href="Asistencia Sanitaria.dc.html">Asistencia Sanitaria</a>
+          <a href="Promocion De La Prevencion.dc.html">Promoción de la Prevención</a>
+          <a href="http://portal.solimat.com/" target="_blank" rel="noopener">Portal de Servicios</a>
+          <a href="Podemos Ayudarte.dc.html">¿Podemos ayudarte?</a>
+        </div>
+      </div>
+      <div class="navdd">
+        <button class="navdd__trigger" type="button">Trámites <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="navdd__menu">
+          <a href="Para Empresa.dc.html">Para Empresa</a>
+          <a href="Home Solimat.dc.html#perfiles">Para Trabajador</a>
+          <a href="Home Solimat.dc.html#perfiles">Para Autónomo</a>
+          <a href="Home Solimat.dc.html#perfiles">Para Asesoría Laboral</a>
+        </div>
+      </div>
+    </nav>
+    <div style="margin-left:auto; display:flex; align-items:center; gap:10px;">
+      <a class="btn btn--ghost btn--sm" href="https://pacientes.solimat.com/" target="_blank" rel="noopener">Portal del Paciente</a>
+      <a class="btn btn--sm" href="http://portal.solimat.com/" target="_blank" rel="noopener" style="gap:8px;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg>
+        Portal de Servicios
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section style="position:relative; overflow:hidden; background:var(--color-900);">
+  <img src="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/wp-content/uploads/2023/10/asistencia_sanitaria_1.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.3;">
+  <div style="position:absolute; inset:0; background:linear-gradient(95deg, rgba(14,27,51,.93) 0%, rgba(20,37,70,.74) 55%, rgba(31,60,111,.42) 100%);"></div>
+  <div class="container" style="position:relative; padding:56px 0 60px;">
+    <div style="display:flex; align-items:center; gap:8px; font-size:12.5px; color:rgba(255,255,255,.7); margin-bottom:16px;">
+      <a href="Home Solimat.dc.html" style="color:rgba(255,255,255,.7);">Inicio</a>
+      <span style="opacity:.5;">/</span>
+      <span style="color:rgba(255,255,255,.7);">Servicios</span>
+      <span style="opacity:.5;">/</span>
+      <span style="color:#fff; font-weight:600;">Asistencia Sanitaria</span>
+    </div>
+    <h1 style="margin:0 0 12px; color:#fff; font-size:clamp(34px,4.4vw,52px); font-weight:700; letter-spacing:-0.02em; line-height:1.05;">Asistencia Sanitaria</h1>
+    <p style="margin:0; max-width:680px; color:rgba(255,255,255,.85); font-size:18px; line-height:1.55;">Atención cercana y personalizada, profesionales especializados y tecnología de última generación al servicio de tu recuperación.</p>
+  </div>
+</section>
+
+<!-- Contenido -->
+<section class="container" style="padding:52px 0 80px;">
+  <div class="as-layout" style="display:grid; grid-template-columns:250px 1fr; gap:48px; align-items:start;">
+
+    <!-- Índice -->
+    <aside class="as-index" style="position:sticky; top:96px;">
+      <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.15em; color:var(--c-text-soft); margin-bottom:16px;">En esta página</div>
+      <a class="ix-link" href="#modelo-asistencial">Modelo Asistencial</a>
+      <a class="ix-link" href="#asistencia-24h">Asistencia Sanitaria 24 horas</a>
+      <a class="ix-link" href="#hospital-san-jose">Hospital San José</a>
+      <a class="ix-link" href="#red-de-centros">Red de Centros</a>
+      <div style="margin-top:26px; padding:20px; background:linear-gradient(135deg, var(--color-900) 0%, var(--color-700) 100%); border-radius:12px; color:#fff;">
+        <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:var(--color-200); margin-bottom:8px;">Urgencias 24h</div>
+        <a href="tel:900111072" style="font-size:20px; font-weight:700; color:#fff; letter-spacing:-0.01em;">900 111 072</a>
+        <p style="margin:8px 0 0; font-size:12.5px; color:rgba(255,255,255,.72); line-height:1.5;">Línea gratuita, 365 días del año.</p>
+      </div>
+    </aside>
+
+    <div>
+      <!-- Intro -->
+      <div class="as-body" style="margin-bottom:26px;">
+        <p style="font-size:18px; line-height:1.6; color:var(--c-text-strong); font-weight:500; text-wrap:pretty;">La Asistencia Sanitaria en Solimat se centra en la recuperación de los trabajadores y autónomos protegidos, ofreciendo la mejor calidad asistencial, acompañando a nuestros pacientes en su proceso, cuidando la experiencia, mediante el trato cercano y personalizado, y aplicando los últimos avances técnicos en el campo de la medicina y de la fisioterapia.</p>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:24px;">
+          <div style="background:#fff; border:1px solid var(--c-line-soft); border-radius:var(--r-lg); padding:24px 26px; box-shadow:var(--sh-1);">
+            <div style="font-size:15px; font-weight:700; color:var(--c-accent-deep); margin-bottom:12px;">Nuestro equipo médico está formado por reconocidos especialistas encargados de:</div>
+            <ul style="margin:0;">
+              <li>Coordinar sistemáticamente la asistencia médica de cualquier accidentado, garantizando su óptima recuperación.</li>
+              <li>Realizar el seguimiento continuado de la evolución de las lesiones de los accidentados.</li>
+            </ul>
+          </div>
+          <div style="background:#fff; border:1px solid var(--c-line-soft); border-radius:var(--r-lg); padding:24px 26px; box-shadow:var(--sh-1);">
+            <div style="font-size:15px; font-weight:700; color:var(--c-accent-deep); margin-bottom:12px;">Apostamos por la innovación para:</div>
+            <ul style="margin:0;">
+              <li>Dotar a todos nuestros centros asistenciales y nuestro hospital de tecnología de última generación.</li>
+              <li>Impulsar la formación de nuestro personal sanitario en técnicas y terapias novedosas.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Galería -->
+      <div class="as-gal" style="margin-bottom:56px;">
+        <img src="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/wp-content/uploads/2023/10/asistencia_sanitaria_1.jpg" alt="Asistencia Sanitaria" style="display:block; width:100%; height:200px; object-fit:cover; border-radius:var(--r-lg);">
+        <img src="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/wp-content/uploads/2023/10/asistencia_sanitaria_2.jpg" alt="Asistencia Sanitaria" style="display:block; width:100%; height:200px; object-fit:cover; border-radius:var(--r-lg);">
+        <img src="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/wp-content/uploads/2023/10/asistencia_sanitaria_3.jpg" alt="Asistencia Sanitaria" style="display:block; width:100%; height:200px; object-fit:cover; border-radius:var(--r-lg);">
+      </div>
+
+      <!-- MODELO ASISTENCIAL -->
+      <section id="modelo-asistencial" class="as-sec">
+        <div style="display:flex; align-items:center; gap:16px; margin-bottom:24px;">
+          <span style="width:4px; height:30px; background:var(--c-accent); border-radius:2px;"></span>
+          <h2 style="margin:0; font-size:28px; font-weight:700; color:var(--c-accent-deep); letter-spacing:-0.015em;">Nuestro Modelo Asistencial</h2>
+          <span style="flex:1; height:1px; background:var(--c-line-soft);"></span>
+        </div>
+        <p style="margin:0 0 20px; font-size:16px; color:var(--c-text-muted);">Los pilares de nuestro Modelo Asistencial son:</p>
+        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:24px;">
+          <div class="pillar" style="background:#fff; border:1px solid var(--c-line-soft); border-radius:var(--r-lg); padding:22px 20px; box-shadow:var(--sh-1); transition:border-color var(--t);">
+            <span style="display:flex; width:38px; height:38px; border-radius:10px; background:var(--c-accent-soft); color:var(--c-accent); align-items:center; justify-content:center; margin-bottom:14px;">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 00-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 000-7.8z"/></svg>
+            </span>
+            <div style="font-size:14.5px; font-weight:600; color:var(--c-text-strong); line-height:1.45;">Atención cercana y personalizada.</div>
+          </div>
+          <div class="pillar" style="background:#fff; border:1px solid var(--c-line-soft); border-radius:var(--r-lg); padding:22px 20px; box-shadow:var(--sh-1); transition:border-color var(--t);">
+            <span style="display:flex; width:38px; height:38px; border-radius:10px; background:var(--c-accent-soft); color:var(--c-accent); align-items:center; justify-content:center; margin-bottom:14px;">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/></svg>
+            </span>
+            <div style="font-size:14.5px; font-weight:600; color:var(--c-text-strong); line-height:1.45;">Acompañamiento en el proceso sanitario.</div>
+          </div>
+          <div class="pillar" style="background:#fff; border:1px solid var(--c-line-soft); border-radius:var(--r-lg); padding:22px 20px; box-shadow:var(--sh-1); transition:border-color var(--t);">
+            <span style="display:flex; width:38px; height:38px; border-radius:10px; background:var(--c-accent-soft); color:var(--c-accent); align-items:center; justify-content:center; margin-bottom:14px;">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2l2.4 5.3 5.6.6-4.2 3.9 1.2 5.7L12 14.8 7 17.5l1.2-5.7L4 7.9l5.6-.6z"/></svg>
+            </span>
+            <div style="font-size:14.5px; font-weight:600; color:var(--c-text-strong); line-height:1.45;">Profesionales especializados y experimentados.</div>
+          </div>
+          <div class="pillar" style="background:#fff; border:1px solid var(--c-line-soft); border-radius:var(--r-lg); padding:22px 20px; box-shadow:var(--sh-1); transition:border-color var(--t);">
+            <span style="display:flex; width:38px; height:38px; border-radius:10px; background:var(--c-accent-soft); color:var(--c-accent); align-items:center; justify-content:center; margin-bottom:14px;">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+            </span>
+            <div style="font-size:14.5px; font-weight:600; color:var(--c-text-strong); line-height:1.45;">Calidad asistencial y seguridad del paciente.</div>
+          </div>
+        </div>
+        <a class="as-cta" href="pdfs/derechos-deberes.pdf" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:9px; background:var(--c-accent); color:#fff; font-size:14.5px; font-weight:600; padding:12px 22px; border-radius:9px; transition:background var(--t);">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>
+          Aquí puedes conocer tus Derechos y Deberes como paciente
+        </a>
+      </section>
+
+      <!-- ASISTENCIA 24H -->
+      <section id="asistencia-24h" class="as-sec">
+        <div style="display:flex; align-items:center; gap:16px; margin-bottom:24px;">
+          <span style="width:4px; height:30px; background:var(--c-accent); border-radius:2px;"></span>
+          <h2 style="margin:0; font-size:28px; font-weight:700; color:var(--c-accent-deep); letter-spacing:-0.015em;">Asistencia Sanitaria 24 horas</h2>
+          <span style="flex:1; height:1px; background:var(--c-line-soft);"></span>
+        </div>
+        <div class="as-split" style="display:grid; grid-template-columns:1fr 1fr; gap:0; background:#fff; border:1px solid var(--c-line-soft); border-radius:var(--r-lg); overflow:hidden; box-shadow:var(--sh-1);">
+          <div class="as-body" style="padding:32px 34px;">
+            <p style="font-size:17px; line-height:1.6; color:var(--c-text-strong); font-weight:500;">Garantizamos tu asistencia sanitaria, 24 horas los 365 días del año, a través del servicio telefónico gratuito de la Línea 900.</p>
+            <ul style="margin:18px 0 16px;">
+              <li>Call Center Medicalizado.</li>
+              <li>Primeras pautas a seguir en caso de urgencia.</li>
+              <li>Localización del centro más cercano.</li>
+              <li>Gestión del transporte sanitario, en función de la gravedad.</li>
+            </ul>
+            <p style="margin:0;">En el caso de desplazamiento de trabajadores en el extranjero, <a href="Podemos Ayudarte.dc.html">contacta con nosotros</a> para informarte de las pautas a seguir.</p>
+          </div>
+          <img src="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/wp-content/uploads/2023/10/asistencia-sanitaria-24-horas.jpg" alt="Asistencia Sanitaria 24 horas" style="display:block; width:100%; height:100%; min-height:320px; object-fit:cover;">
+        </div>
+      </section>
+
+      <!-- HOSPITAL SAN JOSÉ -->
+      <section id="hospital-san-jose" class="as-sec">
+        <div style="display:flex; align-items:center; gap:16px; margin-bottom:24px;">
+          <span style="width:4px; height:30px; background:var(--c-accent); border-radius:2px;"></span>
+          <h2 style="margin:0; font-size:28px; font-weight:700; color:var(--c-accent-deep); letter-spacing:-0.015em;">Hospital San José</h2>
+          <span style="flex:1; height:1px; background:var(--c-line-soft);"></span>
+        </div>
+        <p style="margin:0 0 22px; font-size:17px; font-weight:500; color:var(--c-text-strong);">Hospital de referencia en Castilla-La Mancha. Abierto 24 horas, 365 días del año</p>
+
+        <div class="as-split" style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:30px;">
+          <img src="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/wp-content/uploads/2023/10/hospital-san-jose.jpg" alt="Hospital San José" style="display:block; width:100%; height:100%; min-height:300px; object-fit:cover; border-radius:var(--r-lg);">
+          <div>
+            <div style="background:#fff; border:1px solid var(--c-line-soft); border-radius:var(--r-lg); padding:24px 26px; box-shadow:var(--sh-1); margin-bottom:16px;">
+              <div style="display:flex; align-items:flex-start; gap:12px; margin-bottom:14px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--c-accent)" stroke-width="1.7" style="flex-shrink:0; margin-top:2px;"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <div style="font-size:15px; color:var(--c-text-strong); font-weight:600; line-height:1.5;">Calle San Pedro el Verde, 35<br><span style="font-weight:400; color:var(--c-text-muted);">45004 Toledo</span></div>
+              </div>
+              <div style="display:flex; align-items:center; gap:12px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--c-accent)" stroke-width="1.7" style="flex-shrink:0;"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.7a2 2 0 01-.5 2.1L8.1 9.6a16 16 0 006 6l1.1-1.1a2 2 0 012.1-.5c.9.3 1.8.5 2.7.6a2 2 0 011.7 2z"/></svg>
+                <div style="font-size:15px; color:var(--c-text-muted);">Teléfono: <a href="tel:925215267" style="color:var(--c-accent); font-weight:600;">925 21 52 67</a></div>
+              </div>
+            </div>
+            <div style="border:1px solid var(--c-line-soft); border-radius:var(--r-lg); overflow:hidden; box-shadow:var(--sh-1); height:220px;">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3062.217043371674!2d-4.043402923410283!3d39.869375971532804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6a0b1d6e4a23a7%3A0x7d5bc5cb109d219d!2sHospital%20Laboral%20Solimat!5e0!3m2!1ses!2ses!4v1695484175772!5m2!1ses!2ses" title="Mapa Hospital San José" style="width:100%; height:100%; border:0; display:block;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+        </div>
+
+        <h3 style="margin:0 0 18px; font-size:19px; font-weight:700; color:var(--c-text-strong);">Unidades del Hospital</h3>
+        <div class="as-units">
+          <div class="unit-card">
+            <img src="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/wp-content/uploads/2023/10/unidad-urgencias-medicina-asistencial.jpg" alt="Unidad de Urgencias y Medicina Asistencial" style="display:block; width:100%; height:180px; object-fit:cover;">
+            <div class="as-body" style="padding:24px 26px;">
+              <h4 style="margin:0 0 12px; font-size:17px; font-weight:700; color:var(--c-accent-deep);">Unidad de Urgencias y Medicina Asistencial</h4>
+              <ul>
+                <li>Asistencia 24 horas</li>
+                <li>Atención personalizada y especializada</li>
+                <li>Supervisión a cargo de médicos especialistas</li>
+              </ul>
+              <p style="margin:0;">Con el objeto de dar un servicio de calidad, hemos dotado a esta Unidad de tecnología de última generación, desfibriladores automáticos, radiología digital en red y electrocardiografía digital.</p>
+            </div>
+          </div>
+          <div class="unit-card">
+            <img src="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/wp-content/uploads/2023/10/unidad-cirugia-traumatologica-ortopedia-1.jpg" alt="Unidad de Cirugía Traumatológica y Ortopedia" style="display:block; width:100%; height:180px; object-fit:cover;">
+            <div class="as-body" style="padding:24px 26px;">
+              <h4 style="margin:0 0 12px; font-size:17px; font-weight:700; color:var(--c-accent-deep);">Unidad de Cirugía Traumatológica y Ortopedia</h4>
+              <p>Somos referente en Castilla-La Mancha. Aplicamos las más avanzadas tecnologías quirúrgico – traumatológicas para tratar a los accidentados de trabajo.</p>
+              <p style="margin:0;">Destacamos en técnicas de Radiofrecuencia, Anestesia de Plexo, Ecocirugía y Tratamientos de baja agresividad en cirugías, entre otras.</p>
+            </div>
+          </div>
+          <div class="unit-card">
+            <div class="as-body" style="padding:26px;">
+              <span style="display:flex; width:40px; height:40px; border-radius:10px; background:var(--c-accent-soft); color:var(--c-accent); align-items:center; justify-content:center; margin-bottom:14px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 00-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 000-7.8z"/></svg>
+              </span>
+              <h4 style="margin:0 0 12px; font-size:17px; font-weight:700; color:var(--c-accent-deep);">Unidad del Dolor</h4>
+              <p>Equipo de profesionales especializados en el <strong>tratamiento de cuadros dolorosos complejos</strong> (severos y casi siempre crónicos)<strong>,</strong> ya sean para pacientes que no toleren los tratamientos convencionales, sean resistentes a ellos, o simplemente requieran tratamientos especiales.</p>
+              <p style="margin:0;">Al frente de la misma se encuentra un médico especializado en Anestesiología y un equipo de personal sanitario con años de experiencia y conocimiento en las sintomatologías y patologías, tratamientos médicos farmacológicos e intervencionistas.</p>
+            </div>
+          </div>
+          <div class="unit-card">
+            <img src="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/wp-content/uploads/2023/10/unidad-de-fisioterapia-1024x679.jpg" alt="Unidad de Fisioterapia" style="display:block; width:100%; height:180px; object-fit:cover;">
+            <div class="as-body" style="padding:24px 26px;">
+              <h4 style="margin:0 0 12px; font-size:17px; font-weight:700; color:var(--c-accent-deep);">Unidad de Fisioterapia</h4>
+              <p>Formada por profesionales altamente cualificados y especializados. Además, cuenta con los medios técnicos más avanzados para el tratamiento de las lesiones más complejas.</p>
+              <p>Dispone instrumentación y medios técnicos para realizar terapias de:</p>
+              <ul style="margin:0;">
+                <li>Termoterapia</li>
+                <li>Electroterapia</li>
+                <li>Laserterapia</li>
+                <li>Magnetoterapia</li>
+                <li>Terapia ocupacional</li>
+                <li>Onda corta</li>
+              </ul>
+            </div>
+          </div>
+          <div class="unit-card" style="grid-column:1 / -1;">
+            <div class="as-body" style="padding:26px 30px;">
+              <span style="display:flex; width:40px; height:40px; border-radius:10px; background:var(--c-accent-soft); color:var(--c-accent); align-items:center; justify-content:center; margin-bottom:14px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 3v18h18"/><path d="M7 15l3-4 3 3 4-6"/></svg>
+              </span>
+              <h4 style="margin:0 0 12px; font-size:17px; font-weight:700; color:var(--c-accent-deep);">Unidad de Valoración Funcional o Biomecánica</h4>
+              <p>Comprometidos con la recuperación de nuestros pacientes, el equipo médico encargado del seguimiento de los procesos del paciente, determina la realización de pruebas biomecánicas para:</p>
+              <ul style="margin:0;">
+                <li>Objetivar el alcance las limitaciones funcionales y el progreso conseguido con las terapias aplicadas.</li>
+                <li>Ayudar a definir el tratamiento más idóneo para conseguir la mejor recuperación de los trabajadores.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RED DE CENTROS -->
+      <section id="red-de-centros" class="as-sec" style="margin-bottom:0;">
+        <div style="display:flex; align-items:center; gap:16px; margin-bottom:24px;">
+          <span style="width:4px; height:30px; background:var(--c-accent); border-radius:2px;"></span>
+          <h2 style="margin:0; font-size:28px; font-weight:700; color:var(--c-accent-deep); letter-spacing:-0.015em;">Red de Centros</h2>
+          <span style="flex:1; height:1px; background:var(--c-line-soft);"></span>
+        </div>
+        <div class="as-body" style="margin-bottom:24px;">
+          <p style="font-size:17px; font-weight:500; color:var(--c-text-strong);">Solimat pone a tu disposición una Red de Centros propios y concertados a lo largo de todo el territorio nacional.</p>
+          <p>Pincha <a href="Red De Centros.dc.html">aquí</a> y sabrás a qué Centro puedes acudir.</p>
+          <p style="margin:0;">Todos nuestros Centros Asistenciales propios poseen los siguientes servicios:</p>
+        </div>
+        <div class="as-units">
+          <div class="unit-card">
+            <div class="as-body" style="padding:26px;">
+              <span style="display:flex; width:40px; height:40px; border-radius:10px; background:var(--c-accent-soft); color:var(--c-accent); align-items:center; justify-content:center; margin-bottom:14px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 5v14M5 12h14"/></svg>
+              </span>
+              <h4 style="margin:0 0 12px; font-size:17px; font-weight:700; color:var(--c-accent-deep);">Urgencias</h4>
+              <p>Nuestros servicios de urgencias tienen como misión la prestación de la atención sanitaria urgente a las personas que han sufrido un accidente de trabajo, en el tiempo adecuado, con los recursos técnicos y humanos necesarios para atenderles.</p>
+              <p>Se realizan en el centro sanitario más próximo al lugar del accidente en la Red Asistencial Propia o Concertada de Solimat.</p>
+              <p style="margin:0;">Para aquellos casos que revistan especial gravedad los trabajadores pueden acudir a la red sanitaria pública.</p>
+            </div>
+          </div>
+          <div class="unit-card">
+            <img src="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/wp-content/uploads/2023/10/curas-sucesivas.jpg" alt="Curas sucesivas" style="display:block; width:100%; height:180px; object-fit:cover;">
+            <div class="as-body" style="padding:24px 26px;">
+              <h4 style="margin:0 0 12px; font-size:17px; font-weight:700; color:var(--c-accent-deep);">Curas sucesivas</h4>
+              <p style="margin:0;">Todos nuestros centros cuentan con servicio de curas, personal de enfermería y médico cualificado para completar la prestación asistencial requerida por los trabajadores accidentados.</p>
+            </div>
+          </div>
+          <div class="unit-card">
+            <img src="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/wp-content/uploads/2023/10/consultas.jpg" alt="Consultas" style="display:block; width:100%; height:180px; object-fit:cover;">
+            <div class="as-body" style="padding:24px 26px;">
+              <h4 style="margin:0 0 12px; font-size:17px; font-weight:700; color:var(--c-accent-deep);">Consultas</h4>
+              <p style="margin:0;">Realizamos el seguimiento de todo tu proceso asistencial a través de consultas periódicas donde analizaremos los pasos a seguir en la recuperación de nuestros pacientes.</p>
+            </div>
+          </div>
+          <div class="unit-card">
+            <img src="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/wp-content/uploads/2023/10/recuperacion-fisioterapia.jpg" alt="Recuperación y Fisioterapia" style="display:block; width:100%; height:180px; object-fit:cover;">
+            <div class="as-body" style="padding:24px 26px;">
+              <h4 style="margin:0 0 12px; font-size:17px; font-weight:700; color:var(--c-accent-deep);">Recuperación y Fisioterapia</h4>
+              <p>Nuestro servicio de Fisioterapia completa la prestación asistencial requerida y se convierte, en los casos requeridos, en una parte fundamental en la recuperación de nuestros pacientes.</p>
+              <p>Solimat cuenta con los medios técnicos y humanos más avanzados para el tratamiento de las lesiones más complejas. Dispone de la siguiente instrumentación y medios técnicos:</p>
+              <ul style="margin:0;">
+                <li>Termoterapia</li>
+                <li>Electroterapia</li>
+                <li>Laserterapia y magnetoterapia</li>
+                <li>Terapia ocupacional</li>
+                <li>Onda Corta</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer style="margin-top:auto; background:var(--color-900); color:#fff;">
+  <div class="container" style="padding:56px 0 40px;">
+    <div style="display:grid; grid-template-columns:1.3fr 1fr 1fr 1.1fr; gap:44px;">
+      <div>
+        <img src="images/logoBlanco.png" alt="Solimat" style="height:52px; margin-bottom:18px;">
+        <p style="margin:0 0 18px; font-size:13.5px; color:rgba(255,255,255,.7); line-height:1.6; font-weight:600; letter-spacing:.02em;">Salud · Experiencia · Compromiso · Integridad · Confianza</p>
+        <div style="display:flex; gap:10px;">
+          <a class="ftr-link" href="https://es.linkedin.com/company/solimat-matepss-" target="_blank" rel="noopener" aria-label="LinkedIn" style="width:36px; height:36px; border-radius:9px; background:rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; color:#fff;"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 002.5 6a2.5 2.5 0 005 0 2.5 2.5 0 00-2.52-2.5zM3 8.98h4v12H3zM9.5 8.98h3.8v1.64h.05c.53-.95 1.83-1.96 3.77-1.96 4.03 0 4.78 2.65 4.78 6.1v6.22h-4v-5.51c0-1.32-.02-3-1.84-3-1.85 0-2.13 1.44-2.13 2.92v5.59h-4z"/></svg></a>
+          <a class="ftr-link" href="https://www.youtube.com/user/Solimat72" target="_blank" rel="noopener" aria-label="YouTube" style="width:36px; height:36px; border-radius:9px; background:rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; color:#fff;"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 00-1.77-1.77C19.34 5.1 12 5.1 12 5.1s-7.34 0-8.83.43A2.5 2.5 0 001.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 001.77 1.77c1.49.43 8.83.43 8.83.43s7.34 0 8.83-.43a2.5 2.5 0 001.77-1.77C23 15.2 23 12 23 12zM9.75 15.5v-7l6 3.5z"/></svg></a>
+          <a class="ftr-link" href="https://www.instagram.com/solimat72/" target="_blank" rel="noopener" aria-label="Instagram" style="width:36px; height:36px; border-radius:9px; background:rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; color:#fff;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a class="ftr-link" href="https://www.facebook.com/profile.php?id=100083202458773" target="_blank" rel="noopener" aria-label="Facebook" style="width:36px; height:36px; border-radius:9px; background:rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; color:#fff;"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0022 12z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--color-200); margin-bottom:16px;">Te puede interesar</div>
+        <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:11px;">
+          <li><a class="ftr-link" href="Perfil Del Contratante.dc.html" style="color:rgba(255,255,255,.82); font-size:14px;">Perfil del Contratante</a></li>
+          <li><a class="ftr-link" href="http://transparencia.solimat.com/web/index.html" target="_blank" rel="noopener" style="color:rgba(255,255,255,.82); font-size:14px;">Portal de Transparencia</a></li>
+          <li><a class="ftr-link" href="#" style="color:rgba(255,255,255,.82); font-size:14px;">Reclamaciones y quejas</a></li>
+          <li><a class="ftr-link" href="Recursos Y Herramientas.dc.html" style="color:rgba(255,255,255,.82); font-size:14px;">Recursos y Herramientas</a></li>
+          <li><a class="ftr-link" href="Preguntas Frecuentes.dc.html" style="color:rgba(255,255,255,.82); font-size:14px;">Preguntas Frecuentes</a></li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--color-200); margin-bottom:16px;">Enlaces de interés</div>
+        <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:11px;">
+          <li><a class="ftr-link" href="Referencias Legislativas.dc.html" style="color:rgba(255,255,255,.82); font-size:14px;">Referencias legislativas</a></li>
+          <li><a class="ftr-link" href="https://www.boe.es/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.82); font-size:14px;">BOE</a></li>
+          <li><a class="ftr-link" href="https://www.insst.es/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.82); font-size:14px;">INSST</a></li>
+          <li><a class="ftr-link" href="https://www.amat.es/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.82); font-size:14px;">AMAT</a></li>
+          <li><a class="ftr-link" href="https://www.seg-social.es/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.82); font-size:14px;">Seguridad Social</a></li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--color-200); margin-bottom:16px;">Contacto</div>
+        <div style="font-size:14px; color:rgba(255,255,255,.82); line-height:1.7;">
+          <div style="font-weight:600; color:#fff; margin-bottom:2px;">Sede Central</div>
+          <div>C/ Berna, 1 — 4ª planta</div>
+          <div>45003 Toledo</div>
+          <div style="margin-top:12px;"><a class="ftr-link" href="tel:925283186" style="color:var(--color-200); font-weight:600;">925 28 31 86</a></div>
+          <div style="margin-top:2px;">contigo@solimat.com</div>
+          <div style="margin-top:12px;"><a class="ftr-link" href="#" style="color:rgba(255,255,255,.82);">Direcciones provinciales →</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="background:var(--color-950); padding:15px 0;">
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; font-size:12.5px; color:rgba(255,255,255,.6);">
+      <span>© {{ year }} Solimat — Mutua Colaboradora con la Seguridad Social Nº 72</span>
+      <div style="display:flex; gap:20px;">
+        <a class="ftr-link" href="#" style="color:rgba(255,255,255,.6);">Aviso legal</a>
+        <a class="ftr-link" href="#" style="color:rgba(255,255,255,.6);">Política de privacidad</a>
+        <a class="ftr-link" href="#" style="color:rgba(255,255,255,.6);">Política de cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return { year: new Date().getFullYear() };
+  }
+}
+</script>
+</body>
+</html>

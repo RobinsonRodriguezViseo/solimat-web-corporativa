@@ -1,0 +1,18 @@
+.card {
+  background: #fff;
+  border: 1px solid var(--c-line-soft);
+  border-radius: var(--r-lg);
+  padding: 24px 26px;
+  box-shadow: var(--sh-1);
+}
+
+.title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--c-accent-deep);
+  margin-bottom: 12px;
+}
+
+.list {
+  margin: 0;
+}

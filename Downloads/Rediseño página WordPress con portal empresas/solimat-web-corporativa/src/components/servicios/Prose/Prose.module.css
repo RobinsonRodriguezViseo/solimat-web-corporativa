@@ -1,0 +1,68 @@
+.prose p {
+  margin: 0 0 12px;
+  font-size: 15px;
+  line-height: 1.68;
+  color: var(--c-text-muted);
+}
+
+.prose p:last-child {
+  margin-bottom: 0;
+}
+
+.prose strong {
+  color: var(--c-text-strong);
+  font-weight: 600;
+}
+
+.prose ul {
+  margin: 0 0 16px;
+  padding-left: 20px;
+}
+
+.prose ul:last-child {
+  margin-bottom: 0;
+}
+
+.prose ul ul {
+  margin: 8px 0 0;
+}
+
+.prose li {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--c-text-muted);
+  margin-bottom: 7px;
+}
+
+.prose a {
+  color: var(--c-accent);
+  font-weight: 600;
+}
+
+.prose a:hover {
+  color: var(--c-accent-dark);
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  margin: 0 0 18px;
+}
+
+.prose th {
+  background: var(--c-accent-soft);
+  color: var(--c-accent-deep);
+  font-weight: 700;
+  text-align: left;
+  padding: 10px 13px;
+  border: 1px solid var(--c-line);
+}
+
+.prose td {
+  padding: 10px 13px;
+  border: 1px solid var(--c-line);
+  color: var(--c-text-muted);
+  line-height: 1.5;
+  vertical-align: top;
+}

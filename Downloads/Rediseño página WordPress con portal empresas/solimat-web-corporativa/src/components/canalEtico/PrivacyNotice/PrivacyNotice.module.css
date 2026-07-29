@@ -1,0 +1,35 @@
+.notice {
+  font-size: 12.5px;
+  color: var(--c-text-soft);
+  line-height: 1.6;
+  margin-bottom: 24px;
+  padding: 16px 18px;
+  background: var(--c-bg-subtle);
+  border-radius: var(--r-lg);
+}
+
+.paragraph {
+  margin: 0 0 4px;
+}
+
+.paragraph:first-child {
+  margin-bottom: 6px;
+}
+
+.last {
+  margin-bottom: 0;
+}
+
+.strong {
+  color: var(--c-text-strong);
+  font-weight: 600;
+}
+
+.link {
+  color: var(--c-accent);
+  font-weight: 600;
+}
+
+.link:hover {
+  color: var(--c-accent-dark);
+}

@@ -1,0 +1,21 @@
+.body {
+  padding: 56px 0 80px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1.55fr 0.95fr;
+  gap: 36px;
+  align-items: start;
+}
+
+@media (max-width: 960px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .body {
+    padding: 36px 0 60px;
+  }
+}

@@ -1,0 +1,121 @@
+.editorWrapper {
+  border: 2px solid var(--color-200);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  background: #fff;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 8px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid var(--color-200);
+  align-items: center;
+}
+
+.toolButton {
+  padding: 6px 10px;
+  border: 1px solid var(--color-200);
+  border-radius: 4px;
+  background: #fff;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  min-width: 32px;
+  text-align: center;
+}
+
+.toolButton:hover:not(:disabled) {
+  background-color: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+
+.toolButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.separator {
+  width: 1px;
+  height: 24px;
+  background-color: var(--color-200);
+  margin: 0 4px;
+}
+
+.editor {
+  min-height: 250px;
+  padding: 16px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-text-primary);
+  outline: none;
+  word-wrap: break-word;
+  direction: ltr;
+  text-align: left;
+}
+
+.editor:empty::before {
+  content: attr(data-placeholder);
+  color: var(--color-text-secondary);
+  opacity: 0.6;
+}
+
+.editor:focus {
+  background-color: #fafbfc;
+}
+
+/* Estilos para el contenido editado */
+.editor strong {
+  font-weight: 700;
+}
+
+.editor em {
+  font-style: italic;
+}
+
+.editor u {
+  text-decoration: underline;
+}
+
+.editor ul,
+.editor ol {
+  padding-left: 24px;
+  margin: 8px 0;
+}
+
+.editor li {
+  margin: 4px 0;
+}
+
+.editor a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.editor a:hover {
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .toolbar {
+    gap: 2px;
+    padding: 6px;
+  }
+
+  .toolButton {
+    padding: 5px 8px;
+    font-size: 12px;
+    min-width: 28px;
+  }
+
+  .editor {
+    min-height: 200px;
+    padding: 12px;
+  }
+}

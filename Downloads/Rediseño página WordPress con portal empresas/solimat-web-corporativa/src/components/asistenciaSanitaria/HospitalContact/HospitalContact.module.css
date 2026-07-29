@@ -1,0 +1,67 @@
+.card {
+  background: #fff;
+  border: 1px solid var(--c-line-soft);
+  border-radius: var(--r-lg);
+  padding: 24px 26px;
+  box-shadow: var(--sh-1);
+  margin-bottom: 16px;
+}
+
+.addressRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.phoneRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pin {
+  flex-shrink: 0;
+  color: var(--c-accent);
+}
+
+.addressRow .pin {
+  margin-top: 2px;
+}
+
+.address {
+  font-size: 15px;
+  color: var(--c-text-strong);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.city {
+  font-weight: 400;
+  color: var(--c-text-muted);
+}
+
+.phone {
+  font-size: 15px;
+  color: var(--c-text-muted);
+}
+
+.phoneLink {
+  color: var(--c-accent);
+  font-weight: 600;
+}
+
+.mapBox {
+  border: 1px solid var(--c-line-soft);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: var(--sh-1);
+  height: 220px;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}

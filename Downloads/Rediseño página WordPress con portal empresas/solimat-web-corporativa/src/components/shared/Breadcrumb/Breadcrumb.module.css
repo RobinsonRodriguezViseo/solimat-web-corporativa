@@ -1,0 +1,47 @@
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  flex-wrap: wrap;
+  font-size: 12.5px;
+}
+
+.separator {
+  opacity: 0.5;
+}
+
+/* Sobre hero navy */
+.onDark {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.onDark .link {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.onDark .link:hover {
+  color: #fff;
+}
+
+.onDark .current {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Sobre fondo claro */
+.onLight {
+  color: var(--c-text-muted);
+}
+
+.onLight .link {
+  color: var(--c-text-muted);
+}
+
+.onLight .link:hover {
+  color: var(--c-accent);
+}
+
+.onLight .current {
+  color: var(--c-accent-dark);
+  font-weight: 600;
+}

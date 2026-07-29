@@ -1,0 +1,34 @@
+.aside {
+  position: sticky;
+  top: 96px;
+}
+
+.kicker {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--c-text-soft);
+  margin-bottom: 16px;
+}
+
+.group + .group {
+  border-top: 1px solid var(--c-line-soft);
+  margin-top: 8px;
+  padding-top: 6px;
+}
+
+.groupLabel {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: var(--c-accent);
+  padding: 14px 0 8px;
+}
+
+@media (max-width: 960px) {
+  .aside {
+    position: static;
+  }
+}

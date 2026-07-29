@@ -1,0 +1,29 @@
+.paragraph {
+  margin: 0 0 12px;
+}
+
+.lastParagraph {
+  margin: 0;
+}
+
+.link {
+  color: var(--c-accent);
+  font-weight: 600;
+}
+
+.link:hover {
+  color: var(--c-accent-dark);
+}
+
+.list {
+  margin: 8px 0 0;
+  padding-left: 20px;
+}
+
+.listItem {
+  margin-bottom: 8px;
+}
+
+.listItem:last-child {
+  margin-bottom: 0;
+}

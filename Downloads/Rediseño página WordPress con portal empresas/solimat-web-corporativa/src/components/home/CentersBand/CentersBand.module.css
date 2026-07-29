@@ -1,0 +1,66 @@
+.band {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-800);
+}
+
+.image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.35;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(14, 27, 51, 0.92) 0%, rgba(20, 37, 70, 0.7) 60%, rgba(20, 37, 70, 0.35) 100%);
+}
+
+.content {
+  position: relative;
+  padding: 64px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.textBlock {
+  max-width: 560px;
+}
+
+.eyebrow {
+  color: var(--color-200);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  margin-bottom: 14px;
+}
+
+.title {
+  margin: 0 0 14px;
+  color: #fff;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+}
+
+.description {
+  margin: 0 0 28px;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.cta {
+  background: #fff;
+  color: var(--c-accent-deep);
+}
+
+.cta:hover {
+  background: var(--color-100);
+  color: var(--c-accent-deep);
+}

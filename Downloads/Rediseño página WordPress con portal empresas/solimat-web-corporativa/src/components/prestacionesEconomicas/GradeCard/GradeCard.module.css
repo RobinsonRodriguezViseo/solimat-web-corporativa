@@ -1,0 +1,16 @@
+.card {
+  border: 1px solid var(--c-line-soft);
+  border-radius: 12px;
+  padding: 20px 22px;
+}
+
+.wide {
+  grid-column: 1 / -1;
+}
+
+.title {
+  margin: 0 0 12px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--c-accent-deep);
+}

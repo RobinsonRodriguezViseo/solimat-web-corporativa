@@ -1,0 +1,54 @@
+.section {
+  scroll-margin-top: 100px;
+  margin-bottom: 44px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--c-line-soft);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-1);
+  overflow: hidden;
+}
+
+.header {
+  padding: 30px 34px 24px;
+  background: linear-gradient(120deg, #eef4fb 0%, #e4edf8 100%);
+  border-bottom: 1px solid var(--c-line-soft);
+}
+
+.title {
+  margin: 0 0 12px;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--c-accent-deep);
+  letter-spacing: -0.015em;
+}
+
+.titleWithNote {
+  margin-bottom: 8px;
+}
+
+.note {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--c-accent);
+}
+
+.body {
+  padding: 28px 34px 30px;
+}
+
+@media (max-width: 640px) {
+  .header {
+    padding: 26px 20px 22px;
+  }
+
+  .title {
+    font-size: 23px;
+  }
+
+  .body {
+    padding: 24px 20px 26px;
+  }
+}

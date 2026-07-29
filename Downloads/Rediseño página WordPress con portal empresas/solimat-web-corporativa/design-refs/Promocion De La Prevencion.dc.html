@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="theme.css">
+<style>
+a { text-decoration:none; }
+.topbar-link:hover { color:#fff !important; }
+.navdd { position:relative; padding-bottom:14px; margin-bottom:-14px; }
+.navdd__trigger { display:inline-flex; align-items:center; gap:7px; padding:9px 15px; border:0; background:transparent; font-family:inherit; font-size:14.5px; font-weight:500; color:var(--c-accent); border-radius:7px; cursor:pointer; transition:var(--t); }
+.navdd__trigger svg { transition:transform .25s ease; }
+.navdd:hover .navdd__trigger, .navdd:focus-within .navdd__trigger { background:var(--c-accent-deep); color:#fff; }
+.navdd:hover .navdd__trigger svg, .navdd:focus-within .navdd__trigger svg { transform:rotate(180deg); }
+.navdd__menu { position:absolute; top:100%; left:0; min-width:238px; background:#f3f6fa; border:1px solid var(--c-line-soft); border-radius:12px; box-shadow:var(--sh-3); padding:8px; display:flex; flex-direction:column; opacity:0; visibility:hidden; transform:translateY(-6px); transition:opacity .2s ease, transform .2s ease, visibility .2s; z-index:60; }
+.navdd:hover .navdd__menu, .navdd:focus-within .navdd__menu { opacity:1; visibility:visible; transform:translateY(0); }
+.navdd__menu a { padding:11px 15px; border-radius:8px; font-size:14px; color:var(--c-text); font-weight:500; white-space:nowrap; transition:var(--t); }
+.navdd__menu a:hover { background:#fff; color:var(--c-accent); padding-left:19px; }
+.navdd__menu a.is-current { background:var(--c-accent-soft); color:var(--c-accent-dark); font-weight:600; }
+.ftr-link:hover { color:var(--color-300) !important; }
+.ix-link { display:block; padding:9px 0 9px 14px; border-left:2px solid var(--c-line); font-size:13.5px; color:var(--c-text-muted); transition:all var(--t); line-height:1.4; }
+.ix-link:hover { border-left-color:var(--c-accent); color:var(--c-accent-dark); padding-left:18px; }
+.ix-sub { display:block; padding:6px 0 6px 28px; border-left:2px solid var(--c-line); font-size:12.5px; color:var(--c-text-soft); transition:all var(--t); }
+.ix-sub:hover { border-left-color:var(--c-accent); color:var(--c-accent); }
+.pp-sec { scroll-margin-top:100px; margin-bottom:48px; }
+.pp-body p { margin:0 0 12px; font-size:15px; line-height:1.68; color:var(--c-text-muted); }
+.pp-body strong { color:var(--c-text-strong); font-weight:600; }
+.pp-body ul { margin:0 0 14px; padding-left:20px; }
+.pp-body li { font-size:15px; line-height:1.65; color:var(--c-text-muted); margin-bottom:7px; }
+.pp-body a { color:var(--c-accent); font-weight:600; }
+.pp-body a:hover { color:var(--c-accent-dark); }
+.pp-split { display:grid; grid-template-columns:1fr 1fr; gap:0; background:#fff; border:1px solid var(--c-line-soft); border-radius:var(--r-lg); overflow:hidden; box-shadow:var(--sh-1); }
+.dl-item { display:flex; align-items:center; gap:11px; padding:12px 15px; border:1px solid var(--c-line-soft); border-radius:10px; background:#fff; font-size:13.5px; font-weight:500; color:var(--c-text); transition:all var(--t); line-height:1.4; }
+.dl-item:hover { border-color:var(--c-accent-line); background:var(--c-accent-soft); color:var(--c-accent-dark); }
+.dl-item svg { flex-shrink:0; color:var(--c-accent); }
+.dl-grid { display:grid; grid-template-columns:1fr 1fr; gap:11px; }
+.org-logo { display:flex; align-items:center; justify-content:center; padding:18px 20px; background:#fff; border:1px solid var(--c-line-soft); border-radius:12px; transition:all var(--t); min-height:82px; }
+.org-logo:hover { border-color:var(--c-accent-line); box-shadow:var(--sh-2); transform:translateY(-2px); }
+.org-logo img { max-width:100%; max-height:46px; object-fit:contain; }
+.pp-cta:hover { background:var(--c-accent-dark) !important; }
+@media (max-width:1000px) {
+  .pp-layout { grid-template-columns:1fr !important; gap:28px !important; }
+  .pp-index { position:static !important; }
+  .pp-split { grid-template-columns:1fr !important; }
+  .pp-split img { height:280px !important; min-height:0 !important; }
+  .dl-grid { grid-template-columns:1fr !important; }
+}
+</style>
+</helmet>
+
+<div style="min-height:100vh; display:flex; flex-direction:column; background:var(--c-bg);">
+
+<!-- Barra Urgencias -->
+<div style="background:var(--color-900); color:rgba(255,255,255,.82);">
+  <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:16px; height:38px; font-size:12.5px;">
+    <div style="display:flex; align-items:center; gap:8px; font-weight:500; letter-spacing:.04em;">
+      <span style="display:inline-flex; width:7px; height:7px; border-radius:50%; background:#F0455A; box-shadow:0 0 0 3px rgba(240,69,90,.25);"></span>
+      <span style="text-transform:uppercase; letter-spacing:.1em; font-size:11px;">Urgencias 24h</span>
+      <a class="topbar-link" href="tel:900111072" style="color:var(--color-200); font-weight:600;">900 111 072</a>
+      <span style="opacity:.35;">·</span>
+      <a class="topbar-link" href="tel:+34925727272" style="color:rgba(255,255,255,.7);">+34 925 72 72 72 <span style="opacity:.6;">(fuera de España)</span></a>
+    </div>
+    <a class="topbar-link" href="Red De Centros.dc.html" style="color:rgba(255,255,255,.82); display:inline-flex; align-items:center; gap:6px;">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Centros de atención
+    </a>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="hdr">
+  <div class="container hdr__bar" style="gap:24px;">
+    <a class="hdr__logo" href="Home Solimat.dc.html" style="display:flex; align-items:center;"><img src="images/solimat-logo.svg" alt="Solimat" style="height:34px;"></a>
+    <nav style="display:flex; align-items:center; gap:2px; margin-left:8px;">
+      <div class="navdd">
+        <button class="navdd__trigger" type="button">Conócenos <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="navdd__menu">
+          <a href="Quienes Somos.dc.html">Quiénes somos</a>
+          <a href="Nuestros Datos.dc.html">Nuestros datos</a>
+          <a href="Podemos Ser Tu Mutua.dc.html">Podemos ser tu mutua</a>
+          <a href="Trabaja Con Nosotros.dc.html">Trabaja con nosotros</a>
+          <a href="Noticias.dc.html">Noticias</a>
+          <a href="Podemos Ayudarte.dc.html">¿Podemos ayudarte?</a>
+        </div>
+      </div>
+      <div class="navdd">
+        <button class="navdd__trigger" type="button">Servicios <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="navdd__menu">
+          <a href="Nuestro Equipo.dc.html">Nuestro equipo</a>
+          <a href="Prestaciones Economicas.dc.html">Prestaciones Económicas</a>
+          <a href="Asistencia Sanitaria.dc.html">Asistencia Sanitaria</a>
+          <a class="is-current" href="Promocion De La Prevencion.dc.html">Promoción de la Prevención</a>
+          <a href="http://portal.solimat.com/" target="_blank" rel="noopener">Portal de Servicios</a>
+          <a href="Podemos Ayudarte.dc.html">¿Podemos ayudarte?</a>
+        </div>
+      </div>
+      <div class="navdd">
+        <button class="navdd__trigger" type="button">Trámites <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="navdd__menu">
+          <a href="Para Empresa.dc.html">Para Empresa</a>
+          <a href="Home Solimat.dc.html#perfiles">Para Trabajador</a>
+          <a href="Home Solimat.dc.html#perfiles">Para Autónomo</a>
+          <a href="Home Solimat.dc.html#perfiles">Para Asesoría Laboral</a>
+        </div>
+      </div>
+    </nav>
+    <div style="margin-left:auto; display:flex; align-items:center; gap:10px;">
+      <a class="btn btn--ghost btn--sm" href="https://pacientes.solimat.com/" target="_blank" rel="noopener">Portal del Paciente</a>
+      <a class="btn btn--sm" href="http://portal.solimat.com/" target="_blank" rel="noopener" style="gap:8px;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg>
+        Portal de Servicios
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section style="position:relative; overflow:hidden; background:var(--color-900);">
+  <img src="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/wp-content/uploads/2023/10/plan-general-de-actividades-preventivas.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.28;">
+  <div style="position:absolute; inset:0; background:linear-gradient(95deg, rgba(14,27,51,.93) 0%, rgba(20,37,70,.74) 55%, rgba(31,60,111,.42) 100%);"></div>
+  <div class="container" style="position:relative; padding:56px 0 60px;">
+    <div style="display:flex; align-items:center; gap:8px; font-size:12.5px; color:rgba(255,255,255,.7); margin-bottom:16px;">
+      <a href="Home Solimat.dc.html" style="color:rgba(255,255,255,.7);">Inicio</a>
+      <span style="opacity:.5;">/</span>
+      <span style="color:rgba(255,255,255,.7);">Servicios</span>
+      <span style="opacity:.5;">/</span>
+      <span style="color:#fff; font-weight:600;">Promoción de la Prevención</span>
+    </div>
+    <h1 style="margin:0 0 12px; color:#fff; font-size:clamp(34px,4.4vw,52px); font-weight:700; letter-spacing:-0.02em; line-height:1.05;">Promoción de la Prevención</h1>
+    <p style="margin:0; max-width:680px; color:rgba(255,255,255,.85); font-size:18px; line-height:1.55;">Planes, programas y recursos para reducir los accidentes de trabajo y las enfermedades profesionales en tu empresa.</p>
+  </div>
+</section>
+
+<!-- Contenido -->
+<section class="container" style="padding:52px 0 80px;">
+  <div class="pp-layout" style="display:grid; grid-template-columns:258px 1fr; gap:48px; align-items:start;">
+
+    <!-- Índice -->
+    <aside class="pp-index" style="position:sticky; top:96px;">
+      <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.15em; color:var(--c-text-soft); margin-bottom:16px;">En esta página</div>
+      <a class="ix-link" href="#plan-general">Plan General de Actividades Preventivas</a>
+      <a class="ix-link" href="#plan-siniestralidad">Plan de Reducción de la Siniestralidad</a>
+      <a class="ix-link" href="#buenas-practicas">Divulgación de Buenas Prácticas</a>
+      <a class="ix-link" href="#prevencion-10">Prevención 10</a>
+      <a class="ix-link" href="#publicaciones">Códigos de Buenas Prácticas</a>
+      <a class="ix-sub" href="#epis">Epi's la última barrera</a>
+      <a class="ix-sub" href="#seguridad-trabajo">Seguridad y salud en el trabajo</a>
+      <a class="ix-sub" href="#seguridad-vial">Seguridad Vial</a>
+      <a class="ix-sub" href="#gestion-prevencion">Gestión de la Prevención</a>
+      <a class="ix-link" href="#canal-consultas">Canal de Consultas y Solicitudes</a>
+      <a class="ix-link" href="#enlaces-interes">Enlaces de Interés</a>
+    </aside>
+
+    <div>
+      <!-- Intro -->
+      <div class="pp-body" style="background:#fff; border:1px solid var(--c-line-soft); border-left:4px solid var(--c-accent); border-radius:var(--r-lg); padding:26px 30px; box-shadow:var(--sh-1); margin-bottom:44px;">
+        <p style="text-wrap:pretty;">Nuestras actividades están reguladas por el Real Decreto 860/2018, de 13 de julio, por el que se regulan las actividades preventivas de la acción protectora de la Seguridad Social a realizar por las mutuas colaboradoras con la Seguridad Social y la Dirección General de Ordenación de la Seguridad Social determina los servicios y actividades técnico-preventivas que deben prestar las Mutuas anualmente.</p>
+        <p style="margin:0; text-wrap:pretty;">Las actividades preventivas que desarrollamos no incluyen las obligaciones que las empresas deben desarrollar derivadas del cumplimiento de la Ley 31/1995 de Prevención de Riesgos Laborales.</p>
+      </div>
+
+      <!-- PLAN GENERAL -->
+      <section id="plan-general" class="pp-sec">
+        <div style="display:flex; align-items:center; gap:16px; margin-bottom:22px;">
+          <span style="width:4px; height:30px; background:var(--c-accent); border-radius:2px;"></span>
+          <h2 style="margin:0; font-size:27px; font-weight:700; color:var(--c-accent-deep); letter-spacing:-0.015em;">Plan General de Actividades Preventivas</h2>
+        </div>
+        <div class="pp-split">
+          <div class="pp-body" style="padding:30px 32px;">
+            <p>La Secretaría de Estado de la Seguridad Social y Pensiones establece anualmente y dentro de su acción protectora la Planificación General de actividades preventivas de la Seguridad Social, a desarrollar por las mutuas colaboradoras.</p>
+            <p>Solimat en cumplimiento a lo establecido en las resoluciones anuales realiza la planificación de sus actividades preventivas que consisten en el desarrollo de planes y programas dirigidos a:</p>
+            <ul style="margin:0;">
+              <li>Asesoramiento técnico a pymes y empresas de sectores con un alto índice de siniestralidad.</li>
+              <li>Asesoramiento a empresas con actividades concurrentes.</li>
+              <li>Difusión del servicio de la Seguridad Social “Prevencion10.es”.</li>
+              <li>Asesoramiento para la adaptación de puestos de trabajo.</li>
+              <li>Actuaciones para el control y, en su caso, reducción de los accidentes de trabajo y de las enfermedades profesionales.</li>
+              <li>Actividades de investigación, desarrollo e innovación para la reducción de las contingencias profesionales.</li>
+            </ul>
+          </div>
+          <img src="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/wp-content/uploads/2023/10/plan-general-de-actividades-preventivas.jpg" alt="Plan General de Actividades Preventivas" style="display:block; width:100%; height:100%; min-height:340px; object-fit:cover;">
+        </div>
+      </section>
+
+      <!-- PLAN SINIESTRALIDAD -->
+      <section id="plan-siniestralidad" class="pp-sec">
+        <div style="display:flex; align-items:center; gap:16px; margin-bottom:22px;">
+          <span style="width:4px; height:30px; background:var(--c-accent); border-radius:2px;"></span>
+          <h2 style="margin:0; font-size:27px; font-weight:700; color:var(--c-accent-deep); letter-spacing:-0.015em;">Plan de Reducción de la Siniestralidad</h2>
+        </div>
+        <div class="pp-split">
+          <img src="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/wp-content/uploads/2023/10/plan-de-reduccion-de-la-siniestralidad.jpg" alt="Plan de Reducción de la Siniestralidad" style="display:block; width:100%; height:100%; min-height:340px; object-fit:cover;">
+          <div class="pp-body" style="padding:30px 32px;">
+            <p>El Plan de Reducción de la Siniestralidad es un programa de asesoramiento técnico en materia de prevención de riesgos laborales, realizado por los técnicos de prevención de Solimat.</p>
+            <p>Este programa consiste en un asesoramiento a la empresa para control y reducción de las situaciones que han ocasionado una alta siniestralidad, incluyendo recomendaciones sobre las mejoras a realizar en su sistema de Gestión de la Prevención.</p>
+            <p>En este programa, cuya duración aproximada será de tres años, los técnicos de prevención de Solimat realizarán diversas actuaciones, en función de las características de la empresa.</p>
+            <ul>
+              <li>Identificación de las causas de los accidentes y enfermedades profesionales.</li>
+              <li>Verificación del grado de cumplimiento de los requisitos legales en materia de prevención.</li>
+              <li>Asesoramiento en la investigación de accidentes de trabajo.</li>
+              <li>Diagnóstico de nivel de integración de la prevención de riesgos laborales en el sistema de gestión de la empresa.</li>
+              <li>Asesoramiento en la implantación de un procedimiento de Coordinación de Actividades empresariales.</li>
+            </ul>
+            <p style="margin:0;">Si su empresa está interesada en la inclusión en este Programa de Reducción de siniestralidad puede contactar en: <a href="mailto:web@solimat.com"><strong>web@solimat.com</strong></a></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- BUENAS PRÁCTICAS -->
+      <section id="buenas-practicas" class="pp-sec">
+        <div style="display:flex; align-items:center; gap:16px; margin-bottom:22px;">
+          <span style="width:4px; height:30px; background:var(--c-accent); border-radius:2px;"></span>
+          <h2 style="margin:0; font-size:27px; font-weight:700; color:var(--c-accent-deep); letter-spacing:-0.015em;">Divulgación de Buenas Prácticas</h2>
+        </div>
+        <div class="pp-split">
+          <div class="pp-body" style="padding:30px 32px;">
+            <p>Tenemos muy presente nuestro objetivo de concienzar a las personas trabajadoras, en cuanto a la importancia de los cuidados de la salud y la integridad psicofísica en el entorno de trabajo.</p>
+            <p>En Solimat realizamos acciones divulgativas a través de nuestro <strong>Campus Virtual</strong> llevando a cabo diversas actividades educativas en diferentes materias, con el fin de sensibilizar a empresas y trabajadores sobre medidas de prevención y promoción de la salud.</p>
+            <p>Estas actividades están dirigidas a los trabajadores de empresas asociadas a Solimat, así como a nuestros autónomos adheridos, no teniendo ningún coste su realización.</p>
+            <a class="pp-cta" href="https://campus.solimat.com/index.php" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:9px; margin-top:6px; background:var(--c-accent); color:#fff; font-size:14.5px; font-weight:600; padding:12px 22px; border-radius:9px; transition:background var(--t);">
+              Accede a nuestro Campus
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+          <img src="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/wp-content/uploads/2023/10/divulgacion-buenas-practicas.jpg" alt="Divulgación de Buenas Prácticas" style="display:block; width:100%; height:100%; min-height:300px; object-fit:cover;">
+        </div>
+      </section>
+
+      <!-- PREVENCIÓN 10 -->
+      <section id="prevencion-10" class="pp-sec">
+        <div style="display:flex; align-items:center; gap:16px; margin-bottom:22px;">
+          <span style="width:4px; height:30px; background:var(--c-accent); border-radius:2px;"></span>
+          <h2 style="margin:0; font-size:27px; font-weight:700; color:var(--c-accent-deep); letter-spacing:-0.015em;">Prevención 10</h2>
+        </div>
+        <div style="background:#fff; border:1px solid var(--c-line-soft); border-radius:var(--r-lg); box-shadow:var(--sh-1); overflow:hidden;">
+          <div class="pp-split" style="border:0; border-radius:0; box-shadow:none;">
+            <div class="pp-body" style="padding:30px 32px;">
+              <p>Es un servicio público de asesoramiento en Prevención de Riesgos Laborales que permite:</p>
+              <ul style="margin:0;">
+                <li>Gestionar de forma sencilla los riesgos laborales de hasta 25 trabajadores.</li>
+                <li>Facilitar el cumplimiento en materia de coordinación de actividades empresariales e informar de sus riesgos a los trabajadores autónomos.</li>
+              </ul>
+            </div>
+            <img src="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/wp-content/uploads/2023/10/prevencion-10.jpg" alt="Prevención 10" style="display:block; width:100%; height:100%; min-height:220px; object-fit:cover;">
+          </div>
+          <div style="padding:26px 32px 30px; border-top:1px solid var(--c-line-soft);">
+            <div style="font-size:15px; font-weight:700; color:var(--c-text-strong); margin-bottom:18px;">Está constituido por 4 funcionalidades principales:</div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+              <div style="border:1px solid var(--c-line-soft); border-radius:12px; padding:20px 22px;">
+                <div style="font-size:15.5px; font-weight:700; color:var(--c-accent); margin-bottom:8px;">evalua-t®</div>
+                <p style="margin:0; font-size:14px; line-height:1.6; color:var(--c-text-muted);">Permite la realización de la evaluación de riesgos, la planificación preventiva y la obtención del plan de prevención de riesgos laborales.</p>
+              </div>
+              <div style="border:1px solid var(--c-line-soft); border-radius:12px; padding:20px 22px;">
+                <div style="font-size:15.5px; font-weight:700; color:var(--c-accent); margin-bottom:8px;">autopreven-t®</div>
+                <p style="margin:0; font-size:14px; line-height:1.6; color:var(--c-text-muted);">Proporciona información sobre riesgos laborales y facilita la coordinación de actividades empresariales a quienes trabajen por cuenta propia y no tengan personal a su cargo.</p>
+              </div>
+              <div style="border:1px solid var(--c-line-soft); border-radius:12px; padding:20px 22px;">
+                <div style="font-size:15.5px; font-weight:700; color:var(--c-accent); margin-bottom:8px;">instruye-t®</div>
+                <p style="margin:0; font-size:14px; line-height:1.6; color:var(--c-text-muted);">Curso <em>on-line</em> de 30 horas con el que obtener la capacitación para el desempeño de las funciones de nivel básico en prevención de riesgos laborales.</p>
+              </div>
+              <div style="border:1px solid var(--c-line-soft); border-radius:12px; padding:20px 22px;">
+                <div style="font-size:15.5px; font-weight:700; color:var(--c-accent); margin-bottom:8px;">STOP Riesgos Laborales</div>
+                <p style="margin:0; font-size:14px; line-height:1.6; color:var(--c-text-muted);">Línea telefónica de atención al público.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PUBLICACIONES -->
+      <section id="publicaciones" class="pp-sec">
+        <div style="display:flex; align-items:center; gap:16px; margin-bottom:14px;">
+          <span style="width:4px; height:30px; background:var(--c-accent); border-radius:2px;"></span>
+          <h2 style="margin:0; font-size:27px; font-weight:700; color:var(--c-accent-deep); letter-spacing:-0.015em;">Códigos de Buenas Prácticas</h2>
+        </div>
+        <p style="margin:0 0 24px; font-size:15px; color:var(--c-text-muted);">A continuación, ponemos a tu disposición diferentes publicaciones realizadas por Solimat:</p>
+
+        <div id="epis" class="pp-sec" style="margin-bottom:28px;">
+          <h3 style="margin:0 0 14px; font-size:18px; font-weight:700; color:var(--c-text-strong);">Epi's la última barrera</h3>
+          <div class="dl-grid">
+            <a class="dl-item" href="pdfs/proceso-de-seleccion.pdf" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>Proceso de selección</a>
+            <a class="dl-item" href="pdfs/calzado-de-uso-profesional.pdf" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>Calzado de uso profesional</a>
+            <a class="dl-item" href="pdfs/proteccion-auditiva.pdf" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>Protección auditiva</a>
+            <a class="dl-item" href="pdfs/proteccion-guantes-riesgos-mecanicos.pdf" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>Protección guantes de riesgo mecánico</a>
+          </div>
+        </div>
+
+        <div id="seguridad-trabajo" class="pp-sec" style="margin-bottom:28px;">
+          <h3 style="margin:0 0 14px; font-size:18px; font-weight:700; color:var(--c-text-strong);">Seguridad y Salud en el trabajo</h3>
+          <div class="dl-grid">
+            <a class="dl-item" href="pdfs/recomendaciones-de-seguridad-y-salud-para-realizar-trabajo-domiciliario.pdf" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>Recomendaciones de seguridad y salud para realizar trabajo domiciliario</a>
+            <a class="dl-item" href="pdfs/9.-RECOMENDACIONES-SEGURIDAD-TRABAJOS-AIRE-LIBRE.pdf" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>Trabajos al aire libre. Protégete</a>
+            <a class="dl-item" href="pdfs/protegete-del-frio.pdf" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>Protégete del frío</a>
+            <a class="dl-item" href="pdfs/protegete-del-calor.pdf" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>Protégete del calor</a>
+            <a class="dl-item" href="pdfs/orden-y-limpieza.pdf" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>Orden y limpieza</a>
+            <a class="dl-item" href="pdfs/sindrome-postvacacional.pdf" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>Síndrome Postvacacional</a>
+            <a class="dl-item" href="pdfs/ejercicios-dolor-lumbar.pdf" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>Ejercicios dolor lumbar</a>
+            <a class="dl-item" href="pdfs/ejercicios-relajacion-cervical.pdf" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>Ejercicios relajación cervical</a>
+            <a class="dl-item" href="pdfs/ejercicios-de-estiramiento.pdf" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>Ejercicios de estiramiento</a>
+            <a class="dl-item" href="pdfs/ergonomia-postural.pdf" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>Ergonomía postural</a>
+          </div>
+        </div>
+
+        <div id="seguridad-vial" class="pp-sec" style="margin-bottom:28px;">
+          <h3 style="margin:0 0 14px; font-size:18px; font-weight:700; color:var(--c-text-strong);">Seguridad Vial</h3>
+          <div class="dl-grid">
+            <a class="dl-item" href="pdfs/18.-NOVEDADES-LEY-DE-TRAFICO.pdf" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>Principales novedades. Ley de Tráfico y Seguridad Vial</a>
+            <a class="dl-item" href="pdfs/recomendaciones-de-seguridad-en-desplazamientos-con-hielo-y-nieve.pdf" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>Recomendaciones de Seguridad en desplazamientos con hielo y nieve</a>
+            <a class="dl-item" href="pdfs/lluvia-torrencial-viento-riada-o-inundacion.pdf" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>Lluvia torrencial, viento, riada o inundación</a>
+            <a class="dl-item" href="pdfs/neumaticos.pdf" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>Neumáticos</a>
+            <a class="dl-item" href="pdfs/niebla.pdf" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>Niebla</a>
+            <a class="dl-item" href="pdfs/distracciones-al-volante.pdf" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>Distracciones al volante</a>
+          </div>
+        </div>
+
+        <div id="gestion-prevencion" class="pp-sec" style="margin-bottom:20px;">
+          <h3 style="margin:0 0 14px; font-size:18px; font-weight:700; color:var(--c-text-strong);">Gestión de la Prevención</h3>
+          <div class="dl-grid">
+            <a class="dl-item" href="pdfs/integracion-de-la-prevencion.pdf" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>Integración de la Prevención</a>
+            <a class="dl-item" href="pdfs/recurso-preventivo.pdf" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>Recurso Preventivo</a>
+          </div>
+        </div>
+
+        <p class="pp-body" style="margin:0; font-size:15px; color:var(--c-text-muted);">También <a href="https://www.insst.es/documentacion/catalogo-de-publicaciones" target="_blank" rel="noopener"><strong>aquí</strong></a> te podrás descargar el Catálogo de Publicaciones del Instituto Nacional de Seguridad y Salud en el trabajo (INSST).</p>
+      </section>
+
+      <!-- CANAL DE CONSULTAS -->
+      <section id="canal-consultas" class="pp-sec">
+        <div style="display:flex; align-items:center; gap:16px; margin-bottom:22px;">
+          <span style="width:4px; height:30px; background:var(--c-accent); border-radius:2px;"></span>
+          <h2 style="margin:0; font-size:27px; font-weight:700; color:var(--c-accent-deep); letter-spacing:-0.015em;">Canal de Consultas y Solicitudes</h2>
+        </div>
+        <div class="pp-split">
+          <div class="pp-body" style="padding:32px 34px; display:flex; flex-direction:column; justify-content:center;">
+            <p style="font-size:16px; margin:0 0 20px;">Si eres mutualista, puedes dirigirnos tus consultas en materia de prevención y/o solicitar informes de siniestralidad de su empresa contactando a través de la dirección de correo electrónico:</p>
+            <a class="pp-cta" href="mailto:web@solimat.com" style="display:inline-flex; align-self:flex-start; align-items:center; gap:10px; background:var(--c-accent); color:#fff; font-size:15px; font-weight:600; padding:13px 24px; border-radius:9px; transition:background var(--t);">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+              web@solimat.com
+            </a>
+          </div>
+          <img src="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/wp-content/uploads/2023/10/canal-consultas.jpg" alt="Canal de Consultas y Solicitudes" style="display:block; width:100%; height:100%; min-height:260px; object-fit:cover;">
+        </div>
+      </section>
+
+      <!-- ENLACES DE INTERÉS -->
+      <section id="enlaces-interes" class="pp-sec" style="margin-bottom:0;">
+        <div style="display:flex; align-items:center; gap:16px; margin-bottom:24px;">
+          <span style="width:4px; height:30px; background:var(--c-accent); border-radius:2px;"></span>
+          <h2 style="margin:0; font-size:27px; font-weight:700; color:var(--c-accent-deep); letter-spacing:-0.015em;">Enlaces de Interés</h2>
+        </div>
+
+        <div style="margin-bottom:26px;">
+          <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:var(--c-accent); margin-bottom:14px;">Organismos autonómicos</div>
+          <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:14px;">
+            <a class="org-logo" href="https://seguridadlaboral.castillalamancha.es/" target="_blank" rel="noopener"><img src="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/wp-content/uploads/2023/10/castilla-mancha.png" alt="Castilla la Mancha"></a>
+            <a class="org-logo" href="https://www.comunidad.madrid/inversion/prevencion-riesgos-laborales" target="_blank" rel="noopener"><img src="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/wp-content/uploads/2023/10/irsst.png" alt="IRSST"></a>
+            <a class="org-logo" href="https://trabajoyprevencion.jcyl.es/web/es/trabajo-prevencion-riesgos-laborales.html" target="_blank" rel="noopener"><img src="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/wp-content/uploads/2023/10/junta-castilla-leon.png" alt="Junta de Castilla y Leon"></a>
+          </div>
+        </div>
+
+        <div style="margin-bottom:26px;">
+          <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:var(--c-accent); margin-bottom:14px;">Organismos estatales</div>
+          <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:12px;">
+            <a class="org-logo" href="http://www.insht.es/portal/site/Insht/" target="_blank" rel="noopener"><img src="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/wp-content/uploads/2023/10/insst.png" alt="INSST"></a>
+            <a class="org-logo" href="https://www.mites.gob.es/itss/web/" target="_blank" rel="noopener"><img src="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/wp-content/uploads/2023/10/itss.png" alt="ITSS"></a>
+          </div>
+          <div class="dl-grid">
+            <a class="dl-item" href="https://www.insst.es/ntp-notas-tecnicas-de-prevencion" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Notas técnicas de prevención</a>
+            <a class="dl-item" href="https://www.insst.es/guias-tecnicas-transversales" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Guias técnicas</a>
+          </div>
+        </div>
+
+        <div>
+          <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:var(--c-accent); margin-bottom:14px;">Organismos internacionales</div>
+          <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:14px;">
+            <a class="org-logo" href="https://osha.europa.eu/es" target="_blank" rel="noopener"><img src="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/wp-content/uploads/2023/10/eashw.png" alt="EASHW"></a>
+            <a class="org-logo" href="https://www.ilo.org/global/lang--es/index.htm" target="_blank" rel="noopener"><img src="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/wp-content/uploads/2023/10/oit.png" alt="OIT"></a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer style="margin-top:auto; background:var(--color-900); color:#fff;">
+  <div class="container" style="padding:56px 0 40px;">
+    <div style="display:grid; grid-template-columns:1.3fr 1fr 1fr 1.1fr; gap:44px;">
+      <div>
+        <img src="images/logoBlanco.png" alt="Solimat" style="height:52px; margin-bottom:18px;">
+        <p style="margin:0 0 18px; font-size:13.5px; color:rgba(255,255,255,.7); line-height:1.6; font-weight:600; letter-spacing:.02em;">Salud · Experiencia · Compromiso · Integridad · Confianza</p>
+        <div style="display:flex; gap:10px;">
+          <a class="ftr-link" href="https://es.linkedin.com/company/solimat-matepss-" target="_blank" rel="noopener" aria-label="LinkedIn" style="width:36px; height:36px; border-radius:9px; background:rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; color:#fff;"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 002.5 6a2.5 2.5 0 005 0 2.5 2.5 0 00-2.52-2.5zM3 8.98h4v12H3zM9.5 8.98h3.8v1.64h.05c.53-.95 1.83-1.96 3.77-1.96 4.03 0 4.78 2.65 4.78 6.1v6.22h-4v-5.51c0-1.32-.02-3-1.84-3-1.85 0-2.13 1.44-2.13 2.92v5.59h-4z"/></svg></a>
+          <a class="ftr-link" href="https://www.youtube.com/user/Solimat72" target="_blank" rel="noopener" aria-label="YouTube" style="width:36px; height:36px; border-radius:9px; background:rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; color:#fff;"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 00-1.77-1.77C19.34 5.1 12 5.1 12 5.1s-7.34 0-8.83.43A2.5 2.5 0 001.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 001.77 1.77c1.49.43 8.83.43 8.83.43s7.34 0 8.83-.43a2.5 2.5 0 001.77-1.77C23 15.2 23 12 23 12zM9.75 15.5v-7l6 3.5z"/></svg></a>
+          <a class="ftr-link" href="https://www.instagram.com/solimat72/" target="_blank" rel="noopener" aria-label="Instagram" style="width:36px; height:36px; border-radius:9px; background:rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; color:#fff;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a class="ftr-link" href="https://www.facebook.com/profile.php?id=100083202458773" target="_blank" rel="noopener" aria-label="Facebook" style="width:36px; height:36px; border-radius:9px; background:rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; color:#fff;"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0022 12z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--color-200); margin-bottom:16px;">Te puede interesar</div>
+        <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:11px;">
+          <li><a class="ftr-link" href="Perfil Del Contratante.dc.html" style="color:rgba(255,255,255,.82); font-size:14px;">Perfil del Contratante</a></li>
+          <li><a class="ftr-link" href="http://transparencia.solimat.com/web/index.html" target="_blank" rel="noopener" style="color:rgba(255,255,255,.82); font-size:14px;">Portal de Transparencia</a></li>
+          <li><a class="ftr-link" href="#" style="color:rgba(255,255,255,.82); font-size:14px;">Reclamaciones y quejas</a></li>
+          <li><a class="ftr-link" href="Recursos Y Herramientas.dc.html" style="color:rgba(255,255,255,.82); font-size:14px;">Recursos y Herramientas</a></li>
+          <li><a class="ftr-link" href="Preguntas Frecuentes.dc.html" style="color:rgba(255,255,255,.82); font-size:14px;">Preguntas Frecuentes</a></li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--color-200); margin-bottom:16px;">Enlaces de interés</div>
+        <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:11px;">
+          <li><a class="ftr-link" href="Referencias Legislativas.dc.html" style="color:rgba(255,255,255,.82); font-size:14px;">Referencias legislativas</a></li>
+          <li><a class="ftr-link" href="https://www.boe.es/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.82); font-size:14px;">BOE</a></li>
+          <li><a class="ftr-link" href="https://www.insst.es/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.82); font-size:14px;">INSST</a></li>
+          <li><a class="ftr-link" href="https://www.amat.es/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.82); font-size:14px;">AMAT</a></li>
+          <li><a class="ftr-link" href="https://www.seg-social.es/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.82); font-size:14px;">Seguridad Social</a></li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--color-200); margin-bottom:16px;">Contacto</div>
+        <div style="font-size:14px; color:rgba(255,255,255,.82); line-height:1.7;">
+          <div style="font-weight:600; color:#fff; margin-bottom:2px;">Sede Central</div>
+          <div>C/ Berna, 1 — 4ª planta</div>
+          <div>45003 Toledo</div>
+          <div style="margin-top:12px;"><a class="ftr-link" href="tel:925283186" style="color:var(--color-200); font-weight:600;">925 28 31 86</a></div>
+          <div style="margin-top:2px;">contigo@solimat.com</div>
+          <div style="margin-top:12px;"><a class="ftr-link" href="#" style="color:rgba(255,255,255,.82);">Direcciones provinciales →</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="background:var(--color-950); padding:15px 0;">
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; font-size:12.5px; color:rgba(255,255,255,.6);">
+      <span>© {{ year }} Solimat — Mutua Colaboradora con la Seguridad Social Nº 72</span>
+      <div style="display:flex; gap:20px;">
+        <a class="ftr-link" href="#" style="color:rgba(255,255,255,.6);">Aviso legal</a>
+        <a class="ftr-link" href="#" style="color:rgba(255,255,255,.6);">Política de privacidad</a>
+        <a class="ftr-link" href="#" style="color:rgba(255,255,255,.6);">Política de cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return { year: new Date().getFullYear() };
+  }
+}
+</script>
+</body>
+</html>

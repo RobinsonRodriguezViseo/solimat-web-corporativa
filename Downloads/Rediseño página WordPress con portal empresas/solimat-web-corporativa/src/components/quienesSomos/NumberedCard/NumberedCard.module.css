@@ -1,0 +1,29 @@
+.card {
+  display: flex;
+  gap: 14px;
+  background: #fff;
+  border: 1px solid var(--c-line-soft);
+  border-radius: var(--r-md);
+  padding: 18px 20px;
+  box-shadow: var(--sh-1);
+}
+
+.number {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+  background: var(--c-accent-soft);
+  color: var(--c-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.text {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--c-text);
+}

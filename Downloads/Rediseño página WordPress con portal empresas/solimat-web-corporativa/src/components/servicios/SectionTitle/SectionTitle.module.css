@@ -1,0 +1,35 @@
+.row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.bar {
+  width: 4px;
+  height: 30px;
+  background: var(--c-accent);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.title {
+  margin: 0;
+  font-weight: 700;
+  color: var(--c-accent-deep);
+  letter-spacing: -0.015em;
+}
+
+.titleLg {
+  font-size: 28px;
+}
+
+.titleMd {
+  font-size: 27px;
+}
+
+.rule {
+  flex: 1;
+  height: 1px;
+  background: var(--c-line-soft);
+}

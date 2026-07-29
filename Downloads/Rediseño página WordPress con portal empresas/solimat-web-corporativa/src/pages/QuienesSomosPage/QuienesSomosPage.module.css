@@ -1,0 +1,149 @@
+.body {
+  padding: 24px 0 20px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+@media (max-width: 960px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.content {
+  min-width: 0;
+}
+
+.section {
+  scroll-margin-top: 150px;
+  padding: 44px;
+  border-radius: var(--r-lg);
+  margin-bottom: 22px;
+}
+
+.section:nth-child(even) {
+  background: #ffffff;
+  border: 1px solid var(--c-line-soft);
+  box-shadow: var(--sh-1);
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 32px 22px;
+  }
+}
+
+.sectionSostenibilidad {
+  border: 1px solid var(--c-line-soft);
+  background-color: rgba(244, 247, 251, 0.88);
+  background-blend-mode: lighten;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.eyebrow {
+  color: var(--c-accent);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  margin-bottom: 10px;
+}
+
+.h2 {
+  margin: 0 0 20px;
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--c-accent-deep);
+  letter-spacing: -0.02em;
+}
+
+.h3 {
+  margin: 0 0 12px;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--c-accent-deep);
+}
+
+.prose p {
+  margin: 0 0 16px;
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: var(--c-text);
+}
+
+.prose p:last-child {
+  margin-bottom: 0;
+}
+
+.prose strong {
+  color: var(--c-text-strong);
+  font-weight: 600;
+}
+
+.gridTwo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.gridThree {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 26px;
+}
+
+.postersGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.principlesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 22px 0 8px;
+}
+
+.pactoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .gridTwo,
+  .gridThree,
+  .postersGrid,
+  .principlesGrid,
+  .pactoGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.block {
+  margin-top: 34px;
+}
+
+.introBlock {
+  margin-bottom: 20px;
+}
+
+.fullImage {
+  width: 100%;
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-2);
+  border: 1px solid var(--c-line-soft);
+  margin-top: 24px;
+}

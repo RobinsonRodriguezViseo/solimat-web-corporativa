@@ -1,0 +1,40 @@
+.body {
+  padding: 52px 0 80px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.content {
+  min-width: 0;
+}
+
+.content > :last-child {
+  margin-bottom: 0;
+}
+
+.cta {
+  margin-top: 14px;
+}
+
+.grades {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 1000px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .grades {
+    grid-template-columns: 1fr;
+  }
+}

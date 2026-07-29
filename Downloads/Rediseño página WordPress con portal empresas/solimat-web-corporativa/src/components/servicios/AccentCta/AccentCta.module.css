@@ -1,0 +1,38 @@
+/* La clase se repite para llegar a especificidad (0,2,0). Estos CTA se usan
+   dentro de bloques de prosa, cuya regla `.prose a` (0,1,1) ganaría a un `.cta`
+   simple (0,1,0) y dejaría el texto azul sobre el fondo azul del botón. */
+.cta.cta {
+  display: inline-flex;
+  align-items: center;
+  background: var(--c-accent);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 9px;
+  transition: background var(--t);
+}
+
+.cta.cta:hover {
+  background: var(--c-accent-dark);
+  color: #fff;
+}
+
+.cta:focus-visible {
+  outline: none;
+  box-shadow: var(--sh-focus);
+}
+
+.md {
+  gap: 9px;
+  font-size: 14.5px;
+  padding: 12px 22px;
+}
+
+.lg {
+  gap: 10px;
+  font-size: 15px;
+  padding: 13px 24px;
+}
+
+.cta svg {
+  flex-shrink: 0;
+}

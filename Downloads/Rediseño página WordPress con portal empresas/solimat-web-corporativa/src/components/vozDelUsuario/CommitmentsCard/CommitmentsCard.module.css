@@ -1,0 +1,39 @@
+.card {
+  background: #fff;
+  border: 1px solid var(--c-line-soft);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-1);
+  padding: 32px 34px;
+}
+
+@media (max-width: 640px) {
+  .card {
+    padding: 26px 22px;
+  }
+}
+
+.eyebrow {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--c-accent);
+  margin-bottom: 14px;
+}
+
+.list {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.item {
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: var(--c-text-muted);
+  margin-bottom: 9px;
+}
+
+.item:last-child {
+  margin-bottom: 0;
+}

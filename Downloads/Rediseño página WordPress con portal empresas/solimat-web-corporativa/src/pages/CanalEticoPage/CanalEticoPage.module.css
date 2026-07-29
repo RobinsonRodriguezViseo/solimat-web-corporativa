@@ -1,0 +1,50 @@
+.section {
+  padding: 52px 0 80px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+@media (max-width: 1000px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+.index {
+  min-width: 0;
+}
+
+.content {
+  min-width: 0;
+}
+
+.accessSection {
+  scroll-margin-top: 100px;
+}
+
+.accessCard {
+  background: #fff;
+  border: 1px solid var(--c-line-soft);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-2);
+  padding: 34px 36px;
+}
+
+@media (max-width: 640px) {
+  .accessCard {
+    padding: 26px 20px;
+  }
+}
+
+.accessIntro {
+  margin: 0 0 24px;
+  font-size: 15px;
+  line-height: 1.68;
+  color: var(--c-text-muted);
+}

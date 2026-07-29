@@ -1,0 +1,13 @@
+.label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--c-accent);
+  margin: 20px 0 10px;
+}
+
+.label:first-child {
+  margin-top: 0;
+}

@@ -1,0 +1,28 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+  scroll-margin-top: 100px;
+}
+
+.bar {
+  width: 4px;
+  height: 30px;
+  background: var(--c-accent);
+  border-radius: 2px;
+}
+
+.title {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--c-accent-deep);
+  letter-spacing: -0.015em;
+}
+
+.rule {
+  flex: 1;
+  height: 1px;
+  background: var(--c-line-soft);
+}

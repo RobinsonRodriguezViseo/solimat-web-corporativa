@@ -1,0 +1,27 @@
+/* Reset base minimo. La mayoria de las reglas de reset y los tokens de diseno
+   viven en theme.css (fuente de verdad de design-refs/theme.css); este
+   archivo cubre solo lo que no depende de esos tokens. */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+svg {
+  display: block;
+}

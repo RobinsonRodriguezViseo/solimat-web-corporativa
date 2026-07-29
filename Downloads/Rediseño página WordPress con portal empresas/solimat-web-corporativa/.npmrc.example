@@ -1,0 +1,21 @@
+; Plantilla del .npmrc. Cópiala a `.npmrc` (que está en .gitignore).
+;
+; El paquete @solimat/solimat-web-endpoint vive en el feed privado de Azure DevOps.
+; `_password` debe ser el PAT de Azure DevOps codificado en BASE64, no el PAT en crudo.
+;
+; Recomendado: dejar `${NPM_TOKEN}` como está aquí y definir la variable de entorno,
+; para que la credencial no acabe escrita en disco dentro del repositorio.
+
+@solimat:registry=https://pkgs.dev.azure.com/SOLIMAT-MCSS-72/PortalServiciosV3/_packaging/PortalV3.Feed/npm/registry/
+registry=https://registry.npmjs.org/
+
+always-auth=true
+
+; begin auth token
+//pkgs.dev.azure.com/SOLIMAT-MCSS-72/PortalServiciosV3/_packaging/PortalV3.Feed/npm/registry/:username=SOLIMAT-MCSS-72
+//pkgs.dev.azure.com/SOLIMAT-MCSS-72/PortalServiciosV3/_packaging/PortalV3.Feed/npm/registry/:_password=${NPM_TOKEN}
+//pkgs.dev.azure.com/SOLIMAT-MCSS-72/PortalServiciosV3/_packaging/PortalV3.Feed/npm/registry/:email=solimat.dev.squad@viseo.com
+//pkgs.dev.azure.com/SOLIMAT-MCSS-72/PortalServiciosV3/_packaging/PortalV3.Feed/npm/:username=SOLIMAT-MCSS-72
+//pkgs.dev.azure.com/SOLIMAT-MCSS-72/PortalServiciosV3/_packaging/PortalV3.Feed/npm/:_password=${NPM_TOKEN}
+//pkgs.dev.azure.com/SOLIMAT-MCSS-72/PortalServiciosV3/_packaging/PortalV3.Feed/npm/:email=solimat.dev.squad@viseo.com
+; end auth token

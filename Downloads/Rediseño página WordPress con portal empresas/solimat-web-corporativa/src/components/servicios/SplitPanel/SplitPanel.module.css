@@ -1,0 +1,38 @@
+.panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  background: #fff;
+  border: 1px solid var(--c-line-soft);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: var(--sh-1);
+}
+
+.bare {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.content {
+  padding: 30px 32px;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 1000px) {
+  .panel {
+    grid-template-columns: 1fr;
+  }
+
+  .image {
+    height: 280px;
+    min-height: 0 !important;
+  }
+}

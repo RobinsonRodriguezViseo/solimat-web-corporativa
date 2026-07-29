@@ -1,0 +1,42 @@
+.selectorSection {
+  padding: 34px 0 0;
+}
+
+.scope {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 30px 0 16px;
+  flex-wrap: wrap;
+}
+
+.scopeBar {
+  width: 4px;
+  height: 24px;
+  background: var(--c-accent);
+  border-radius: 2px;
+}
+
+.scopeTitle {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--c-text-strong);
+}
+
+.scopeCount {
+  font-size: var(--fs-body);
+  color: var(--c-text-muted);
+}
+
+.mapSection {
+  padding: 0;
+}
+
+.listSection {
+  padding: 26px 0 80px;
+}
+
+.search {
+  margin-bottom: 28px;
+}

@@ -1,0 +1,36 @@
+/* La clase se repite para ganar en especificidad (0,2,0) a dos globales:
+   `.btn` de theme.css (0,1,0) y, sobre todo, la regla de enlaces de los bloques
+   de prosa, `.prose a` (0,1,1).
+
+   IMPORTANTE: hay que declarar aquí `background` Y `color` explícitamente. Si se
+   omite `color`, para esa propiedad compiten solo `.prose a` (0,1,1) y `.btn`
+   (0,1,0): gana la primera y el botón queda con texto azul sobre fondo azul,
+   ilegible. Pasaba en Trámites y en Prestaciones Económicas, donde estos CTA
+   viven dentro de bloques de prosa. */
+.action.action {
+  gap: 9px;
+  padding: 11px 20px;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0;
+  background: var(--c-accent);
+  color: #fff;
+}
+
+.action.action:hover {
+  background: var(--c-accent-dark);
+  color: #fff;
+}
+
+.outline.outline {
+  background: var(--c-surface);
+  border: 1px solid var(--c-accent-line);
+  color: var(--c-accent-dark);
+}
+
+.outline.outline:hover {
+  background: var(--c-accent-soft);
+  color: var(--c-accent-dark);
+}

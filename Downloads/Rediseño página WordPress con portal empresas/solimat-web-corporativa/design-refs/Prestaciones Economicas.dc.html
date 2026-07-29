@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="theme.css">
+<style>
+a { text-decoration:none; }
+.topbar-link:hover { color:#fff !important; }
+.navdd { position:relative; padding-bottom:14px; margin-bottom:-14px; }
+.navdd__trigger { display:inline-flex; align-items:center; gap:7px; padding:9px 15px; border:0; background:transparent; font-family:inherit; font-size:14.5px; font-weight:500; color:var(--c-accent); border-radius:7px; cursor:pointer; transition:var(--t); }
+.navdd__trigger svg { transition:transform .25s ease; }
+.navdd:hover .navdd__trigger, .navdd:focus-within .navdd__trigger { background:var(--c-accent-deep); color:#fff; }
+.navdd:hover .navdd__trigger svg, .navdd:focus-within .navdd__trigger svg { transform:rotate(180deg); }
+.navdd__menu { position:absolute; top:100%; left:0; min-width:238px; background:#f3f6fa; border:1px solid var(--c-line-soft); border-radius:12px; box-shadow:var(--sh-3); padding:8px; display:flex; flex-direction:column; opacity:0; visibility:hidden; transform:translateY(-6px); transition:opacity .2s ease, transform .2s ease, visibility .2s; z-index:60; }
+.navdd:hover .navdd__menu, .navdd:focus-within .navdd__menu { opacity:1; visibility:visible; transform:translateY(0); }
+.navdd__menu a { padding:11px 15px; border-radius:8px; font-size:14px; color:var(--c-text); font-weight:500; white-space:nowrap; transition:var(--t); }
+.navdd__menu a:hover { background:#fff; color:var(--c-accent); padding-left:19px; }
+.navdd__menu a.is-current { background:var(--c-accent-soft); color:var(--c-accent-dark); font-weight:600; }
+.ftr-link:hover { color:var(--color-300) !important; }
+.ix-link { display:block; padding:9px 0 9px 14px; border-left:2px solid var(--c-line); font-size:13.5px; color:var(--c-text-muted); transition:all var(--t); line-height:1.4; }
+.ix-link:hover { border-left-color:var(--c-accent); color:var(--c-accent-dark); padding-left:18px; }
+.ix-sub { display:block; padding:6px 0 6px 28px; border-left:2px solid var(--c-line); font-size:12.5px; color:var(--c-text-soft); transition:all var(--t); }
+.ix-sub:hover { border-left-color:var(--c-accent); color:var(--c-accent); }
+.pe-sec { scroll-margin-top:100px; margin-bottom:44px; }
+.tab-btn { border:0; background:transparent; font-family:inherit; font-size:14px; font-weight:600; color:var(--c-text-muted); padding:12px 22px; cursor:pointer; border-bottom:3px solid transparent; transition:all var(--t); }
+.tab-btn:hover { color:var(--c-accent-dark); }
+.tab-btn.is-active { color:var(--c-accent); border-bottom-color:var(--c-accent); }
+.pe-body p { margin:0 0 12px; font-size:15px; line-height:1.68; color:var(--c-text-muted); }
+.pe-body strong { color:var(--c-text-strong); font-weight:600; }
+.pe-body ul { margin:0 0 16px; padding-left:20px; }
+.pe-body li { font-size:15px; line-height:1.65; color:var(--c-text-muted); margin-bottom:7px; }
+.pe-body ul ul { margin:8px 0 0; }
+.pe-body a { color:var(--c-accent); font-weight:600; }
+.pe-body a:hover { color:var(--c-accent-dark); }
+.pe-lbl { display:block; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--c-accent); margin:22px 0 10px; }
+.pe-lbl:first-child { margin-top:0; }
+.pe-table { width:100%; border-collapse:collapse; font-size:13.5px; margin:0 0 18px; }
+.pe-table th { background:var(--c-accent-soft); color:var(--c-accent-deep); font-weight:700; text-align:left; padding:10px 13px; border:1px solid var(--c-line); }
+.pe-table td { padding:10px 13px; border:1px solid var(--c-line); color:var(--c-text-muted); line-height:1.5; vertical-align:top; }
+.pe-cta:hover { background:var(--c-accent-dark) !important; }
+@media (max-width:1000px) {
+  .pe-layout { grid-template-columns:1fr !important; gap:28px !important; }
+  .pe-index { position:static !important; }
+}
+</style>
+</helmet>
+
+<div style="min-height:100vh; display:flex; flex-direction:column; background:var(--c-bg);">
+
+<!-- Barra Urgencias -->
+<div style="background:var(--color-900); color:rgba(255,255,255,.82);">
+  <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:16px; height:38px; font-size:12.5px;">
+    <div style="display:flex; align-items:center; gap:8px; font-weight:500; letter-spacing:.04em;">
+      <span style="display:inline-flex; width:7px; height:7px; border-radius:50%; background:#F0455A; box-shadow:0 0 0 3px rgba(240,69,90,.25);"></span>
+      <span style="text-transform:uppercase; letter-spacing:.1em; font-size:11px;">Urgencias 24h</span>
+      <a class="topbar-link" href="tel:900111072" style="color:var(--color-200); font-weight:600;">900 111 072</a>
+      <span style="opacity:.35;">·</span>
+      <a class="topbar-link" href="tel:+34925727272" style="color:rgba(255,255,255,.7);">+34 925 72 72 72 <span style="opacity:.6;">(fuera de España)</span></a>
+    </div>
+    <a class="topbar-link" href="Red De Centros.dc.html" style="color:rgba(255,255,255,.82); display:inline-flex; align-items:center; gap:6px;">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Centros de atención
+    </a>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="hdr">
+  <div class="container hdr__bar" style="gap:24px;">
+    <a class="hdr__logo" href="Home Solimat.dc.html" style="display:flex; align-items:center;"><img src="images/solimat-logo.svg" alt="Solimat" style="height:34px;"></a>
+    <nav style="display:flex; align-items:center; gap:2px; margin-left:8px;">
+      <div class="navdd">
+        <button class="navdd__trigger" type="button">Conócenos <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="navdd__menu">
+          <a href="Quienes Somos.dc.html">Quiénes somos</a>
+          <a href="Nuestros Datos.dc.html">Nuestros datos</a>
+          <a href="Podemos Ser Tu Mutua.dc.html">Podemos ser tu mutua</a>
+          <a href="Trabaja Con Nosotros.dc.html">Trabaja con nosotros</a>
+          <a href="Noticias.dc.html">Noticias</a>
+          <a href="Podemos Ayudarte.dc.html">¿Podemos ayudarte?</a>
+        </div>
+      </div>
+      <div class="navdd">
+        <button class="navdd__trigger" type="button">Servicios <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="navdd__menu">
+          <a href="Nuestro Equipo.dc.html">Nuestro equipo</a>
+          <a class="is-current" href="Prestaciones Economicas.dc.html">Prestaciones Económicas</a>
+          <a href="Asistencia Sanitaria.dc.html">Asistencia Sanitaria</a>
+          <a href="Promocion De La Prevencion.dc.html">Promoción de la Prevención</a>
+          <a href="http://portal.solimat.com/" target="_blank" rel="noopener">Portal de Servicios</a>
+          <a href="Podemos Ayudarte.dc.html">¿Podemos ayudarte?</a>
+        </div>
+      </div>
+      <div class="navdd">
+        <button class="navdd__trigger" type="button">Trámites <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="navdd__menu">
+          <a href="Para Empresa.dc.html">Para Empresa</a>
+          <a href="Home Solimat.dc.html#perfiles">Para Trabajador</a>
+          <a href="Home Solimat.dc.html#perfiles">Para Autónomo</a>
+          <a href="Home Solimat.dc.html#perfiles">Para Asesoría Laboral</a>
+        </div>
+      </div>
+    </nav>
+    <div style="margin-left:auto; display:flex; align-items:center; gap:10px;">
+      <a class="btn btn--ghost btn--sm" href="https://pacientes.solimat.com/" target="_blank" rel="noopener">Portal del Paciente</a>
+      <a class="btn btn--sm" href="http://portal.solimat.com/" target="_blank" rel="noopener" style="gap:8px;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg>
+        Portal de Servicios
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section style="position:relative; overflow:hidden; background:var(--color-900);">
+  <img src="images/perfil-asesoria.png" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.26;">
+  <div style="position:absolute; inset:0; background:linear-gradient(95deg, rgba(14,27,51,.93) 0%, rgba(20,37,70,.74) 55%, rgba(31,60,111,.42) 100%);"></div>
+  <div class="container" style="position:relative; padding:56px 0 60px;">
+    <div style="display:flex; align-items:center; gap:8px; font-size:12.5px; color:rgba(255,255,255,.7); margin-bottom:16px;">
+      <a href="Home Solimat.dc.html" style="color:rgba(255,255,255,.7);">Inicio</a>
+      <span style="opacity:.5;">/</span>
+      <span style="color:rgba(255,255,255,.7);">Servicios</span>
+      <span style="opacity:.5;">/</span>
+      <span style="color:#fff; font-weight:600;">Prestaciones económicas</span>
+    </div>
+    <h1 style="margin:0 0 12px; color:#fff; font-size:clamp(34px,4.4vw,52px); font-weight:700; letter-spacing:-0.02em; line-height:1.05;">Prestaciones económicas</h1>
+    <p style="margin:0; max-width:660px; color:rgba(255,255,255,.85); font-size:18px; line-height:1.55;">Conoce las prestaciones que gestionamos y abonamos, sus requisitos, cuantías y formas de abono según tu situación.</p>
+  </div>
+</section>
+
+<!-- Contenido -->
+<section class="container" style="padding:52px 0 80px;">
+  <div class="pe-layout" style="display:grid; grid-template-columns:260px 1fr; gap:48px; align-items:start;">
+
+    <!-- Índice -->
+    <aside class="pe-index" style="position:sticky; top:96px;">
+      <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.15em; color:var(--c-text-soft); margin-bottom:16px;">En esta página</div>
+      <a class="ix-link" href="#contingencias-profesionales">Contingencias Profesionales</a>
+      <a class="ix-link" href="#contingencias-comunes">Contingencias Comunes</a>
+      <a class="ix-link" href="#riesgo-embarazo-lactancia">Riesgo durante el embarazo y la lactancia natural</a>
+      <a class="ix-link" href="#cuidado-menores">Cuidado de menores afectados por cáncer u otra enfermedad grave</a>
+      <a class="ix-link" href="#cese-actividad">Cese de actividad de los trabajadores autónomos</a>
+      <a class="ix-sub" href="#mecanismo-red">Mecanismo RED</a>
+      <a class="ix-link" href="#prestaciones-complementarias">Prestaciones complementarias</a>
+      <a class="ix-link" href="#incapacidad">Incapacidad permanente e invalidez</a>
+      <a class="ix-link" href="#muerte-supervivencia">Prestación por muerte y supervivencia</a>
+    </aside>
+
+    <div>
+      <!-- CONTINGENCIAS PROFESIONALES -->
+      <section id="contingencias-profesionales" class="pe-sec">
+        <div style="background:#fff; border:1px solid var(--c-line-soft); border-radius:var(--r-lg); box-shadow:var(--sh-1); overflow:hidden;">
+          <div style="padding:30px 34px 24px; background:linear-gradient(120deg,#eef4fb 0%,#e4edf8 100%); border-bottom:1px solid var(--c-line-soft);">
+            <h2 style="margin:0 0 12px; font-size:26px; font-weight:700; color:var(--c-accent-deep); letter-spacing:-0.015em;">Contingencias Profesionales</h2>
+            <div class="pe-body">
+              <p style="margin:0 0 10px;">Si te encuentras en situación de <strong>incapacidad temporal</strong> como consecuencia de un accidente de trabajo o enfermedad profesional, te:</p>
+              <ul style="margin:0;">
+                <li>Prestamos asistencia sanitaria</li>
+                <li>Abonamos el 75% de tu base reguladora, a partir del día siguiente al de la baja médica.</li>
+              </ul>
+            </div>
+          </div>
+          <div style="display:flex; border-bottom:1px solid var(--c-line-soft); padding:0 34px;">
+            <button class="tab-btn {{ cpAjenaCls }}" onClick="{{ setCpAjena }}">Cuenta ajena</button>
+            <button class="tab-btn {{ cpPropiaCls }}" onClick="{{ setCpPropia }}">Cuenta propia</button>
+          </div>
+          <div class="pe-body" style="padding:28px 34px 30px;">
+            <sc-if value="{{ cpAjena }}" hint-placeholder-val="{{ true }}">
+              <div>
+                <p>En Solimat asumimos la prestación económica en caso de accidente de trabajo o enfermedad profesional:</p>
+                <span class="pe-lbl">Periodo</span>
+                <ul><li>Desde el día siguiente a la baja médica hasta el día del alta.</li><li>Duración máxima: 730 días</li></ul>
+                <span class="pe-lbl">Cuantía</span>
+                <ul><li>75% de la base reguladora.</li></ul>
+                <span class="pe-lbl">Requisitos</span>
+                <ul>
+                  <li>Que la empresa tenga la <strong>contingencia profesional</strong> cubierta con <strong>Solimat</strong>.</li>
+                  <li>Estar <strong>afiliado y en alta</strong> (o en situación asimilada al alta) en la fecha del accidente de trabajo o del diagnóstico de la enfermedad profesional.</li>
+                  <li>Estar en <strong>baja médica</strong>.</li>
+                </ul>
+                <span class="pe-lbl">Forma de abono</span>
+                <ul>
+                  <li><strong>Pago delegado</strong>: prestación satisfecha por la empresa en nómina, en concepto de incapacidad temporal, y posterior compensación de las cantidades satisfechas en los boletines de cotización.</li>
+                  <li><strong>Pago directo</strong>: previa solicitud del trabajador, cuando se encuentre en alguna de las siguientes situaciones.</li>
+                </ul>
+                <span class="pe-lbl">Situaciones que originan el pago directo</span>
+                <ul>
+                  <li>Quedar en <strong>desempleo</strong>.</li>
+                  <li>Pasar a situación de <strong>prórroga de incapacidad temporal</strong> (después de 365 días), tras resolución del Instituto Nacional de la Seguridad Social.</li>
+                  <li><strong>No recepción</strong> del pago de la prestación en modalidad de <strong>pago delegado</strong> por incapacidad temporal por parte de la empresa.</li>
+                  <li><strong>Recaída</strong> estando <strong>en situación de desempleo</strong>.</li>
+                  <li><strong>Estar excluido del pago delegado</strong> (Representantes de Comercio, Artistas, Profesionales Taurinos, Agrarios, Empleados de hogar y trabajadores de los grupos II y III del Régimen Especial del Mar).</li>
+                  <li><strong>Suspensión del contrato en caso de trabajadores fijos-discontinuos.</strong></li>
+                </ul>
+              </div>
+            </sc-if>
+            <sc-if value="{{ cpPropia }}" hint-placeholder-val="{{ false }}">
+              <div>
+                <p>En Solimat asumimos la prestación económica en caso de accidente de trabajo o enfermedad profesional:</p>
+                <span class="pe-lbl">Periodo</span>
+                <ul><li>Desde el día siguiente a la baja médica hasta el día del alta.</li><li>Duración máxima: 730 días.</li></ul>
+                <span class="pe-lbl">Cuantía</span>
+                <ul><li>75% de la base reguladora.</li></ul>
+                <span class="pe-lbl">Requisitos</span>
+                <ul>
+                  <li>Tener la <strong>contingencia profesional</strong> cubierta con <strong>Solimat</strong>.</li>
+                  <li>Estar <strong>adherido y en alta</strong> (o en situación asimilada al alta) en la fecha del accidente de trabajo o del diagnóstico de la enfermedad profesional.</li>
+                  <li>Estar al <strong>corriente en el pago</strong> de las cuotas a la Seguridad Social.</li>
+                  <li>Estar en <strong>baja médica</strong>.</li>
+                  <li><strong>Presentar parte de accidente</strong></li>
+                </ul>
+                <span class="pe-lbl">Forma de abono</span>
+                <ul><li><strong>Pago directo</strong>: previa solicitud del autónomo.</li></ul>
+              </div>
+            </sc-if>
+            <a class="pe-cta" href="Podemos Ayudarte.dc.html" style="display:inline-flex; align-items:center; gap:9px; margin-top:14px; background:var(--c-accent); color:#fff; font-size:14.5px; font-weight:600; padding:12px 22px; border-radius:9px; transition:background var(--t);">
+              ¿Quieres tramitar esta prestación? Te ayudamos
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTINGENCIAS COMUNES -->
+      <section id="contingencias-comunes" class="pe-sec">
+        <div style="background:#fff; border:1px solid var(--c-line-soft); border-radius:var(--r-lg); box-shadow:var(--sh-1); overflow:hidden;">
+          <div style="padding:30px 34px 24px; background:linear-gradient(120deg,#eef4fb 0%,#e4edf8 100%); border-bottom:1px solid var(--c-line-soft);">
+            <h2 style="margin:0 0 12px; font-size:26px; font-weight:700; color:var(--c-accent-deep); letter-spacing:-0.015em;">Contingencias Comunes</h2>
+            <div class="pe-body">
+              <p style="margin:0 0 10px;">Si te encuentras en situación de incapacidad temporal como consecuencia de un enfermedad común o accidente no laboral, te:</p>
+              <ul style="margin:0 0 10px;"><li>Abonamos la prestación económica.</li></ul>
+              <p style="margin:0;">La asistencia sanitaria, en estos casos, le corresponde a Seguridad Social.</p>
+            </div>
+          </div>
+          <div style="display:flex; border-bottom:1px solid var(--c-line-soft); padding:0 34px;">
+            <button class="tab-btn {{ ccAjenaCls }}" onClick="{{ setCcAjena }}">Cuenta ajena</button>
+            <button class="tab-btn {{ ccPropiaCls }}" onClick="{{ setCcPropia }}">Cuenta propia</button>
+          </div>
+          <div class="pe-body" style="padding:28px 34px 30px;">
+            <sc-if value="{{ ccAjena }}" hint-placeholder-val="{{ true }}">
+              <div>
+                <p>En Solimat asumimos la prestación económica por incapacidad temporal derivada de una enfermedad común o accidente no laboral.</p>
+                <span class="pe-lbl">Periodo</span>
+                <ul><li>Desde el 4º día de la baja hasta el día del alta.</li><li>Duración máxima: 730 días.</li></ul>
+                <span class="pe-lbl">Cuantía</span>
+                <ul>
+                  <li><strong>60% de base reguladora</strong>, del 4º al 15º día de baja, a cargo de la empresa.</li>
+                  <li><strong>60% de base reguladora</strong>, del día 16º al 20º día, a cargo de Solimat.</li>
+                  <li><strong>75% de base reguladora</strong>, del 21º día en adelante, a cargo de Solimat.</li>
+                </ul>
+                <p>Te recordamos que, si mientras estás de baja, pasas a situación de desempleo, la cuantía que recibes es la misma que por desempleo, con la particularidad de ir consumiendo tiempo de paro.</p>
+                <span class="pe-lbl">Forma de abono</span>
+                <ul>
+                  <li><strong>Pago delegado</strong>: prestación satisfecha por la empresa en nómina, en concepto de incapacidad temporal, y posterior compensación de las cantidades satisfechas en los boletines de cotización.</li>
+                  <li><strong>Pago directo</strong>: previa solicitud del trabajador, cuando se encuentre en alguna de las siguientes situaciones.</li>
+                </ul>
+                <span class="pe-lbl">Requisitos</span>
+                <ul>
+                  <li>Que la empresa tenga la <strong>contingencia común</strong> cubierta con <strong>Solimat</strong>.</li>
+                  <li>Estar <strong>afiliado y en alta</strong> (o en situación asimilada al alta) en la fecha del accidente no laboral o del diagnóstico de la enfermedad.</li>
+                  <li>Estar en <strong>baja médica</strong>.</li>
+                  <li>Tener cubierto un periodo de cotización de <strong>180 días dentro de los 5 años inmediatamente anteriores a la baja médica</strong>. (Requisito no exigible en los casos de incapacidad temporal derivada de accidente no laboral). En los contratos a tiempo parcial, requiere acreditar los periodos de cotización necesarios para tener derecho a la prestación.</li>
+                </ul>
+                <span class="pe-lbl">Situaciones que originan el pago directo</span>
+                <ul>
+                  <li>Quedar en <strong>desempleo</strong>.</li>
+                  <li>Pasar a situación de <strong>prórroga de incapacidad temporal</strong>.</li>
+                  <li><strong>Recaída</strong> estando en situación de <strong>desempleo</strong>.</li>
+                  <li><strong>Estar excluido del pago delegado</strong> (Representantes de Comercio, Artistas, Profesionales Taurinos, Agrarios, Empleados de hogar y trabajadores de los grupos II y III del Régimen Especial del Mar).</li>
+                  <li><strong>Suspensión del contrato</strong> en caso de trabajadores <strong>fijos-discontinuos</strong>.</li>
+                  <li>Estar <strong>jubilado parcialmente</strong>.</li>
+                </ul>
+              </div>
+            </sc-if>
+            <sc-if value="{{ ccPropia }}" hint-placeholder-val="{{ false }}">
+              <div>
+                <p>En Solimat asumimos la prestación económica por incapacidad temporal derivada de una enfermedad común o accidente no laboral.</p>
+                <span class="pe-lbl">Periodo</span>
+                <ul><li>Desde el 4º día de la baja hasta el día del alta.</li><li>Duración máxima: 730 días.</li></ul>
+                <span class="pe-lbl">Cuantía</span>
+                <ul><li>60% de tu base regulador, del 4º al 20º día de la baja.</li><li>75% de la base reguladora, del día 21 y hasta el día del alta.</li></ul>
+                <span class="pe-lbl">Forma de abono</span>
+                <ul><li><strong>Pago directo</strong>: previa solicitud del autónomo y presentación de la declaración de situación de actividad.</li></ul>
+                <span class="pe-lbl">Requisitos</span>
+                <ul>
+                  <li>Tener la <strong>contingencia común</strong> cubierta con <strong>Solimat</strong>.</li>
+                  <li>Estar <strong>adherido y de alta</strong> en el régimen de autónomos (o en situación asimilada al alta) a la fecha del accidente no laboral o del diagnóstico de la enfermedad.</li>
+                  <li>Estar en <strong>baja médica</strong>.</li>
+                  <li>Estar al <strong>corriente en el pago</strong> de las cotizaciones a la Seguridad Social.</li>
+                  <li>Tener cubierto un <strong>periodo de cotización de 180 días dentro de los 5 años inmediatamente anteriores a la baja médica</strong> (Requisito no exigible en los casos de incapacidad temporal derivada de accidente no laboral).</li>
+                </ul>
+              </div>
+            </sc-if>
+            <a class="pe-cta" href="Podemos Ayudarte.dc.html" style="display:inline-flex; align-items:center; gap:9px; margin-top:14px; background:var(--c-accent); color:#fff; font-size:14.5px; font-weight:600; padding:12px 22px; border-radius:9px; transition:background var(--t);">
+              ¿Quieres tramitar esta prestación? Te ayudamos
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- RIESGO EMBARAZO / LACTANCIA -->
+      <section id="riesgo-embarazo-lactancia" class="pe-sec">
+        <div style="background:#fff; border:1px solid var(--c-line-soft); border-radius:var(--r-lg); box-shadow:var(--sh-1); overflow:hidden;">
+          <div style="padding:30px 34px 24px; background:linear-gradient(120deg,#eef4fb 0%,#e4edf8 100%); border-bottom:1px solid var(--c-line-soft);">
+            <h2 style="margin:0 0 12px; font-size:26px; font-weight:700; color:var(--c-accent-deep); letter-spacing:-0.015em;">Riesgo durante el embarazo y la lactancia natural</h2>
+            <div class="pe-body">
+              <p style="margin:0 0 10px;">Si eres mujer, trabajas, estás embarazada o estás periodo de lactancia natural, y:</p>
+              <ul style="margin:0 0 10px;">
+                <li>En el desempeño de tu actividad y/o condiciones de trabajo influyen negativamente en tu salud, o en la de tu hijo/a (feto o lactante).</li>
+                <li>Y no es posible cambiar o adaptar tu puesto de trabajo por otro compatible con tu estado.</li>
+              </ul>
+              <p style="margin:0;">Puedes optar a ella tanto si eres trabajadora por cuenta ajena como autónoma si tienes que interrumpir tu actividad profesional, como consecuencia de un posible riesgo en tu puesto de trabajo.</p>
+            </div>
+          </div>
+          <div style="display:flex; border-bottom:1px solid var(--c-line-soft); padding:0 34px;">
+            <button class="tab-btn {{ reAjenaCls }}" onClick="{{ setReAjena }}">Cuenta ajena</button>
+            <button class="tab-btn {{ rePropiaCls }}" onClick="{{ setRePropia }}">Cuenta propia</button>
+          </div>
+          <div class="pe-body" style="padding:28px 34px 30px;">
+            <sc-if value="{{ reAjena }}" hint-placeholder-val="{{ true }}">
+              <div>
+                <p>En Solimat gestionamos y abonamos tu prestación por riesgo durante el embarazo y la lactancia natural.</p>
+                <span class="pe-lbl">Duración</span>
+                <p><strong>Inicio:</strong></p>
+                <p>Durante el embarazo: Fecha de inicio del cese de actividad por riesgo durante el embarazo.</p>
+                <p>Durante la lactancia materna: Fecha de inicio del cese de actividad por riesgo durante la lactancia natural.</p>
+                <p><strong>Fin:</strong> hasta que exista una causa legal de extinción.</p>
+                <span class="pe-lbl">Causas legales de extinción</span>
+                <ul>
+                  <li>Suspensión por maternidad y/o el hijo cumpla 9 meses de edad.</li>
+                  <li>Extinción del contrato de trabajo.</li>
+                  <li>Reincorporación al puesto de trabajo anterior o a otro compatible con tu estado.</li>
+                  <li>Interrupción del embarazo.</li>
+                  <li>Fallecimiento de la madre o del bebé.</li>
+                </ul>
+                <span class="pe-lbl">Cuantía</span>
+                <ul><li>100% de la base reguladora establecida para la prestación de incapacidad temporal derivada de contingencias profesionales.</li></ul>
+                <span class="pe-lbl">Forma de abono</span>
+                <ul><li>Directamente a la trabajadora, previa solicitud de ésta, tras el reconocimiento de la existencia del riesgo y suspensión del contrato.</li></ul>
+                <span class="pe-lbl">Requisitos</span>
+                <ul>
+                  <li>Estar afiliada y en situación de alta en la empresa.</li>
+                  <li>Estar embarazada o en situación de lactancia natural con un menor de 9 meses.</li>
+                  <li>Existen riesgos para tu salud o la de tu bebé, relacionados con tu puesto de trabajo.</li>
+                  <li>No han podido adaptarse las condiciones y/o tiempos de trabajo.</li>
+                  <li>El riesgo está relacionado con agentes, procedimientos o condiciones de trabajo del puesto desempeñado.</li>
+                  <li>Estar al corriente de pago de las cuotas a la Seguridad Social (si estás incluida en el Régimen Especial de Empleados del Hogar).</li>
+                </ul>
+              </div>
+            </sc-if>
+            <sc-if value="{{ rePropia }}" hint-placeholder-val="{{ false }}">
+              <div>
+                <p>En Solimat gestionamos y abonamos tu prestación por riesgo durante el embarazo y la lactancia natural.</p>
+                <span class="pe-lbl">Duración</span>
+                <p><strong>Inicio:</strong></p>
+                <ul>
+                  <li>Durante el embarazo: Fecha de inicio del cese de actividad por riesgo durante el embarazo.</li>
+                  <li>Durante la lactancia materna: Fecha de inicio del cese de actividad por riesgo durante la lactancia natural.</li>
+                </ul>
+                <p><strong>Fin:</strong> hasta que exista una causa legal de extinción.</p>
+                <span class="pe-lbl">Causas legales de extinción</span>
+                <ul>
+                  <li>Suspensión por maternidad y/o el hijo cumpla 9 meses de edad.</li>
+                  <li>Extinción del contrato de trabajo.</li>
+                  <li>Reincorporación al puesto de trabajo anterior o a otro compatible con tu estado.</li>
+                  <li>Interrupción del embarazo.</li>
+                  <li>Fallecimiento de la madre o del bebé.</li>
+                </ul>
+                <span class="pe-lbl">Cuantía</span>
+                <ul><li>100% de la base reguladora establecida para la prestación de incapacidad temporal derivada de contingencias profesionales.</li></ul>
+                <span class="pe-lbl">Forma de abono</span>
+                <ul><li>Directamente a la autónoma, previa solicitud de ésta, y tras el reconocimiento de la existencia del riesgo.</li></ul>
+                <span class="pe-lbl">Requisitos</span>
+                <ul>
+                  <li>Estás afiliada y de alta en el Régimen Especial de Trabajadores Autónomos.</li>
+                  <li>Estás embarazada y/o estás en situación de lactancia natural con un menor de 9 meses.</li>
+                  <li>Existen riesgos para tu salud o la del bebé, relacionados con tu actividad profesional.</li>
+                  <li>No se han podido adaptar las condiciones y/o tiempos de trabajo.</li>
+                  <li>Debe existir relación con agentes, procedimientos o condiciones de trabajo del puesto desempeñado.</li>
+                  <li>Estás al corriente en el pago de las cuotas a la Seguridad Social.</li>
+                </ul>
+              </div>
+            </sc-if>
+            <a class="pe-cta" href="Podemos Ayudarte.dc.html" style="display:inline-flex; align-items:center; gap:9px; margin-top:14px; background:var(--c-accent); color:#fff; font-size:14.5px; font-weight:600; padding:12px 22px; border-radius:9px; transition:background var(--t);">
+              ¿Quieres tramitar esta prestación? Te ayudamos
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- CUIDADO DE MENORES -->
+      <section id="cuidado-menores" class="pe-sec">
+        <div style="background:#fff; border:1px solid var(--c-line-soft); border-radius:var(--r-lg); box-shadow:var(--sh-1); overflow:hidden;">
+          <div style="padding:30px 34px 24px; background:linear-gradient(120deg,#eef4fb 0%,#e4edf8 100%); border-bottom:1px solid var(--c-line-soft);">
+            <h2 style="margin:0 0 12px; font-size:26px; font-weight:700; color:var(--c-accent-deep); letter-spacing:-0.015em;">Cuidado de menores afectados por cáncer u otra enfermedad grave</h2>
+            <div class="pe-body">
+              <p style="margin:0 0 10px;">Si necesitas reducir tu jornada laboral un 50% o más, para el cuidado directo, continuado y permanente de un menor a tu cargo, por padecer cáncer u otra enfermedad grave, te:</p>
+              <ul style="margin:0;"><li>Abonamos el 100% de tu base reguladora.</li></ul>
+            </div>
+          </div>
+          <div style="display:flex; border-bottom:1px solid var(--c-line-soft); padding:0 34px;">
+            <button class="tab-btn {{ cmAjenaCls }}" onClick="{{ setCmAjena }}">Cuenta ajena</button>
+            <button class="tab-btn {{ cmPropiaCls }}" onClick="{{ setCmPropia }}">Cuenta propia</button>
+          </div>
+          <div class="pe-body" style="padding:28px 34px 30px;">
+            <sc-if value="{{ cmAjena }}" hint-placeholder-val="{{ true }}">
+              <div>
+                <p>En Solimat estamos a tu lado, cuando tu familia y tú más lo necesitáis. Asumimos la prestación económica por cuidado de menores con cáncer u otra enfermedad grave.</p>
+                <span class="pe-lbl">Duración</span>
+                <ul><li><strong>Inicio:</strong> Desde el reconocimiento del derecho a la prestación.</li><li><strong>Fin:</strong> Hasta como máximo de los 26 años del menor.</li></ul>
+                <span class="pe-lbl">Cuantía</span>
+                <ul><li><strong>100% de la base reguladora</strong> establecida para la prestación por incapacidad temporal derivada de contingencias profesionales.</li><li><strong>Proporcional a la reducción de jornada</strong>.</li></ul>
+                <span class="pe-lbl">Forma de abono</span>
+                <ul><li>Directamente al trabajador/a tras solicitud previa de este/a y resolución sobre el reconocimiento del derecho.</li></ul>
+                <span class="pe-lbl">Requisitos</span>
+                <p>Relativos a la <strong>persona trabajadora</strong>:</p>
+                <ul>
+                  <li>Estar protegido por <strong>Solimat</strong>.</li>
+                  <li>Estar <strong>afiliada y en alta</strong> a la Seguridad Social (No aplicable al funcionariado incluido en el Estatuto Básico del Empleado Público).</li>
+                  <li>Estar <strong>trabajando ambos progenitores, guardadores o acogedores</strong>. En el caso de familias monoparentales este requisito bebe cumplirlo la persona progenitora, guardadora o acogedora.</li>
+                  <li>Acreditar el <strong>período de cotización</strong> exigido, para menores:
+                    <ul>
+                      <li>De <strong>21 años</strong>: no precisan carencia.</li>
+                      <li>Entre <strong>21 y 25 años</strong>: 90 días en los 7 años anteriores a la solicitud de la prestación o 180 días en el total de la vida laboral.</li>
+                      <li><strong>26 años o más</strong>: 180 días en los 7 años anteriores a la solicitud de la prestación o 360 días en el total de la vida laboral.</li>
+                    </ul>
+                  </li>
+                </ul>
+                <p>Requisitos relativos a los <strong>hijos, adoptados o acogidos</strong>, afectados por la enfermedad:</p>
+                <ul>
+                  <li>Ser <strong>menores de 18 años</strong></li>
+                  <li>Ser <strong>menores de 23 años</strong> y la enfermedad haya sido diagnosticada antes de haber cumplido los 18 años.</li>
+                  <li>Ser <strong>menores de 26 años</strong> y acredite tener reconocido un grado de discapacidad igual o superior al 65%, antes de haber cumplido este los 23 años.</li>
+                  <li>Precisar <strong>cuidado directo, continuo y permanente.</strong></li>
+                </ul>
+                <p>Requisitos relativos a la <strong>enfermedad padecida</strong>:</p>
+                <ul>
+                  <li>Tener cáncer o una enfermedad grave <strong>incluida en el listado</strong> del anexo <a href="https://www.boe.es/eli/es/rd/2011/07/29/1148" target="_blank" rel="noopener">Real Decreto 1148/2011</a></li>
+                  <li>Requerir <strong>ingreso hospitalario de larga duración y tratamiento médico en domicilio</strong>, acreditado por informe del Servicio Público de Salud u órgano administrativo sanitario de la Comunidad Autónoma correspondiente.</li>
+                </ul>
+              </div>
+            </sc-if>
+            <sc-if value="{{ cmPropia }}" hint-placeholder-val="{{ false }}">
+              <div>
+                <p>En Solimat estamos a tu lado, cuando tu familia y tú más lo necesitáis. Asumimos la prestación económica por cuidado de menores con cáncer u otra enfermedad grave.</p>
+                <span class="pe-lbl">Duración</span>
+                <ul><li><strong>Inicio:</strong> Desde el reconocimiento del derecho a la prestación.</li><li><strong>Fin:</strong> Hasta como máximo de los 26 años del menor.</li></ul>
+                <span class="pe-lbl">Cuantía</span>
+                <ul><li><strong>100% de la base reguladora</strong> establecida para la prestación por incapacidad temporal derivada de contingencias profesionales.</li><li><strong>Proporcional a la reducción de jornada</strong>.</li></ul>
+                <span class="pe-lbl">Forma de abono</span>
+                <ul><li>Directamente al autónomo/a tras solicitud previa de este/a y resolución sobre el reconocimiento del derecho.</li></ul>
+                <span class="pe-lbl">Requisitos</span>
+                <p>Relativos a la <strong>persona trabajadora</strong>:</p>
+                <ul>
+                  <li>Estar adherido/a a <strong>Solimat</strong>.</li>
+                  <li>Estar en <strong>alta</strong> a la Seguridad Social.</li>
+                  <li>Estar al <strong>corriente de pago</strong> de las cuotas a la Seguridad Social</li>
+                  <li>Estar <strong>trabajando ambos progenitores, guardadores o acogedores</strong>. En el caso de familias monoparentales este requisito bebe cumplirlo la persona progenitora, guardadora o acogedora.</li>
+                  <li><strong>Acreditar el período de cotización exigido</strong>, para menores:
+                    <ul>
+                      <li>De <strong>21 años</strong>: no precisan carencia.</li>
+                      <li>Entre <strong>21 y 25 años</strong>: 90 días en los 7 años anteriores a la solicitud de la prestación o 180 días en el total de la vida laboral.</li>
+                      <li><strong>26 años o más</strong>: 180 días en los 7 años anteriores a la solicitud de la prestación o 360 días en el total de la vida laboral.</li>
+                    </ul>
+                  </li>
+                </ul>
+                <p>Requisitos relativos a los <strong>hijos, adoptados o acogidos</strong>, afectados por la enfermedad:</p>
+                <ul>
+                  <li>Ser <strong>menores de 18 años</strong>.</li>
+                  <li>Ser <strong>menores de 23 años</strong> y la enfermedad haya sido diagnosticada antes de haber cumplido los 18 años.</li>
+                  <li>Ser <strong>menores de 26 años</strong> y acredite tener reconocido un grado de discapacidad igual o superior al 65%, antes de haber cumplido este los 23 años.</li>
+                  <li>Precisar <strong>cuidado directo, continuo y permanente.</strong></li>
+                </ul>
+                <p>Requisitos relativos a la <strong>enfermedad padecida</strong>:</p>
+                <ul>
+                  <li>Tener cáncer o una enfermedad grave <strong>incluida en el listado</strong> del anexo <a href="https://www.boe.es/eli/es/rd/2011/07/29/1148" target="_blank" rel="noopener">Real Decreto 1148/2011</a></li>
+                  <li>Requerir <strong>ingreso hospitalario de larga duración y tratamiento médico en domicilio</strong>, acreditado por informe del Servicio Público de Salud u órgano administrativo sanitario de la Comunidad Autónoma correspondiente.</li>
+                </ul>
+              </div>
+            </sc-if>
+            <a class="pe-cta" href="Podemos Ayudarte.dc.html" style="display:inline-flex; align-items:center; gap:9px; margin-top:14px; background:var(--c-accent); color:#fff; font-size:14.5px; font-weight:600; padding:12px 22px; border-radius:9px; transition:background var(--t);">
+              ¿Quieres tramitar esta prestación? Te ayudamos
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- CESE DE ACTIVIDAD -->
+      <section id="cese-actividad" class="pe-sec">
+        <div style="background:#fff; border:1px solid var(--c-line-soft); border-radius:var(--r-lg); box-shadow:var(--sh-1); overflow:hidden;">
+          <div style="padding:30px 34px 24px; background:linear-gradient(120deg,#eef4fb 0%,#e4edf8 100%); border-bottom:1px solid var(--c-line-soft);">
+            <h2 style="margin:0 0 8px; font-size:26px; font-weight:700; color:var(--c-accent-deep); letter-spacing:-0.015em;">Cese de actividad de los trabajadores autónomos</h2>
+            <div style="font-size:15px; font-weight:600; color:var(--c-accent);">Nueva regulación Cese de Actividad</div>
+          </div>
+          <div class="pe-body" style="padding:28px 34px 30px;">
+            <h3 style="margin:0 0 14px; font-size:18px; font-weight:700; color:var(--c-text-strong);">Prestaciones económicas por cese de actividad de trabajadores autónomos</h3>
+            <p>Puedes solicitar la prestación por cese de actividad si eres:</p>
+            <ul>
+              <li>Persona trabajadora autónoma comprendida en el Régimen Especial de Trabajadores por Cuenta Propia o Autónomos.</li>
+              <li>Persona trabajadora por cuenta propia incluida en el Régimen Especial de Trabajadores del Mar.</li>
+              <li>Socio de cooperativa de trabajo y persona trabajadora societarias.</li>
+            </ul>
+            <p>Y te encuentras en alguna de estas situaciones:</p>
+            <ul>
+              <li>Haber cesado totalmente tu actividad de forma involuntaria.</li>
+              <li>Haber reducido tu actividad de forma temporal.</li>
+              <li>Te has visto afectado/a por un cese temporal de tu actividad por una declaración de emergencia adoptada por la autoridad pública competente.</li>
+            </ul>
+            <p>A partir del 1 de enero de 2023, se amplía las situaciones de protección, de forma que el cese de actividad puede ser:</p>
+            <ul>
+              <li>Definitivo</li>
+              <li>Temporal:
+                <ul>
+                  <li>Total: comporta la interrupción de todas las actividades que puedan originar el alta como RETA.</li>
+                  <li>Parcial: cuando se produzca una reducción de la actividad que afecte a un sector o centro de trabajo.</li>
+                </ul>
+              </li>
+            </ul>
+            <span class="pe-lbl">Motivos de situación legal de cese</span>
+            <p>En esta situación se encuentran aquellos/as trabajadores/as que acrediten alguna de las causas siguientes:</p>
+            <ul>
+              <li><strong>Motivos económicos, técnicos, productivos u organizativos:</strong>
+                <ul>
+                  <li>Pérdidas derivadas del desarrollo de su actividad, en un año completo, superiores al 10% de los ingresos obtenidos, excluido el primer año de inicio de la actividad.</li>
+                  <li>Ejecuciones judiciales o administrativas que comporten al menos el 30% de los ingresos del ejercicio económico inmediatamente anterior.</li>
+                  <li>Declaración judicial de concurso de acreedores.</li>
+                  <li>Cese temporal con trabajadores/as a su cargo, siempre y cuando hayan tenido que reducir el 60% de la jornada laboral de todo el personal o haber suspendido temporalmente los contratos de, al menos, del 60% del personal, siempre que en los dos trimestres fiscales previos a la solicitud el nivel de ingresos haya disminuido en un 75% respecto a los mismos periodos del ejercicio o anteriores y los rendimientos netos mensuales del/la autónomo/a sean inferiores al SMI o de la base por la que viniera cotizando, si esta fuera inferior.</li>
+                  <li>Cese temporal sin trabajadores/as a su cargo, siempre y cuando se tengan deudas exigibles con acreedores superiores al 150% de los ingresos durante los dos trimestres fiscales previos a la solicitud y que los ingresos supongan una reducción del 75% respecto a los mismos periodos.</li>
+                </ul>
+              </li>
+              <li><strong>Por fuerza mayor (puede ser temporal o definitivo).</strong></li>
+              <li><strong>Por pérdida de licencia administrativa.</strong></li>
+              <li><strong>Por violencia de género.</strong></li>
+            </ul>
+            <p>Otros motivos adicionales, en el caso de:</p>
+            <ul>
+              <li><strong>Trabajadores económicamente dependientes (TRADE)</strong>
+                <ul>
+                  <li>Terminación de la duración contractual, obra o servicio.</li>
+                  <li>Incumplimiento contractual grave del cliente.</li>
+                  <li>Rescisión de la relación contractual del cliente por causa justificada.</li>
+                  <li>Rescisión de la relación contractual del cliente por causa injustificada.</li>
+                  <li>Por muerte, incapacidad permanente o jubilación del cliente.</li>
+                </ul>
+              </li>
+              <li><strong>Socios (cese en el cargo de la sociedad)</strong>
+                <ul>
+                  <li>Si el patrimonio neto ha disminuido por debajo de las 2/3 partes del capital social.</li>
+                  <li>Por pérdidas derivadas del desarrollo de la actividad en un año completo, superiores al 10% de los ingresos obtenidos en el mismo periodo (excluido primer año de inicio de actividad).</li>
+                </ul>
+              </li>
+              <li><strong>Trabajador/a autónomo/a que ejerce funciones de ayuda familiar, colaborador familiar:</strong>
+                <ul>
+                  <li>Por divorcio o separación matrimonial.</li>
+                  <li>Por muerte, incapacidad o jubilación del empresario titular del negocio.</li>
+                  <li>Cuando el titular del negocio cese por una de las causas comunes para todos los tipos de autónomos (económicas, fuerza mayor, pérdida de licencia administrativa, violencia de género).</li>
+                </ul>
+              </li>
+              <li><strong>Socios trabajadores/as de cooperativas de trabajo asociado</strong>
+                <ul>
+                  <li>Por expulsión improcedente.</li>
+                  <li>Finalización periodo del vínculo societario.</li>
+                  <li>Pérdida de la licencia administrativa de la cooperativa.</li>
+                  <li>Cese durante el periodo de prueba por decisión unilateral del consejo rector.</li>
+                </ul>
+              </li>
+              <li><strong>Trabajador/a autónomo/a por cuenta propia agrario</strong>
+                <ul>
+                  <li>Cuando por fuerza mayor se realice un cambio de cultivo o de actividad ganadera, durante el periodo necesario para el desarrollo del ciclo normal de evolución del nuevo cultivo o ganadería.</li>
+                  <li>Cuando por fuerza mayor se produzcan daños en las explotaciones agrarias o ganaderas, durante el tiempo imprescindible para la recuperación de las mismas.</li>
+                  <li>Durante el periodo de erradicación de las enfermedades en explotaciones ganaderas.</li>
+                </ul>
+              </li>
+              <li><strong>Trabajador/a autónomo/a por cuenta del Régimen Especial del Mar</strong>
+                <ul>
+                  <li>Por cese temporal por fuerza mayor en los supuestos de suspensión de la actividad de las mariscadoras por toxinas (veda de carácter extraordinario).</li>
+                </ul>
+              </li>
+            </ul>
+            <span class="pe-lbl">Duración</span>
+            <ul><li>Inicio: <strong>día siguiente a la baja</strong> en el Régimen Especial, por norma general, con las siguientes excepciones del artículo 331 de la Ley General de la Seguridad Social:</li></ul>
+            <div style="overflow-x:auto;">
+              <table class="pe-table">
+                <thead><tr><th>Situación</th><th>Fecha de efectos</th></tr></thead>
+                <tbody>
+                  <tr><td>Apartado 1.a) Epígrafe 4º</td><td>Primer día del mes siguiente a la comunicación a la autoridad laboral</td></tr>
+                  <tr><td>Apartado 1.a) Epígrafe 5º</td><td>Primer día del mes siguiente al de la solicitud.</td></tr>
+                  <tr><td>Fuerza mayor</td><td>Día que se acredite la concurrencia de la fuerza mayor</td></tr>
+                  <tr><td>Pérdida de la licencia administrativa, siempre que la misma constituya un requisito para el ejercicio de la actividad económica/profesional y no venga motivada por la comisión de infracciones penales.</td><td>Primer día del mes siguiente al que tengan efectos la baja como consecuencia del cese</td></tr>
+                  <tr><td>Violencia de género y sexual</td><td>Fecha indicada en la orden de protección o, en su defecto, el informe del Ministerio Fiscal, a partir de la cual se ha producido el cese o la interrupción.</td></tr>
+                  <tr><td>Divorcio o separación matrimonial, mediante resolución judicial, en los supuestos en que el autónomo ejerciera funciones de ayuda familiar en el negocio de su excónyuge o de la persona de la que se ha separado, en función de las cuales estaba incluido en el correspondiente Régimen de la Seguridad Social</td><td>Primer día del mes siguiente al que tengan efectos la baja como consecuencia del cese.</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <ul><li>Fin: En función de los <strong>períodos de cotización</strong> efectuados dentro de los 48 meses anteriores a la situación legal de cese de actividad de los que, al menos, 12 meses deben estar comprendidos en los 24 meses inmediatamente anteriores a dicha situación de cese con arreglo a la siguiente escala:</li></ul>
+            <div style="overflow-x:auto;">
+              <table class="pe-table">
+                <thead><tr><th>Periodo cotización (meses)</th><th>De 12 a 17</th><th>De 18 a 23</th><th>De 24 a 29</th><th>De 30 a 35</th><th>De 36 a 42</th><th>De 43 a 47</th><th>De 48 en adelante</th></tr></thead>
+                <tbody><tr><td><strong>Duración protección (meses)</strong></td><td><strong>4</strong></td><td><strong>6</strong></td><td><strong>8</strong></td><td><strong>10</strong></td><td><strong>12</strong></td><td><strong>16</strong></td><td><strong>24</strong></td></tr></tbody>
+              </table>
+            </div>
+            <span class="pe-lbl">Cuantía</span>
+            <ul>
+              <li>70% de la base reguladora* durante todo su periodo de disfrute.</li>
+              <li>50% de la base reguladora en los supuestos previstos en los epígrafes 4º y 5º del artículo 331.1.a) y en los supuestos de suspensión temporal parcial debida a fuerza mayor.</li>
+            </ul>
+            <p>*Base reguladora: promedio de las bases por las que se hubiere cotizado durante los 12 meses continuados e inmediatamente anteriores a la situación legal de cese.</p>
+            <ul><li>Sujeta a limitaciones del Indicador Público de Renta de Efectos Múltiples (IPREM) en el mismo criterio que la prestación por desempleo, salvo para los supuestos de los epígrafes 4º y 5º y la suspensión temporal parcial.</li></ul>
+            <span class="pe-lbl">Forma de abono</span>
+            <ul><li>Directamente a la persona trabajadora por cuenta propia autónomo/a, previa solicitud de la misma y justificación del cumplimiento de los requisitos.</li></ul>
+            <span class="pe-lbl">Requisitos</span>
+            <ul>
+              <li>Tener <strong>cubierto el período mínimo de cotización</strong> por cese de actividad (al menos 12 meses cotizados en los 24 meses anteriores a la situación de cese).</li>
+              <li>Encontrarte en <strong>situación legal de cese de actividad</strong>, baja en el Régimen Especial, salvo para los motivos de los epígrafes 4º y 5º del artículo 331.1a), y fuerza mayor temporal total y parcial.</li>
+              <li>En caso de cese definitivo, <strong>si</strong> puedes acceder a la <strong>pensión de jubilación</strong> <strong>no</strong> podrá acceder a la <strong>prestación por cese de actividad</strong>.</li>
+              <li>Estar al <strong>corriente en el pago</strong> de las cuotas a la Seguridad Social.</li>
+              <li>Para los supuestos de los <strong>epígrafes 4º y 5º del 331.1.a) no podrá ejercer otra actividad</strong>, salvo:
+                <ul>
+                  <li>En caso de <em>pluriactividad</em>, donde el trabajador autónomo podrá percibir una remuneración por el trabajo por cuenta ajena que se venía desarrollando, siempre y cuando la suma de la retribución mensual media de los últimos cuatro meses inmediatamente anteriores al nacimiento del derecho a la prestación por cese y la propia prestación por cese de actividad, resulte en una cantidad media mensual inferior al importe del salario mínimo interprofesional vigente en el momento del nacimiento del derecho a la prestación por cese.</li>
+                  <li>Cuando vaya a realizar la <em>misma actividad por la que causa el cese</em>, siempre que los rendimientos netos mensuales obtenidos durante la percepción de la prestación no sean superiores a la cuantía del salario mínimo interprofesional o al importe de la base por la que viniera cotizando, si esta fuera inferior.</li>
+                </ul>
+              </li>
+              <li>Si tienes <strong>trabajadores a tu cargo</strong>, debes, previo al cese, <strong>cumplir las garantías y obligaciones con tus trabajadores</strong>, salvo los casos de <em>fuerza mayor temporal total y parcial</em>, así como en los <em>ceses derivados de los epígrafes 4º o 5º</em> que no será necesaria la baja en el Régimen.</li>
+            </ul>
+            <span class="pe-lbl">Cotización</span>
+            <p>En Solimat nos hacemos cargo del:</p>
+            <ul>
+              <li><strong>100% de la cuota</strong> que corresponda durante la percepción de las prestaciones económicas por cese de actividad.</li>
+              <li><strong>50% de la cuota</strong> que corresponda durante la percepción de la prestación económica, en los supuestos previstos en los epígrafes 4.º y 5.º del apartado 1.a) del artículo 331, el otro 50 % es a cargo del trabajador.</li>
+            </ul>
+            <p>El pago de esta cuota será en pago directo por la mutua junto a la prestación.</p>
+            <p>En los supuestos de violencia de género o violencia sexual determinante del cese temporal o definitivo de la actividad de la trabajadora autónoma, no existe la obligación de cotizar a la Seguridad Social</p>
+            <a class="pe-cta" href="Podemos Ayudarte.dc.html" style="display:inline-flex; align-items:center; gap:9px; margin-top:14px; background:var(--c-accent); color:#fff; font-size:14.5px; font-weight:600; padding:12px 22px; border-radius:9px; transition:background var(--t);">
+              ¿Quieres tramitar esta prestación? Te ayudamos
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- MECANISMO RED -->
+      <section id="mecanismo-red" class="pe-sec">
+        <div style="background:#fff; border:1px solid var(--c-line-soft); border-radius:var(--r-lg); box-shadow:var(--sh-1); overflow:hidden;">
+          <div style="padding:30px 34px 24px; background:linear-gradient(120deg,#eef4fb 0%,#e4edf8 100%); border-bottom:1px solid var(--c-line-soft);">
+            <h2 style="margin:0 0 12px; font-size:26px; font-weight:700; color:var(--c-accent-deep); letter-spacing:-0.015em;">Mecanismo RED</h2>
+            <div class="pe-body">
+              <p style="margin:0 0 10px;">El 1 de enero de 2023 entran en vigor dos nuevas prestaciones para los trabajadores autónomos activados por el Mecanismo RED (artículo 47 bis del Estatuto de los Trabajadores).</p>
+              <p style="margin:0;">Durante la vigencia de estas medidas, las personas trabajadoras autónomas podrán acceder a una de las dos prestaciones reguladas en las disposiciones adicionales 48 y 49 del Real Decreto-ley 13/2022, de 26 de julio, por el que se establece un nuevo sistema de cotización para los trabajadores por cuenta propia o autónomos y se mejora la protección por cese de actividad:</p>
+            </div>
+          </div>
+          <div style="display:flex; border-bottom:1px solid var(--c-line-soft); padding:0 34px;">
+            <button class="tab-btn {{ redCiclicaCls }}" onClick="{{ setRedCiclica }}">Modalidad Cíclica</button>
+            <button class="tab-btn {{ redSectorialCls }}" onClick="{{ setRedSectorial }}">Modalidad Sectorial</button>
+          </div>
+          <div class="pe-body" style="padding:28px 34px 30px;">
+            <sc-if value="{{ redCiclica }}" hint-placeholder-val="{{ true }}">
+              <div>
+                <span class="pe-lbl">Destinatarios</span>
+                <p>Pueden causar derecho a esta prestación las personas trabajadoras autónomas que desarrollen su <strong>actividad en un sector afectado por el Acuerdo del Consejo de Ministros que active el Mecanismo RED en su modalidad cíclica</strong>, previsto en el artículo 47 bis del texto refundido de la Ley del Estatuto de los Trabajadores.</p>
+                <span class="pe-lbl">Requisitos</span>
+                <p>Comunes a todos los trabajadores autónomos:</p>
+                <ul>
+                  <li>Estar de <strong>alta en el régimen especial</strong> al que se encuentre adscrita la actividad.</li>
+                  <li>Estar al <strong>corriente en el pago</strong> de obligaciones tributarias y de Seguridad Social.</li>
+                  <li><strong>No prestar servicios</strong> por cuenta ajena o por cuenta propia <strong>en otra actividad no afectada por el mecanismo RED</strong> o, siéndolo, no haber adoptado las medidas previstas en el artículo 47 bis del texto refundido de la Ley del Estatuto de los Trabajadores salvo lo dispuesto en al apartado cuarto de esta disposición adicional sobre incompatibilidades.</li>
+                  <li><strong>No percibir una prestación de cese de actividad</strong> o <strong>para la sostenibilidad de la actividad</strong>.</li>
+                  <li><strong>No haber cumplido la edad ordinaria para causar derecho a la pensión contributiva de jubilación</strong>, salvo que el trabajador autónomo no tuviera acreditado el período de cotización requerido para ello.</li>
+                </ul>
+                <p>Trabajadores autónomos, trabajadores autónomos socios de sociedades de capital, trabajadores de cooperativas de trabajo asociado o trabajadores autónomos que ejercen su actividad profesional conjuntamente, cuyas empresas tengan <strong>trabajadores asalariados</strong>, se exigirá igualmente:</p>
+                <ul>
+                  <li><strong>Resolución de la autoridad laboral</strong> autorizando la aplicación del mecanismo RED para los trabajadores de la empresa.</li>
+                  <li>Que la adopción de las medidas del mecanismo RED afecte al <strong>75 por ciento de las personas en situación de alta con obligación de cotizar</strong> de la empresa.</li>
+                  <li>Que se produzca una <strong>reducción de ingresos ordinarios o ventas durante los dos trimestres fiscales previos</strong> a la solicitud presentados ante la Administración tributaria del 75 por ciento respecto de los registrados en los mismos periodos del ejercicio o ejercicios anteriores.</li>
+                  <li>Que los <strong>rendimientos netos mensuales del trabajador autónomo durante los dos trimestres fiscales anteriores</strong> a la solicitud de la prestación, por todas las actividades económicas, empresariales o profesionales que desarrolle, <strong>no alcancen la cuantía del salario mínimo interprofesional</strong> o el de la <strong>base</strong> por la que <strong>viniera cotizando</strong>, si esta fuera inferior.</li>
+                  <li><strong>Cumplir la empresa con las obligaciones laborales</strong> adquiridas como consecuencia de la adopción de medidas al amparo del Mecanismo RED y estar al <strong>corriente en el pago de salarios de los trabajadores</strong>.</li>
+                </ul>
+                <p>Trabajadores autónomos, trabajadores autónomos socios de sociedades de capital, trabajadores de cooperativas de trabajo asociado o trabajadores autónomos que ejercen su actividad profesional conjuntamente, cuyas empresas <strong>no tengan trabajadores asalariados</strong>, se exigirá igualmente:</p>
+                <ul>
+                  <li>Que se produzca una <strong>reducción de ingresos ordinarios o ventas durante los dos trimestres fiscales previos a la solicitud</strong> presentados ante la Administración tributaria del 75 por ciento respecto de los registrados en los mismos periodos del ejercicio o ejercicios anteriores.</li>
+                  <li>Que los <strong>rendimientos netos mensuales</strong> del trabajador autónomo durante los <strong>dos trimestres fiscales anteriores a la solicitud</strong> de la prestación, por todas las actividades económicas o profesionales que desarrolle, no alcancen la cuantía del <strong>salario mínimo interprofesional</strong> o el de la <strong>base</strong> por la que <strong>viniera cotizando</strong>, si esta fuera inferior.</li>
+                </ul>
+                <span class="pe-lbl">Cuantía</span>
+                <p>Comprende dos prestaciones:</p>
+                <ul>
+                  <li><strong>50% de la base reguladora*</strong>.
+                    <ul><li>La base reguladora* de la prestación económica es la correspondiente a la base prevista en el tramo 3 de la tabla reducida aplicable a las personas trabajadoras autónomas.</li></ul>
+                  </li>
+                  <li><strong>50% de la cotización a la Seguridad Social</strong> del trabajador autónomo al régimen correspondiente calculada sobre la base reguladora de la prestación. Solimat abona esta prestación.
+                    <ul><li>El otro 50% es a cargo de la persona trabajadora autónoma.</li></ul>
+                  </li>
+                </ul>
+                <span class="pe-lbl">Forma de abono</span>
+                <ul><li>Abono directo de la prestación y el importe de la cuota al/a autónomo/a, previa solicitud y justificación del cumplimiento de los requisitos.</li></ul>
+                <span class="pe-lbl">Obligaciones</span>
+                <p>Trabajadores autónomos <strong>con trabajadores por cuenta ajena</strong> perceptor de la prestación debe:</p>
+                <ul>
+                  <li>Incorporarse a la actividad cuando se acuerde el levantamiento de las medidas adoptadas en el mecanismo Red.</li>
+                  <li>Mantenerse en el desarrollo de la actividad al menos 6 meses consecutivos.</li>
+                  <li>Mantener al corriente en las cotizaciones a la Seguridad Social de los trabajadores de la empresa.</li>
+                </ul>
+                <p>Trabajadores autónomos <strong>sin trabajadores por cuenta ajena</strong> perceptor de la prestación debe:</p>
+                <ul>
+                  <li>Incorporarse a la actividad cuando finalice el derecho a la prestación.</li>
+                  <li>Mantenerse en el desarrollo de la actividad al menos 6 meses consecutivos.</li>
+                </ul>
+              </div>
+            </sc-if>
+            <sc-if value="{{ redSectorial }}" hint-placeholder-val="{{ false }}">
+              <div>
+                <span class="pe-lbl">Destinatarios</span>
+                <p>Pueden causar derecho a la prestación para la sostenibilidad de la actividad regulada en esta disposición, las personas trabajadoras autónomas que desarrollen su <strong>actividad en un sector afectado por el Acuerdo del Consejo de Ministros que active el Mecanismo RED en su modalidad sectorial</strong>, previsto en el artículo 47 bis del texto refundido de la Ley del Estatuto de los Trabajadores.</p>
+                <span class="pe-lbl">Requisitos</span>
+                <p>Comunes a todos los trabajadores autónomos:</p>
+                <ul>
+                  <li>Estar de <strong>alta en el régimen especial</strong> al que se encuentre adscrita la actividad.</li>
+                  <li>Tener <strong>cubierto el periodo mínimo de cotización</strong> por cese de actividad a que se refiere el artículo 338.</li>
+                  <li>Estar al <strong>corriente en el pago</strong> de obligaciones tributarias y de Seguridad Social.</li>
+                  <li><strong>No prestar servicios</strong> por cuenta ajena o por cuenta propia <strong>en otra actividad no afectada por el mecanismo RED</strong> o siéndolo no haber adoptado las medidas previstas en el artículo 47 bis del texto refundido de la Ley del Estatuto de los Trabajadores salvo lo dispuesto en lo establecido en el apartado de incompatibilidades.</li>
+                  <li><strong>No percibir una prestación de cese de actividad</strong> o <strong>para la sostenibilidad de la actividad.</strong></li>
+                  <li><strong>No haber cumplido la edad ordinaria para causar derecho a la pensión contributiva de jubilación</strong>, salvo que el trabajador autónomo no tuviera acreditado el período de cotización requerido para ello.</li>
+                  <li><strong>Suscripción del compromiso de actividad</strong> al que se refiere el artículo 300.</li>
+                </ul>
+                <p>Trabajadores autónomos, trabajadores autónomos por su condición de socios de sociedades de capital, trabajadores de cooperativas de trabajo asociado o trabajadores autónomos que ejercen su actividad profesional conjuntamente, cuyas empresas <strong>tengan trabajadores asalariados</strong>, se exigirá igualmente:</p>
+                <ul>
+                  <li><strong>Resolución de la autoridad laboral</strong> autorizando la aplicación del mecanismo RED para los trabajadores de la empresa.</li>
+                  <li>Que la adopción de las medidas del mecanismo RED afecte al <strong>75 por ciento de las personas en situación de alta con obligación de cotizar</strong> de la empresa.</li>
+                  <li>Que se produzca una <strong>reducción de ingresos ordinarios o ventas durante los dos trimestres fiscales previos</strong> a la solicitud presentados ante la Administración tributaria del <strong>75 %</strong> respecto de los registrados en los mismos periodos del ejercicio o ejercicios anteriores.</li>
+                  <li>Que los <strong>rendimientos netos mensuales del trabajador autónomo durante los dos trimestres fiscales anteriores</strong> a la solicitud de la prestación, por todas las actividades económicas, empresariales o profesionales que desarrolle, no alcancen la cuantía del <strong>salario mínimo interprofesional</strong> o el de la <strong>base</strong> por la que <strong>viniera cotizando</strong>, si esta fuera inferior.</li>
+                  <li><strong>Cumplir la empresa con las obligaciones laborales adquiridas</strong> como consecuencia de la adopción de medidas al amparo del Mecanismo RED y estar al <strong>corriente en el pago de salarios de los trabajadores</strong>.</li>
+                </ul>
+                <p>Trabajadores autónomos, trabajadores autónomos por su condición de socios de sociedades de capital, trabajadores de cooperativas de trabajo asociado o trabajadores autónomos que ejercen su actividad profesional conjuntamente, cuyas empresas <strong>no tengan trabajadores asalariados</strong>, se exigirá igualmente:</p>
+                <ul>
+                  <li>Que se produzca una <strong>reducción de ingresos ordinarios o ventas durante los dos trimestres fiscales previos</strong> a la solicitud presentados ante la Administración tributaria del <strong>75%</strong> respecto de los registrados en los mismos periodos del ejercicio o ejercicios anteriores.</li>
+                  <li>Que los <strong>rendimientos netos mensuales</strong> del trabajador autónomo durante los <strong>dos trimestres fiscales anteriores</strong> a la solicitud de la prestación, por todas las actividades económicas o profesionales que desarrolle, no alcancen la cuantía del <strong>salario mínimo interprofesional</strong> o el de la <strong>base</strong> por la que viniera cotizando, si esta fuera inferior.</li>
+                  <li>Presentar a Solimat un <strong>proyecto de inversión y actividad a desarrollar</strong>.</li>
+                  <li>Participar en un <strong>plan de recualificación</strong> que debe ser presentado a Solimat.</li>
+                </ul>
+                <span class="pe-lbl">Cuantía</span>
+                <p>Comprende las prestaciones siguientes:</p>
+                <p>Para trabajadores autónomos, trabajadores autónomos por su condición de socios de sociedades de capital, trabajadores de cooperativas de trabajo asociado o trabajadores autónomos que ejercen su actividad profesional conjuntamente, cuyas empresas <strong>tengan trabajadores asalariados</strong>:</p>
+                <ul><li><strong>70 % de la base reguladora*</strong> y su determinación estará vinculada al tiempo de duración del mecanismo RED y en ningún caso podrá exceder de la que le corresponda atendiendo a lo previsto en el artículo 338.1.</li></ul>
+                <p>Para de trabajadores autónomos, trabajadores autónomos por su condición de socios de sociedades de capital, trabajadores de cooperativas de trabajo asociado o trabajadores autónomos que ejercen su actividad profesional conjuntamente, cuyas empresas <strong>no tengan trabajadores asalariados</strong>:</p>
+                <ul><li><strong>70 % de la base reguladora*</strong> teniendo en cuenta los periodos de cotización de conformidad con lo previsto en el artículo 338.</li></ul>
+                <p>La base reguladora* de la prestación económica será el promedio de las bases de cotización de los doce meses continuados e inmediatamente anteriores al acuerdo del Consejo de Ministros.</p>
+                <ul><li>Y el <strong>50% de la cotización a la Seguridad Social</strong> del trabajador autónomo al régimen correspondiente calculada sobre la base reguladora de la prestación. Solimat abona esta prestación.</li></ul>
+                <p>El otro 50% es a cargo de la persona trabajadora autónoma.</p>
+                <span class="pe-lbl">Forma de abono</span>
+                <ul><li>Abono directo y <strong>pago único</strong> a la persona trabajadora autónoma, previa solicitud y justificación del cumplimiento de los requisitos.</li></ul>
+                <span class="pe-lbl">Obligaciones</span>
+                <p>Trabajadores autónomos perceptores de la prestación deben:</p>
+                <ul>
+                  <li>Incorporarse a la actividad cuando se acuerde el levantamiento de las medidas adoptadas en el mecanismo Red, al menos a uno de los trabajadores de la empresa.</li>
+                  <li>Mantenerse en el desarrollo de la actividad al menos 6 meses consecutivos.</li>
+                  <li>Mantenerse al corriente en las cotizaciones a la Seguridad Social, propias y de los trabajadores de la empresa o asimilados.</li>
+                  <li>Cotizar el 50% por todas las contingencias, incluido el cese de actividad.</li>
+                  <li>Invertir el importe de la prestación en un actividad económica o profesional como trabajadores autónomos o destinar el 100% de su importe a realizar una aportación al capital social de una entidad mercantil de nueva constitución o constituida en el plazo máximo de doces meses anteriores a la aportación, siempre que vayan a poseer el control efectivo de la misma, conforme a lo previsto en el texto refundido de la LGSS y a ejercer en ella una actividad, encuadrados como trabajadores por cuenta propia en el régimen especial de la Seguridad Social correspondiente por razón de su actividad.</li>
+                </ul>
+              </div>
+            </sc-if>
+            <a class="pe-cta" href="Podemos Ayudarte.dc.html" style="display:inline-flex; align-items:center; gap:9px; margin-top:14px; background:var(--c-accent); color:#fff; font-size:14.5px; font-weight:600; padding:12px 22px; border-radius:9px; transition:background var(--t);">
+              ¿Quieres tramitar esta prestación? Te ayudamos
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRESTACIONES COMPLEMENTARIAS -->
+      <section id="prestaciones-complementarias" class="pe-sec">
+        <div style="background:#fff; border:1px solid var(--c-line-soft); border-radius:var(--r-lg); box-shadow:var(--sh-1); overflow:hidden;">
+          <div style="padding:30px 34px 24px; background:linear-gradient(120deg,#eef4fb 0%,#e4edf8 100%); border-bottom:1px solid var(--c-line-soft);">
+            <h2 style="margin:0 0 12px; font-size:26px; font-weight:700; color:var(--c-accent-deep); letter-spacing:-0.015em;">Prestaciones complementarias</h2>
+            <p style="margin:0; font-size:15px; line-height:1.65; color:var(--c-text-muted);">Te ayudamos a poder acceder a las prestaciones complementarias. Son ayudas económicas que concede la Comisión de Prestaciones Especiales de Solimat y son de carácter potestativo.</p>
+          </div>
+          <div class="pe-body" style="padding:28px 34px 30px;">
+            <span class="pe-lbl">Beneficiarios</span>
+            <ul>
+              <li>Trabajadores al servicio de los empresarios asociados con Solimat que hayan sufrido un accidente de trabajo (con baja) o estén afectos a una enfermedad profesional aún con posterioridad a la pérdida del empleo, siempre y cuando quede acreditado con el correspondiente informe médico que son consecuencia directa del accidente de trabajo o de la enfermedad profesional.</li>
+              <li>El cónyuge o la pareja de hecho del trabajador aun en los casos en los que no tenga derechos sucesorios del trabajador fallecido y los hijos del trabajador accidentado. En ambos supuestos, deberán constituir una unidad de convivencia con el trabajador.</li>
+              <li>En defecto de los anteriores: los nietos; y, a falta de ellos, los padres. En ambos supuestos, deberán constituir una unidad de convivencia con el trabajador.</li>
+              <li>Podrá ser beneficiario de la prestación de auxilio por defunción cualquier familiar, cónyuge o pareja de hecho que tenga la condición de derechohabiente y haya hecho frente a los gastos del deceso.</li>
+              <li>También aplica a Trabajadores Autónomos en las mismas condiciones y términos a los establecidos para trabajadores por cuenta ajena.</li>
+            </ul>
+            <span class="pe-lbl">Requisitos</span>
+            <p>Las prestaciones complementarias están dirigidas a los trabajadores de las empresas asociadas a Solimat, a los trabajadores autónomos adheridos y a sus derechohabientes. Puedes solicitarlas siempre que cumplas los requisitos siguientes:</p>
+            <ul>
+              <li>Tener la cobertura de contingencias profesionales con Solimat.</li>
+              <li>Haber sufrido un accidente de trabajo o enfermedad profesional.</li>
+              <li>Encontrarte en estado y/o situación concreta de necesidad.</li>
+              <li>Cumplir con los requisitos establecidos legalmente.</li>
+              <li>Informe de asistente donde se determine y cuantifique la ayuda solicitada.</li>
+            </ul>
+            <span class="pe-lbl">Tipos de ayuda</span>
+            <ul>
+              <li>Rehabilitación y recuperación.</li>
+              <li>Reorientación profesional y adaptación del puesto de trabajo.</li>
+              <li>Ayuda para la adaptación de los medios esenciales para el desarrollo de las actividades básicas de la vida diaria.</li>
+              <li>Complemento auxilio por defunción.</li>
+              <li>Ayuda para la formación en el cuidado de personas en situación de Gran Invalidez.</li>
+              <li>Ayuda para el mantenimiento de la posesión o disfrute de la vivienda habitual.</li>
+            </ul>
+            <span class="pe-lbl">Cuantía</span>
+            <p>La Comisión de Prestaciones Especiales es la encargada de estudiar y aprobar o denegar las solicitudes recibidas. En el caso de ser aprobadas, estas pueden cubrirse total o parcialmente.</p>
+            <a class="pe-cta" href="Podemos Ayudarte.dc.html" style="display:inline-flex; align-items:center; gap:9px; margin-top:14px; background:var(--c-accent); color:#fff; font-size:14.5px; font-weight:600; padding:12px 22px; border-radius:9px; transition:background var(--t);">
+              ¿Quieres tramitar esta prestación? Te ayudamos
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- INCAPACIDAD PERMANENTE -->
+      <section id="incapacidad" class="pe-sec">
+        <div style="background:#fff; border:1px solid var(--c-line-soft); border-radius:var(--r-lg); box-shadow:var(--sh-1); overflow:hidden;">
+          <div style="padding:30px 34px 24px; background:linear-gradient(120deg,#eef4fb 0%,#e4edf8 100%); border-bottom:1px solid var(--c-line-soft);">
+            <h2 style="margin:0 0 12px; font-size:26px; font-weight:700; color:var(--c-accent-deep); letter-spacing:-0.015em;">Prestación económica por Incapacidad Permanente e invalidez</h2>
+            <div class="pe-body">
+              <p style="margin:0 0 10px;">Si como consecuencia de un accidente de trabajo o enfermedad profesional, <strong>después del tratamiento médico presenta reducciones que disminuyen o anulan su capacidad</strong> laboral, será dado de alta con una propuesta de solicitud de grado de incapacidad.</p>
+              <p style="margin:0;">En función de la disminución de la capacidad laboral, la determinación de la incapacidad se establece en grados de incapacidad.</p>
+            </div>
+          </div>
+          <div class="pe-body" style="padding:28px 34px 30px;">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:20px;">
+              <div style="border:1px solid var(--c-line-soft); border-radius:12px; padding:20px 22px;">
+                <h3 style="margin:0 0 12px; font-size:16px; font-weight:700; color:var(--c-accent-deep);">Lesiones permanentes no invalidantes</h3>
+                <ul style="margin:0;">
+                  <li>Situación: Disminución o alteración de la integridad física a causa de lesiones, mutilaciones y deformidades de carácter definitivo no incapacitantes.</li>
+                  <li>Cuantía: recogida en el <strong>baremo</strong> establecido al efecto (indemnización única según el baremo vigente adjuntar enlace, ojo este creo que se modifica periódicamente tenerlo en cuenta para alertado en el mapa web para actualización).</li>
+                  <li>Forma de pago: Pago único</li>
+                </ul>
+              </div>
+              <div style="border:1px solid var(--c-line-soft); border-radius:12px; padding:20px 22px;">
+                <h3 style="margin:0 0 12px; font-size:16px; font-weight:700; color:var(--c-accent-deep);">Incapacidad permanente parcial</h3>
+                <ul style="margin:0;">
+                  <li>Situación: Disminución no inferior al 33% en el rendimiento normal para la profesión sin impedirle otras tareas.</li>
+                  <li>Cuantía: cantidad equivalente a 24 mensualidades de la base reguladora (del mes anterior a la baja) del cálculo de la prestación de incapacidad temporal.</li>
+                  <li>Forma de pago: Pago único.</li>
+                </ul>
+              </div>
+              <div style="border:1px solid var(--c-line-soft); border-radius:12px; padding:20px 22px;">
+                <h3 style="margin:0 0 12px; font-size:16px; font-weight:700; color:var(--c-accent-deep);">Incapacidad permanente total</h3>
+                <ul style="margin:0;">
+                  <li>Situación: Inhabilita al trabajador/a para realizar las tareas fundamentales de su profesión, a realizar su oficio, pero puede dedicarse a otra distinta.</li>
+                  <li>Cuantía: 55% de la base reguladora anual, revisable para mayores de 55 años que no realicen trabajos (incremento en un 20%).</li>
+                  <li>Forma de pago: pensión vitalicia.</li>
+                </ul>
+              </div>
+              <div style="border:1px solid var(--c-line-soft); border-radius:12px; padding:20px 22px;">
+                <h3 style="margin:0 0 12px; font-size:16px; font-weight:700; color:var(--c-accent-deep);">Incapacidad permanente absoluta</h3>
+                <ul style="margin:0;">
+                  <li>Inhabilita por completo al que trabaja para toda profesión u oficio.</li>
+                  <li>Cuantía: pensión vitalicia del 100% de la base reguladora anual.</li>
+                  <li>Forma de pago: pensión vitalicia.</li>
+                </ul>
+              </div>
+              <div style="border:1px solid var(--c-line-soft); border-radius:12px; padding:20px 22px; grid-column:1 / -1;">
+                <h3 style="margin:0 0 12px; font-size:16px; font-weight:700; color:var(--c-accent-deep);">Gran invalidez</h3>
+                <ul style="margin:0;">
+                  <li>La persona afectada por incapacidad permanente necesita de la asistencia de otra persona para llevar a cabo los actos más esenciales de la vida.</li>
+                  <li>Cuantía: 100% de la base reguladora, más un complemento no inferior al 45% de la pensión, para la persona que lo atiende.</li>
+                  <li>Forma de pago: pensión vitalicia.</li>
+                </ul>
+              </div>
+            </div>
+            <p style="margin:0;">Para más información: <a href="https://www.seg-social.es/wps/portal/wss/internet/InformacionUtil/44539/45982" target="_blank" rel="noopener">Seguridad Social: Información Útil (seg-social.es)</a></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- MUERTE Y SUPERVIVENCIA -->
+      <section id="muerte-supervivencia" class="pe-sec" style="margin-bottom:0;">
+        <div style="background:#fff; border:1px solid var(--c-line-soft); border-radius:var(--r-lg); box-shadow:var(--sh-1); overflow:hidden;">
+          <div style="padding:30px 34px 24px; background:linear-gradient(120deg,#eef4fb 0%,#e4edf8 100%); border-bottom:1px solid var(--c-line-soft);">
+            <h2 style="margin:0 0 12px; font-size:26px; font-weight:700; color:var(--c-accent-deep); letter-spacing:-0.015em;">Prestación económica por muerte y supervivencia</h2>
+            <p style="margin:0; font-size:15px; line-height:1.65; color:var(--c-text-muted);">En caso de <strong style="color:var(--c-text-strong);">fallecimiento</strong> como consecuencia de un accidente de trabajo o enfermedad profesional, el <strong style="color:var(--c-text-strong);">cónyuge, hijos menores de 18 años o familiares próximos</strong> pueden solicitar:</p>
+          </div>
+          <div class="pe-body" style="padding:28px 34px 30px;">
+            <ul>
+              <li><strong>Pensión de viudedad para</strong> el cónyuge superviviente:
+                <ul><li>Cuantía: 52% de la base reguladora del fallecido.</li></ul>
+              </li>
+              <li><strong>Pensión de orfandad</strong>:
+                <ul><li>Cuantía: 20% de la base reguladora: hasta los 21 años, ampliable hasta los 25 años bajo determinadas circunstancias. Este porcentaje se puede incrementar un 52%.</li></ul>
+              </li>
+              <li><strong>Prestación a favor de familiares</strong>:
+                <ul><li>Cuantía: 20% de la base reguladora</li><li>Requiere: el cumplimiento previo de determinados requisitos.</li></ul>
+              </li>
+              <li><strong>Auxilio por defunción:</strong>
+                <ul>
+                  <li>Cuantía: ayuda obligatoria es de 46,5 euros.</li>
+                  <li>No exige periodo de carencia.</li>
+                  <li>Finalidad hacer frente a los gastos del sepelio.</li>
+                  <li>Beneficiarios: familiares que hayan sufragado el gasto.</li>
+                  <li>Forma de pago: pago único.</li>
+                </ul>
+              </li>
+              <li><strong>Indemnización a tanto alzado:</strong>
+                <ul>
+                  <li>Cuantías:
+                    <ul>
+                      <li>6 mensualidades de la base reguladora*, para el cónyuge.</li>
+                      <li>1 mensualidad de la base reguladora*, para cada hijo, (si no hay cónyuge superviviente, prorrateando entre los hijos las 6 mensualidades que deberían corresponder al cónyuge).</li>
+                      <li>9 mensualidades para el caso de madre o padre, y 6 mensualidades para cada uno si sobrevivieran ambos siempre que no exista ningún familiar con derecho a pensión por muerte o supervivencia y no tengan derecho a prestación a favor de familiares.</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <p>*Base reguladora del fallecido.</p>
+            <p style="margin:0;">Para más información: <a href="https://www.seg-social.es/wps/portal/wss/internet/InformacionUtil/44539/45659" target="_blank" rel="noopener">Seguridad Social: Información Útil (seg-social.es)</a></p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer style="margin-top:auto; background:var(--color-900); color:#fff;">
+  <div class="container" style="padding:56px 0 40px;">
+    <div style="display:grid; grid-template-columns:1.3fr 1fr 1fr 1.1fr; gap:44px;">
+      <div>
+        <img src="images/logoBlanco.png" alt="Solimat" style="height:52px; margin-bottom:18px;">
+        <p style="margin:0 0 18px; font-size:13.5px; color:rgba(255,255,255,.7); line-height:1.6; font-weight:600; letter-spacing:.02em;">Salud · Experiencia · Compromiso · Integridad · Confianza</p>
+        <div style="display:flex; gap:10px;">
+          <a class="ftr-link" href="https://es.linkedin.com/company/solimat-matepss-" target="_blank" rel="noopener" aria-label="LinkedIn" style="width:36px; height:36px; border-radius:9px; background:rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; color:#fff;"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 002.5 6a2.5 2.5 0 005 0 2.5 2.5 0 00-2.52-2.5zM3 8.98h4v12H3zM9.5 8.98h3.8v1.64h.05c.53-.95 1.83-1.96 3.77-1.96 4.03 0 4.78 2.65 4.78 6.1v6.22h-4v-5.51c0-1.32-.02-3-1.84-3-1.85 0-2.13 1.44-2.13 2.92v5.59h-4z"/></svg></a>
+          <a class="ftr-link" href="https://www.youtube.com/user/Solimat72" target="_blank" rel="noopener" aria-label="YouTube" style="width:36px; height:36px; border-radius:9px; background:rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; color:#fff;"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 00-1.77-1.77C19.34 5.1 12 5.1 12 5.1s-7.34 0-8.83.43A2.5 2.5 0 001.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 001.77 1.77c1.49.43 8.83.43 8.83.43s7.34 0 8.83-.43a2.5 2.5 0 001.77-1.77C23 15.2 23 12 23 12zM9.75 15.5v-7l6 3.5z"/></svg></a>
+          <a class="ftr-link" href="https://www.instagram.com/solimat72/" target="_blank" rel="noopener" aria-label="Instagram" style="width:36px; height:36px; border-radius:9px; background:rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; color:#fff;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a class="ftr-link" href="https://www.facebook.com/profile.php?id=100083202458773" target="_blank" rel="noopener" aria-label="Facebook" style="width:36px; height:36px; border-radius:9px; background:rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; color:#fff;"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0022 12z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--color-200); margin-bottom:16px;">Te puede interesar</div>
+        <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:11px;">
+          <li><a class="ftr-link" href="Perfil Del Contratante.dc.html" style="color:rgba(255,255,255,.82); font-size:14px;">Perfil del Contratante</a></li>
+          <li><a class="ftr-link" href="http://transparencia.solimat.com/web/index.html" target="_blank" rel="noopener" style="color:rgba(255,255,255,.82); font-size:14px;">Portal de Transparencia</a></li>
+          <li><a class="ftr-link" href="#" style="color:rgba(255,255,255,.82); font-size:14px;">Reclamaciones y quejas</a></li>
+          <li><a class="ftr-link" href="Recursos Y Herramientas.dc.html" style="color:rgba(255,255,255,.82); font-size:14px;">Recursos y Herramientas</a></li>
+          <li><a class="ftr-link" href="Preguntas Frecuentes.dc.html" style="color:rgba(255,255,255,.82); font-size:14px;">Preguntas Frecuentes</a></li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--color-200); margin-bottom:16px;">Enlaces de interés</div>
+        <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:11px;">
+          <li><a class="ftr-link" href="Referencias Legislativas.dc.html" style="color:rgba(255,255,255,.82); font-size:14px;">Referencias legislativas</a></li>
+          <li><a class="ftr-link" href="https://www.boe.es/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.82); font-size:14px;">BOE</a></li>
+          <li><a class="ftr-link" href="https://www.insst.es/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.82); font-size:14px;">INSST</a></li>
+          <li><a class="ftr-link" href="https://www.amat.es/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.82); font-size:14px;">AMAT</a></li>
+          <li><a class="ftr-link" href="https://www.seg-social.es/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.82); font-size:14px;">Seguridad Social</a></li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--color-200); margin-bottom:16px;">Contacto</div>
+        <div style="font-size:14px; color:rgba(255,255,255,.82); line-height:1.7;">
+          <div style="font-weight:600; color:#fff; margin-bottom:2px;">Sede Central</div>
+          <div>C/ Berna, 1 — 4ª planta</div>
+          <div>45003 Toledo</div>
+          <div style="margin-top:12px;"><a class="ftr-link" href="tel:925283186" style="color:var(--color-200); font-weight:600;">925 28 31 86</a></div>
+          <div style="margin-top:2px;">contigo@solimat.com</div>
+          <div style="margin-top:12px;"><a class="ftr-link" href="#" style="color:rgba(255,255,255,.82);">Direcciones provinciales →</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="background:var(--color-950); padding:15px 0;">
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; font-size:12.5px; color:rgba(255,255,255,.6);">
+      <span>© {{ year }} Solimat — Mutua Colaboradora con la Seguridad Social Nº 72</span>
+      <div style="display:flex; gap:20px;">
+        <a class="ftr-link" href="#" style="color:rgba(255,255,255,.6);">Aviso legal</a>
+        <a class="ftr-link" href="#" style="color:rgba(255,255,255,.6);">Política de privacidad</a>
+        <a class="ftr-link" href="#" style="color:rgba(255,255,255,.6);">Política de cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { cp: "ajena", cc: "ajena", re: "ajena", cm: "ajena", red: "ciclica" };
+
+  renderVals() {
+    const s = this.state;
+    const cls = (a, b) => (a === b ? "is-active" : "");
+    return {
+      year: new Date().getFullYear(),
+      cpAjena: s.cp === "ajena", cpPropia: s.cp === "propia",
+      cpAjenaCls: cls(s.cp, "ajena"), cpPropiaCls: cls(s.cp, "propia"),
+      setCpAjena: () => this.setState({ cp: "ajena" }),
+      setCpPropia: () => this.setState({ cp: "propia" }),
+      ccAjena: s.cc === "ajena", ccPropia: s.cc === "propia",
+      ccAjenaCls: cls(s.cc, "ajena"), ccPropiaCls: cls(s.cc, "propia"),
+      setCcAjena: () => this.setState({ cc: "ajena" }),
+      setCcPropia: () => this.setState({ cc: "propia" }),
+      reAjena: s.re === "ajena", rePropia: s.re === "propia",
+      reAjenaCls: cls(s.re, "ajena"), rePropiaCls: cls(s.re, "propia"),
+      setReAjena: () => this.setState({ re: "ajena" }),
+      setRePropia: () => this.setState({ re: "propia" }),
+      cmAjena: s.cm === "ajena", cmPropia: s.cm === "propia",
+      cmAjenaCls: cls(s.cm, "ajena"), cmPropiaCls: cls(s.cm, "propia"),
+      setCmAjena: () => this.setState({ cm: "ajena" }),
+      setCmPropia: () => this.setState({ cm: "propia" }),
+      redCiclica: s.red === "ciclica", redSectorial: s.red === "sectorial",
+      redCiclicaCls: cls(s.red, "ciclica"), redSectorialCls: cls(s.red, "sectorial"),
+      setRedCiclica: () => this.setState({ red: "ciclica" }),
+      setRedSectorial: () => this.setState({ red: "sectorial" }),
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="theme.css">
+<style>
+a { text-decoration:none; }
+.topbar-link:hover { color:#fff !important; }
+.navdd { position:relative; padding-bottom:14px; margin-bottom:-14px; }
+.navdd__trigger { display:inline-flex; align-items:center; gap:7px; padding:9px 15px; border:0; background:transparent; font-family:inherit; font-size:14.5px; font-weight:500; color:var(--c-accent); border-radius:7px; cursor:pointer; transition:var(--t); }
+.navdd__trigger svg { transition:transform .25s ease; }
+.navdd:hover .navdd__trigger, .navdd:focus-within .navdd__trigger { background:var(--c-accent-deep); color:#fff; }
+.navdd:hover .navdd__trigger svg, .navdd:focus-within .navdd__trigger svg { transform:rotate(180deg); }
+.navdd__menu { position:absolute; top:100%; left:0; min-width:238px; background:#f3f6fa; border:1px solid var(--c-line-soft); border-radius:12px; box-shadow:var(--sh-3); padding:8px; display:flex; flex-direction:column; opacity:0; visibility:hidden; transform:translateY(-6px); transition:opacity .2s ease, transform .2s ease, visibility .2s; z-index:60; }
+.navdd:hover .navdd__menu, .navdd:focus-within .navdd__menu { opacity:1; visibility:visible; transform:translateY(0); }
+.navdd__menu a { padding:11px 15px; border-radius:8px; font-size:14px; color:var(--c-text); font-weight:500; white-space:nowrap; transition:var(--t); }
+.navdd__menu a:hover { background:#fff; color:var(--c-accent); padding-left:19px; }
+.navdd__menu a.is-current { background:var(--c-accent-soft); color:var(--c-accent-dark); font-weight:600; }
+.ftr-link:hover { color:var(--color-300) !important; }
+.ix-link { display:block; padding:9px 0 9px 14px; border-left:2px solid var(--c-line); font-size:13.5px; color:var(--c-text-muted); transition:all var(--t); line-height:1.4; }
+.ix-link:hover { border-left-color:var(--c-accent); color:var(--c-accent-dark); padding-left:18px; }
+.al-sec { scroll-margin-top:100px; margin-bottom:22px; }
+.al-body p { margin:0 0 12px; font-size:15px; line-height:1.68; color:var(--c-text-muted); }
+.al-body strong { color:var(--c-text-strong); font-weight:600; }
+.al-body ul { margin:0 0 14px; padding-left:20px; }
+.al-body li { font-size:15px; line-height:1.65; color:var(--c-text-muted); margin-bottom:7px; }
+.al-body a { color:var(--c-accent); font-weight:600; }
+.al-body a:hover { color:var(--c-accent-dark); }
+.al-card { background:#fff; border:1px solid var(--c-line-soft); border-radius:var(--r-lg); box-shadow:var(--sh-1); padding:30px 32px; }
+.al-cta:hover { background:var(--c-accent-dark) !important; }
+.fld { display:flex; flex-direction:column; gap:7px; }
+.fld label { font-size:13px; font-weight:600; color:var(--c-text-strong); letter-spacing:.01em; }
+.inp { font-family:inherit; font-size:15px; color:var(--c-text-strong); background:#fff; border:1px solid var(--c-line); border-radius:10px; padding:12px 14px; transition:border-color var(--t), box-shadow var(--t); width:100%; box-sizing:border-box; }
+.inp:focus { outline:none; border-color:var(--c-accent); box-shadow:0 0 0 3px var(--c-accent-soft); }
+textarea.inp { resize:vertical; min-height:100px; }
+@media (max-width:1000px) {
+  .al-layout { grid-template-columns:1fr !important; gap:28px !important; }
+  .al-index { position:static !important; }
+  .al-split { grid-template-columns:1fr !important; }
+  .al-split img { height:280px !important; min-height:0 !important; }
+}
+</style>
+</helmet>
+
+<div style="min-height:100vh; display:flex; flex-direction:column; background:var(--c-bg);">
+
+<div style="background:var(--color-900); color:rgba(255,255,255,.82);">
+  <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:16px; height:38px; font-size:12.5px;">
+    <div style="display:flex; align-items:center; gap:8px; font-weight:500; letter-spacing:.04em;">
+      <span style="display:inline-flex; width:7px; height:7px; border-radius:50%; background:#F0455A; box-shadow:0 0 0 3px rgba(240,69,90,.25);"></span>
+      <span style="text-transform:uppercase; letter-spacing:.1em; font-size:11px;">Urgencias 24h</span>
+      <a class="topbar-link" href="tel:900111072" style="color:var(--color-200); font-weight:600;">900 111 072</a>
+      <span style="opacity:.35;">·</span>
+      <a class="topbar-link" href="tel:+34925727272" style="color:rgba(255,255,255,.7);">+34 925 72 72 72 <span style="opacity:.6;">(fuera de España)</span></a>
+    </div>
+    <a class="topbar-link" href="Red De Centros.dc.html" style="color:rgba(255,255,255,.82); display:inline-flex; align-items:center; gap:6px;">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Centros de atención
+    </a>
+  </div>
+</div>
+
+<header class="hdr">
+  <div class="container hdr__bar" style="gap:24px;">
+    <a class="hdr__logo" href="Home Solimat.dc.html" style="display:flex; align-items:center;"><img src="images/solimat-logo.svg" alt="Solimat" style="height:34px;"></a>
+    <nav style="display:flex; align-items:center; gap:2px; margin-left:8px;">
+      <div class="navdd">
+        <button class="navdd__trigger" type="button">Conócenos <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="navdd__menu">
+          <a href="Quienes Somos.dc.html">Quiénes somos</a>
+          <a href="Nuestros Datos.dc.html">Nuestros datos</a>
+          <a href="Podemos Ser Tu Mutua.dc.html">Podemos ser tu mutua</a>
+          <a href="Trabaja Con Nosotros.dc.html">Trabaja con nosotros</a>
+          <a href="Noticias.dc.html">Noticias</a>
+          <a href="Podemos Ayudarte.dc.html">¿Podemos ayudarte?</a>
+        </div>
+      </div>
+      <div class="navdd">
+        <button class="navdd__trigger" type="button">Servicios <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="navdd__menu">
+          <a href="Nuestro Equipo.dc.html">Nuestro equipo</a>
+          <a href="Prestaciones Economicas.dc.html">Prestaciones Económicas</a>
+          <a href="Asistencia Sanitaria.dc.html">Asistencia Sanitaria</a>
+          <a href="Promocion De La Prevencion.dc.html">Promoción de la Prevención</a>
+          <a href="http://portal.solimat.com/" target="_blank" rel="noopener">Portal de Servicios</a>
+          <a href="Podemos Ayudarte.dc.html">¿Podemos ayudarte?</a>
+        </div>
+      </div>
+      <div class="navdd">
+        <button class="navdd__trigger" type="button">Trámites <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="navdd__menu">
+          <a href="Para Empresa.dc.html">Para Empresa</a>
+          <a href="Para Trabajador.dc.html">Para Trabajador</a>
+          <a href="Para Autonomo.dc.html">Para Autónomo</a>
+          <a class="is-current" href="Para Asesoria Laboral.dc.html">Para Asesoría Laboral</a>
+        </div>
+      </div>
+    </nav>
+    <div style="margin-left:auto; display:flex; align-items:center; gap:10px;">
+      <a class="btn btn--ghost btn--sm" href="https://pacientes.solimat.com/" target="_blank" rel="noopener">Portal del Paciente</a>
+      <a class="btn btn--sm" href="http://portal.solimat.com/" target="_blank" rel="noopener" style="gap:8px;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg>
+        Portal de Servicios
+      </a>
+    </div>
+  </div>
+</header>
+
+<section style="position:relative; overflow:hidden; background:var(--color-900);">
+  <img src="images/perfil-asesoria.png" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.28;">
+  <div style="position:absolute; inset:0; background:linear-gradient(95deg, rgba(14,27,51,.93) 0%, rgba(20,37,70,.74) 55%, rgba(31,60,111,.42) 100%);"></div>
+  <div class="container" style="position:relative; padding:56px 0 60px;">
+    <div style="display:flex; align-items:center; gap:8px; font-size:12.5px; color:rgba(255,255,255,.7); margin-bottom:16px;">
+      <a href="Home Solimat.dc.html" style="color:rgba(255,255,255,.7);">Inicio</a>
+      <span style="opacity:.5;">/</span>
+      <span style="color:rgba(255,255,255,.7);">Trámites</span>
+      <span style="opacity:.5;">/</span>
+      <span style="color:#fff; font-weight:600;">Para Asesoría Laboral</span>
+    </div>
+    <h1 style="margin:0 0 12px; color:#fff; font-size:clamp(34px,4.4vw,52px); font-weight:700; letter-spacing:-0.02em; line-height:1.05;">Para Asesoría Laboral</h1>
+    <p style="margin:0; max-width:660px; color:rgba(255,255,255,.85); font-size:18px; line-height:1.55;">Únete a nuestra red de colaboradores y gestiona la asociación y adhesión de tus empresas y autónomos.</p>
+  </div>
+</section>
+
+<section class="container" style="padding:52px 0 80px;">
+  <div class="al-layout" style="display:grid; grid-template-columns:258px 1fr; gap:48px; align-items:start;">
+
+    <aside class="al-index" style="position:sticky; top:96px;">
+      <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.15em; color:var(--c-text-soft); margin-bottom:16px;">En esta página</div>
+      <a class="ix-link" href="#solicitud-alta">Solicitud de alta como colaborador</a>
+      <a class="ix-link" href="#asocia-empresas">Asocia a empresas</a>
+      <a class="ix-link" href="#certificado-empresas">Certificado de Asociación (empresas)</a>
+      <a class="ix-link" href="#adhiere-autonomos">Adhiere a autónomos</a>
+      <a class="ix-link" href="#certificado-autonomos">Certificado de Adhesión (autónomos)</a>
+      <a class="ix-link" href="#portal-de-servicios">Portal de Servicios</a>
+      <a class="ix-link" href="#recursos-gestion">Recursos de gestión</a>
+    </aside>
+
+    <div>
+      <!-- SOLICITUD DE ALTA -->
+      <section id="solicitud-alta" class="al-sec">
+        <div style="display:flex; align-items:center; gap:16px; margin-bottom:22px;">
+          <span style="width:4px; height:30px; background:var(--c-accent); border-radius:2px;"></span>
+          <h2 style="margin:0; font-size:27px; font-weight:700; color:var(--c-accent-deep); letter-spacing:-0.015em;">Forma parte de nuestra red de colaboradores</h2>
+        </div>
+        <div class="al-card">
+          <h3 style="margin:0 0 10px; font-size:19px; font-weight:700; color:var(--c-text-strong);">Solicitud de alta como colaborador</h3>
+          <p class="al-body" style="margin:0 0 22px; font-size:15px; color:var(--c-text-muted);">¿Quieres colaborar con Solimat? Cumplimenta este formulario y nos pondremos en contacto contigo para ayudarte.</p>
+          <form onSubmit="{{ onSubmit }}">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px 20px;">
+              <div class="fld" style="grid-column:1 / -1;"><label>Nombre y Apellidos</label><input class="inp" type="text" placeholder="Nombre completo"></div>
+              <div class="fld"><label>NIF/NIE</label><input class="inp" type="text"></div>
+              <div class="fld"><label>Razón Social</label><input class="inp" type="text"></div>
+              <div class="fld"><label>CIF</label><input class="inp" type="text"></div>
+              <div class="fld"><label>Nº de RED</label><input class="inp" type="text"></div>
+              <div class="fld"><label>Teléfono de contacto</label><input class="inp" type="tel"></div>
+              <div class="fld"><label>Código Postal</label><input class="inp" type="text" inputmode="numeric"></div>
+              <div class="fld" style="grid-column:1 / -1;"><label>E-mail de contacto</label><input class="inp" type="email"></div>
+              <div class="fld" style="grid-column:1 / -1;"><label>Comentarios</label><textarea class="inp"></textarea></div>
+            </div>
+            <label style="display:flex; align-items:flex-start; gap:12px; margin:20px 0 24px; cursor:pointer;">
+              <input type="checkbox" required style="width:18px; height:18px; margin-top:2px; accent-color:var(--c-accent); flex-shrink:0;">
+              <span style="font-size:13.5px; color:var(--c-text-muted); line-height:1.55;">Declaro haber leído la <a href="#">Política de Privacidad</a> y acepto el tratamiento de mis datos para esta finalidad.</span>
+            </label>
+            <div style="display:flex; justify-content:flex-end;">
+              <button class="al-cta" type="submit" style="border:0; cursor:pointer; display:inline-flex; align-items:center; gap:9px; background:var(--c-accent); color:#fff; font-size:14.5px; font-weight:600; padding:12px 22px; border-radius:9px; transition:background var(--t);">Enviar<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- ASOCIA A EMPRESAS -->
+      <section id="asocia-empresas" class="al-sec">
+        <div style="display:flex; align-items:center; gap:16px; margin-bottom:22px;">
+          <span style="width:4px; height:30px; background:var(--c-accent); border-radius:2px;"></span>
+          <h2 style="margin:0; font-size:27px; font-weight:700; color:var(--c-accent-deep); letter-spacing:-0.015em;">Asocia a empresas</h2>
+        </div>
+        <p class="al-body" style="font-size:16px; color:var(--c-text-muted); margin:0 0 20px;">Si una empresa quiere proteger a sus trabajadores con Solimat, puede hacerlo en cualquiera de las situaciones en las que se encuentre la empresa. Aquí tienes los pasos a seguir:</p>
+
+        <div style="margin-bottom:18px;">
+          <div class="al-card al-body">
+            <h3 style="margin:0 0 14px; font-size:18px; font-weight:700; color:var(--c-text-strong);">Creando una empresa</h3>
+            <p><strong>1. Descarga y cumplimenta el modelo <a href="https://www.seg-social.es/wps/wcm/connect/wss/b375ceec-08ec-43b3-a72c-66c59b199a7d/TA-6+%28v.11%29.pdf?MOD=AJPERES" target="_blank" rel="noopener">TA. 6 – Solicitud inscripción en el sistema de la Seguridad Social</a>,</strong> prestando atención a los campos:</p>
+            <ul>
+              <li>7.1 – Número: <strong>072</strong> Denominación: <strong>SOLIMAT</strong></li>
+              <li>7.2 – Marca <strong>MUTUA</strong>, si quieres que cubramos la prestación económica de contingencias comunes</li>
+            </ul>
+            <p style="margin:0;"><strong>2. Presenta en Tesorería General Seguridad Social</strong>, a través del <strong>Sistema RED/CASIA:</strong> TA.6 y el resto de documentación necesaria.</p>
+          </div>
+        </div>
+
+        <div style="margin-bottom:18px;">
+          <div class="al-card al-body">
+            <h3 style="margin:0 0 14px; font-size:18px; font-weight:700; color:var(--c-text-strong);">Asociada a otra mutua colaboradora</h3>
+            <p><strong>1. Solicita la baja a su mutua actual,</strong> al menos <strong>un mes de antes a la fecha de vencimiento</strong> de su documento de asociación:</p>
+            <ul><li>Modelo de <a href="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/docs/asesoria-laboral/SOLICITUD%20DE%20BAJA.pdf" target="_blank" rel="noopener">solicitud de baja</a></li></ul>
+            <p><strong>2.</strong> Envía copia de la solicitud presentada a <a href="mailto:ceses072@solimat.com">ceses072@solimat.com</a></p>
+            <p><strong>3. Presenta telemáticamente antes del día 20 del mes del vencimiento</strong> en Plataforma <strong>CASIA</strong> de la TGSS, la siguiente documentación cumplimentada:</p>
+            <ul>
+              <li>Modelo de <a href="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/docs/asesoria-laboral/SOLICITUD%20DE%20BAJA.pdf" target="_blank" rel="noopener">solicitud de baja</a></li>
+              <li><a href="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/docs/asesoria-laboral/PROPUESTA%20ASOCIACION.pdf" target="_blank" rel="noopener">Propuesta de asociación</a></li>
+              <li><a href="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/docs/asesoria-laboral/ANEXO%20PROPUESTA%20ASOCIACION.pdf" target="_blank" rel="noopener">Anexo a la propuesta de asociación</a>, si además quieres que cubramos la prestación económica de contingencias comunes</li>
+              <li><a href="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/docs/asesoria-laboral/MODELO%20TA%207.pdf" target="_blank" rel="noopener">TA. 7 – Solicitud de alta, baja y variación de datos de cuenta de cotización</a>. Atención campos:
+                <ul>
+                  <li>7.1 – Número: <strong>072</strong> Denominación: <strong>SOLIMAT</strong></li>
+                  <li>7.2 – Marca <strong>MUTUA</strong>, si quieres que cubramos la prestación económica de contingencias comunes.</li>
+                </ul>
+              </li>
+            </ul>
+            <p style="margin:0;"><strong>3. Remite el resguardo de la solicitud presentada en CASIA y la documentación a <a href="mailto:ceses072@solimat.com">ceses072@solimat.com</a></strong></p>
+          </div>
+        </div>
+
+        <div style="margin-bottom:18px;">
+          <div class="al-card al-body">
+            <h3 style="margin:0 0 14px; font-size:18px; font-weight:700; color:var(--c-text-strong);">Asociada a INSS</h3>
+            <p><strong>1. Presenta telemáticamente antes del día 20 del mes del vencimiento</strong> en Plataforma <strong>CASIA</strong> de la TGSS:</p>
+            <ul>
+              <li><a href="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/docs/asesoria-laboral/PROPUESTA%20ASOCIACION.pdf" target="_blank" rel="noopener">Propuesta de asociación</a></li>
+              <li><a href="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/docs/asesoria-laboral/ANEXO%20PROPUESTA%20ASOCIACION.pdf" target="_blank" rel="noopener">Anexo a la propuesta de asociación</a>, si además quieres que cubramos la prestación económica de contingencias comunes</li>
+              <li><a href="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/docs/asesoria-laboral/MODELO%20TA%207.pdf" target="_blank" rel="noopener">TA. 7 – Solicitud de alta, baja y variación de datos de cuenta de cotización</a>. Atención campos:
+                <ul>
+                  <li>7.1 – Número: <strong>072</strong> Denominación: <strong>SOLIMAT</strong></li>
+                  <li>7.2 – Marca <strong>MUTUA</strong>, si quieres que cubramos la prestación económica de contingencias comunes</li>
+                </ul>
+              </li>
+              <li>Resto de documentación solicitada por la administración correspondiente.</li>
+            </ul>
+            <p><strong>2. Remite resguardo de la solicitud presentada en CASIA y documentación a <a href="mailto:ceses072@solimat.com">ceses072@solimat.com</a></strong></p>
+            <p>Realizado este trámite, el cambio será vigente el día 1 del mes posterior al vencimiento.</p>
+            <p style="margin:0;">Como excepción cabe indicar que, aquellas empresas que antes estaban obligadas a cubrir las contingencias de accidente de trabajo y enfermedad profesional con el INSS, conforme el art. 204 de la Ley de Bases de la Seguridad Social, pueden solicitar la baja al INSS en cualquier fecha del año, no teniendo que esperar al vencimiento. En tal caso, la fecha de efecto sería el día primero del segundo mes siguiente al que se solicite el cese.</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="al-card al-body">
+            <h3 style="margin:0 0 14px; font-size:18px; font-weight:700; color:var(--c-text-strong);">Reanudando la actividad</h3>
+            <p>La empresa al quedarse <strong>sin trabajadores más de 5 días y reanudar su actividad</strong>, puede seguir con la misma Mutua u optar por otra Mutua distinta <strong>sin esperar al vencimiento</strong> del documento de asociación con la entidad anterior.</p>
+            <p><strong>1. Presenta en la Tesorería de la Seguridad Social,</strong> a través del <strong>Sistema RED/CASIA:</strong></p>
+            <ul>
+              <li><a href="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/docs/asesoria-laboral/MODELO%20TA%207.pdf" target="_blank" rel="noopener">TA. 7 – Solicitud de alta, baja y variación de datos de cuenta de cotización</a>. Atención campos:
+                <ul>
+                  <li>7.1 – Número: <strong>072</strong> Denominación: <strong>SOLIMAT</strong></li>
+                  <li>7.2 – Marca <strong>MUTUA</strong>, si quieres que cubramos la prestación económica de contingencias comunes</li>
+                </ul>
+              </li>
+              <li>Resto de documentación de reanudación de actividades.</li>
+            </ul>
+            <p style="margin:0;"><strong>2.</strong> Adjunta <a href="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/docs/asesoria-laboral/PROPUESTA%20ASOCIACION.pdf" target="_blank" rel="noopener">propuesta</a> y <a href="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/docs/asesoria-laboral/ANEXO%20PROPUESTA%20ASOCIACION.pdf" target="_blank" rel="noopener">anexo</a> a la propuesta de asociación cumplimentados, si cambias de entidad y es solicitado por la Administración.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CERTIFICADO EMPRESAS -->
+      <section id="certificado-empresas" class="al-sec">
+        <div class="al-card al-body">
+          <h2 style="margin:0 0 12px; font-size:24px; font-weight:700; color:var(--c-accent-deep); letter-spacing:-0.015em;">Certificado de Asociación para empresas</h2>
+          <p style="margin:0;">Si necesitas un certificado que indique que una empresa está asociada a Solimat, escríbenos a <a href="mailto:web@solimat.com">web@solimat.com</a> con el NIF/CIF y la razón social de la entidad empresa y te lo enviaremos a la mayor brevedad.</p>
+        </div>
+      </section>
+
+      <!-- ADHIERE AUTÓNOMOS -->
+      <section id="adhiere-autonomos" class="al-sec">
+        <div style="display:flex; align-items:center; gap:16px; margin-bottom:22px;">
+          <span style="width:4px; height:30px; background:var(--c-accent); border-radius:2px;"></span>
+          <h2 style="margin:0; font-size:27px; font-weight:700; color:var(--c-accent-deep); letter-spacing:-0.015em;">Adhiere a autónomos</h2>
+        </div>
+
+        <div style="margin-bottom:18px;">
+          <div class="al-card al-body">
+            <h3 style="margin:0 0 14px; font-size:18px; font-weight:700; color:var(--c-text-strong);">Dar de alta</h3>
+            <p><strong>1. Presenta en la Tesorería General de la Seguridad Social</strong> junto con la documentación de alta de la actividad:</p>
+            <ul><li><a href="pdfs/TA.0521.pdf" target="_blank" rel="noopener"><strong>TA. 521 – Solicitud de alta en el Régimen Especial de Trabajadores Autónomos (RETA)</strong></a>. Con carácter general la cobertura incluye: Contingencias Comunes, Contingencias Profesionales y Protección por cese en la Actividad.</li></ul>
+            <p style="margin:0;">Cumplimentado en las casillas, de las coberturas elegidas: Mutua Nº: <strong>072</strong> Nombre: <strong>SOLIMAT</strong></p>
+          </div>
+        </div>
+
+        <div>
+          <div class="al-card al-body">
+            <h3 style="margin:0 0 14px; font-size:18px; font-weight:700; color:var(--c-text-strong);">Cambiar de mutua</h3>
+            <p><strong>1. Presenta la <a href="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/docs/asesoria-laboral/ESCRITO%20DENUNCIA%20AUTONOMOS%20GENERICO.pdf" target="_blank" rel="noopener">Denuncia</a> del documento de adhesión en tu mutua actual, antes del 30 de septiembre:</strong></p>
+            <ul>
+              <li>Si la firma es manuscrita, por duplicado y en cualquier centro de dicha mutua.</li>
+              <li>Si la firma es digital, enviándola vía mail a la misma.</li>
+            </ul>
+            <p><strong>2. Realiza la transacción ATK43,</strong> a través de la Gerencia Informática de la Seguridad Social.</p>
+            <p><strong>3. Envía a</strong> <a href="mailto:web@solimat.com">web@solimat.com</a>:</p>
+            <ul>
+              <li><a href="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/docs/asesoria-laboral/ESCRITO%20DENUNCIA%20AUTONOMOS%20GENERICO.pdf" target="_blank" rel="noopener">Denuncia del documento de adhesión</a>, sellado con la fecha de presentación en la mutua actual, si lo has presentado in situ. O reenviándolo con copia del correo de presentación, si lo has hecho vía mail.</li>
+              <li><a href="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/docs/asesoria-laboral/SOLICITUD%20PROPUESTA%20ADHESION%20SOLIMAT.pdf" target="_blank" rel="noopener">Solicitud de propuesta de adhesión</a></li>
+              <li><a href="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/docs/asesoria-laboral/ANEXO%20PROPUESTA%20ADHESION%20SOLIMAT.pdf" target="_blank" rel="noopener">Anexo propuesta de adhesión</a>, si además quieres que cubramos la prestación económica de contingencias profesionales.</li>
+            </ul>
+            <p><strong>4.</strong> La adhesión efectiva se inicia <strong>el 1 de enero del año siguiente a la presentación</strong>, tras notificación por parte de la Tesorería General de la Seguridad Social.</p>
+            <p style="margin:0;"><strong>5. Devuelve firmado</strong>, por parte del autónomo/a el documento de adhesión y/o el anexo de adhesión que previamente recibirá.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CERTIFICADO AUTÓNOMOS -->
+      <section id="certificado-autonomos" class="al-sec">
+        <div class="al-card al-body">
+          <h2 style="margin:0 0 12px; font-size:24px; font-weight:700; color:var(--c-accent-deep); letter-spacing:-0.015em;">Certificado de Adhesión para autónomos</h2>
+          <p style="margin:0;">Si necesitas un certificado que indique que un autónomo está adherido a Solimat, escríbenos a <a href="mailto:web@solimat.com">web@solimat.com</a> con todos los datos del trabajador por cuenta propia y te lo enviaremos a la mayor brevedad.</p>
+        </div>
+      </section>
+
+      <!-- PORTAL DE SERVICIOS -->
+      <section id="portal-de-servicios" class="al-sec">
+        <div style="display:flex; align-items:center; gap:16px; margin-bottom:22px;">
+          <span style="width:4px; height:30px; background:var(--c-accent); border-radius:2px;"></span>
+          <h2 style="margin:0; font-size:27px; font-weight:700; color:var(--c-accent-deep); letter-spacing:-0.015em;">Portal de Servicios</h2>
+        </div>
+        <div class="al-split" style="background:#fff; border:1px solid var(--c-line-soft); border-radius:var(--r-lg); overflow:hidden; box-shadow:var(--sh-1);">
+          <img src="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/wp-content/uploads/2026/06/portal-de-servicios.jpg" alt="Portal de Servicios" style="display:block; width:100%; height:460px; object-fit:contain; background:var(--c-bg-subtle); padding:28px;">
+          <div class="al-body" style="padding:30px 32px;">
+            <p>Esta plataforma se consolida como una herramienta clave en la relación de Solimat con sus empresas mutualistas y colaboradores, contribuyendo a mejorar la gestión de la siniestralidad y a reforzar el acceso a la información.</p>
+            <p>Este entorno digital ha permitido avanzar hacia un modelo de gestión más ágil, facilitando el acceso a la información relacionada con Accidentes de Trabajo, Enfermedades Profesionales y Contingencias Comunes, así como una mayor trazabilidad de los procesos y una comunicación más directa con la mutua.</p>
+            <p>Entre sus principales capacidades se incluyen el envío de alertas automáticas, la comunicación directa con el gestor asignado, la gestión de botiquines, el acceso a utilidades Delt@ y la consulta de la siniestralidad, con opción de filtrado y generación de informes, lo que contribuye a una gestión más eficiente y estructurada de la información.</p>
+            <p>Para acceder a la plataforma, date de alta en nuestro Portal de servicios en dos pasos:</p>
+            <ul>
+              <li>Pincha en la imagen y regístrate como nuevo usuario.</li>
+              <li>Cumplimenta los datos, lee y confirma la cláusula de protección de datos y envíalo.</li>
+            </ul>
+            <p style="margin:0 0 18px;">Una vez dado de alta recibirás, por correo electrónico, tu usuario y contraseña para poder acceder.</p>
+            <a class="al-cta" href="https://portal.solimat.com/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:9px; background:var(--c-accent); color:#fff; font-size:14.5px; font-weight:600; padding:12px 22px; border-radius:9px; transition:background var(--t);">Portal de Servicios<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- RECURSOS DE GESTIÓN -->
+      <section id="recursos-gestion" class="al-sec" style="margin-bottom:0;">
+        <div style="display:flex; align-items:center; gap:16px; margin-bottom:22px;">
+          <span style="width:4px; height:30px; background:var(--c-accent); border-radius:2px;"></span>
+          <h2 style="margin:0; font-size:27px; font-weight:700; color:var(--c-accent-deep); letter-spacing:-0.015em;">Recursos de gestión</h2>
+        </div>
+
+        <div class="al-split" style="display:grid; grid-template-columns:1fr 1fr; gap:0; background:#fff; border:1px solid var(--c-line-soft); border-radius:var(--r-lg); overflow:hidden; box-shadow:var(--sh-1); margin-bottom:18px;">
+          <div class="al-body" style="padding:30px 32px; display:flex; flex-direction:column; justify-content:center;">
+            <h3 style="margin:0 0 12px; font-size:18px; font-weight:700; color:var(--c-text-strong);">Botiquines</h3>
+            <p>Si necesitas un nuevo botiquín o reponer su contenido, envía esta solicitud a tu <a href="#">Dirección Provincial</a>:</p>
+            <a class="al-cta" href="pdfs/Solicitud-de-botiquin-de-primeros-auxilios-2024-autorrellenable.pdf" target="_blank" rel="noopener" style="display:inline-flex; align-self:flex-start; align-items:center; gap:9px; background:var(--c-accent); color:#fff; font-size:14px; font-weight:600; padding:11px 20px; border-radius:9px; transition:background var(--t); margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>Solicitud botiquín</a>
+            <p style="margin:0;">Nos encargamos de tramitarla y, en unos días, lo recibirás en la dirección que nos indiques.</p>
+          </div>
+          <img src="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/wp-content/uploads/2023/10/botiquin.jpg" alt="Botiquín" style="display:block; width:100%; height:100%; min-height:240px; object-fit:cover;">
+        </div>
+
+        <div class="al-card al-body">
+          <h3 style="margin:0 0 12px; font-size:18px; font-weight:700; color:var(--c-text-strong);">Volante de Asistencia</h3>
+          <p>El volante de asistencia sanitaria es un documento por el que la empresa <strong>solicita asistencia sanitaria</strong> para su trabajador/a accidentado/a; su presentación no supone el reconocimiento de la existencia de un accidente de trabajo o enfermedad profesional.</p>
+          <p>Se recomienda presentar el volante de asistencia cumplimentado por la empresa la <strong>primera vez</strong> que acude a nuestra red de centros ante el inicio de un proceso sanitario, siendo la empresa quien determina si sus trabajadores deben o no presentarlo.</p>
+          <a class="al-cta" href="https://www.solimat.com/pdf/Volante_asistencia.pdf" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:9px; background:var(--c-accent); color:#fff; font-size:14px; font-weight:600; padding:11px 20px; border-radius:9px; transition:background var(--t);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>Volante de Asistencia</a>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<footer style="margin-top:auto; background:var(--color-900); color:#fff;">
+  <div class="container" style="padding:56px 0 40px;">
+    <div style="display:grid; grid-template-columns:1.3fr 1fr 1fr 1.1fr; gap:44px;">
+      <div>
+        <img src="images/logoBlanco.png" alt="Solimat" style="height:52px; margin-bottom:18px;">
+        <p style="margin:0 0 18px; font-size:13.5px; color:rgba(255,255,255,.7); line-height:1.6; font-weight:600; letter-spacing:.02em;">Salud · Experiencia · Compromiso · Integridad · Confianza</p>
+        <div style="display:flex; gap:10px;">
+          <a class="ftr-link" href="https://es.linkedin.com/company/solimat-matepss-" target="_blank" rel="noopener" aria-label="LinkedIn" style="width:36px; height:36px; border-radius:9px; background:rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; color:#fff;"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 002.5 6a2.5 2.5 0 005 0 2.5 2.5 0 00-2.52-2.5zM3 8.98h4v12H3zM9.5 8.98h3.8v1.64h.05c.53-.95 1.83-1.96 3.77-1.96 4.03 0 4.78 2.65 4.78 6.1v6.22h-4v-5.51c0-1.32-.02-3-1.84-3-1.85 0-2.13 1.44-2.13 2.92v5.59h-4z"/></svg></a>
+          <a class="ftr-link" href="https://www.youtube.com/user/Solimat72" target="_blank" rel="noopener" aria-label="YouTube" style="width:36px; height:36px; border-radius:9px; background:rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; color:#fff;"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 00-1.77-1.77C19.34 5.1 12 5.1 12 5.1s-7.34 0-8.83.43A2.5 2.5 0 001.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 001.77 1.77c1.49.43 8.83.43 8.83.43s7.34 0 8.83-.43a2.5 2.5 0 001.77-1.77C23 15.2 23 12 23 12zM9.75 15.5v-7l6 3.5z"/></svg></a>
+          <a class="ftr-link" href="https://www.instagram.com/solimat72/" target="_blank" rel="noopener" aria-label="Instagram" style="width:36px; height:36px; border-radius:9px; background:rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; color:#fff;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a class="ftr-link" href="https://www.facebook.com/profile.php?id=100083202458773" target="_blank" rel="noopener" aria-label="Facebook" style="width:36px; height:36px; border-radius:9px; background:rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; color:#fff;"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0022 12z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--color-200); margin-bottom:16px;">Te puede interesar</div>
+        <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:11px;">
+          <li><a class="ftr-link" href="Perfil Del Contratante.dc.html" style="color:rgba(255,255,255,.82); font-size:14px;">Perfil del Contratante</a></li>
+          <li><a class="ftr-link" href="http://transparencia.solimat.com/web/index.html" target="_blank" rel="noopener" style="color:rgba(255,255,255,.82); font-size:14px;">Portal de Transparencia</a></li>
+          <li><a class="ftr-link" href="#" style="color:rgba(255,255,255,.82); font-size:14px;">Reclamaciones y quejas</a></li>
+          <li><a class="ftr-link" href="Recursos Y Herramientas.dc.html" style="color:rgba(255,255,255,.82); font-size:14px;">Recursos y Herramientas</a></li>
+          <li><a class="ftr-link" href="Preguntas Frecuentes.dc.html" style="color:rgba(255,255,255,.82); font-size:14px;">Preguntas Frecuentes</a></li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--color-200); margin-bottom:16px;">Enlaces de interés</div>
+        <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:11px;">
+          <li><a class="ftr-link" href="Referencias Legislativas.dc.html" style="color:rgba(255,255,255,.82); font-size:14px;">Referencias legislativas</a></li>
+          <li><a class="ftr-link" href="https://www.boe.es/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.82); font-size:14px;">BOE</a></li>
+          <li><a class="ftr-link" href="https://www.insst.es/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.82); font-size:14px;">INSST</a></li>
+          <li><a class="ftr-link" href="https://www.amat.es/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.82); font-size:14px;">AMAT</a></li>
+          <li><a class="ftr-link" href="https://www.seg-social.es/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.82); font-size:14px;">Seguridad Social</a></li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--color-200); margin-bottom:16px;">Contacto</div>
+        <div style="font-size:14px; color:rgba(255,255,255,.82); line-height:1.7;">
+          <div style="font-weight:600; color:#fff; margin-bottom:2px;">Sede Central</div>
+          <div>C/ Berna, 1 — 4ª planta</div>
+          <div>45003 Toledo</div>
+          <div style="margin-top:12px;"><a class="ftr-link" href="tel:925283186" style="color:var(--color-200); font-weight:600;">925 28 31 86</a></div>
+          <div style="margin-top:2px;">contigo@solimat.com</div>
+          <div style="margin-top:12px;"><a class="ftr-link" href="#" style="color:rgba(255,255,255,.82);">Direcciones provinciales →</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="background:var(--color-950); padding:15px 0;">
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; font-size:12.5px; color:rgba(255,255,255,.6);">
+      <span>© {{ year }} Solimat — Mutua Colaboradora con la Seguridad Social Nº 72</span>
+      <div style="display:flex; gap:20px;">
+        <a class="ftr-link" href="#" style="color:rgba(255,255,255,.6);">Aviso legal</a>
+        <a class="ftr-link" href="#" style="color:rgba(255,255,255,.6);">Política de privacidad</a>
+        <a class="ftr-link" href="#" style="color:rgba(255,255,255,.6);">Política de cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      year: new Date().getFullYear(),
+      onSubmit: (e) => { e.preventDefault(); },
+    };
+  }
+}
+</script>
+</body>
+</html>

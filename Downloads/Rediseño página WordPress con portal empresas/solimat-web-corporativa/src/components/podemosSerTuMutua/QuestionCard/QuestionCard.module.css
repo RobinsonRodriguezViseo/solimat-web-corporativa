@@ -1,0 +1,41 @@
+.card {
+  background: #fff;
+  border: 1px solid var(--c-line-soft);
+  border-radius: var(--r-lg);
+  padding: 32px 28px;
+  box-shadow: var(--sh-1);
+  text-align: center;
+  transition: all var(--t);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sh-3);
+  border-color: var(--c-accent-line);
+}
+
+.card:hover .icon {
+  background: var(--c-accent);
+  color: #fff;
+}
+
+.icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 15px;
+  background: var(--c-accent-soft);
+  color: var(--c-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  transition: all var(--t);
+}
+
+.title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--c-accent-deep);
+  line-height: 1.3;
+}

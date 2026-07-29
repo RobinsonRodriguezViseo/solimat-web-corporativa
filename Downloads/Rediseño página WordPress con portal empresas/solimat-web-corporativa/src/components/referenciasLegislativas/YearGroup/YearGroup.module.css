@@ -1,0 +1,31 @@
+.group {
+  scroll-margin-top: 100px;
+  margin-bottom: 40px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.year {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--c-accent-deep);
+  font-variant-numeric: tabular-nums;
+}
+
+.rule {
+  flex: 1;
+  height: 1px;
+  background: var(--c-line);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

@@ -1,0 +1,36 @@
+.body p {
+  margin: 0 0 20px;
+  font-size: 16.5px;
+  line-height: 1.8;
+  color: var(--c-text);
+}
+
+.heading {
+  margin: 14px 0 16px;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--c-accent-deep);
+}
+
+.quote {
+  margin: 8px 0 28px;
+  padding: 22px 28px;
+  border-left: 4px solid var(--c-accent);
+  background: var(--c-accent-softer);
+  border-radius: 0 var(--r-md) var(--r-md) 0;
+}
+
+.quoteText {
+  margin: 0 0 10px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--c-accent-deep);
+  font-style: italic;
+}
+
+.quoteAuthor {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--c-accent);
+  font-style: normal;
+}

@@ -1,0 +1,55 @@
+.prose {
+  scroll-margin-top: 100px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--c-line-soft);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-1);
+  padding: 28px 30px;
+}
+
+@media (max-width: 640px) {
+  .card {
+    padding: 24px 20px;
+  }
+}
+
+.title {
+  margin: 0 0 12px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--c-text-strong);
+}
+
+.paragraph {
+  margin: 0 0 12px;
+  font-size: 15px;
+  line-height: 1.68;
+  color: var(--c-text-muted);
+}
+
+.paragraph:last-child {
+  margin-bottom: 0;
+}
+
+.list {
+  margin: 0 0 14px;
+  padding-left: 20px;
+}
+
+.list:last-child {
+  margin-bottom: 0;
+}
+
+.listItem {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--c-text-muted);
+  margin-bottom: 7px;
+}
+
+.listItem:last-child {
+  margin-bottom: 0;
+}

@@ -1,0 +1,127 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--c-white);
+  border: 1px solid var(--c-line-soft);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-1);
+  overflow: hidden;
+  transition: transform var(--t), box-shadow var(--t), border-color var(--t);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sh-3);
+  border-color: var(--c-accent-line);
+}
+
+.link {
+  display: block;
+  color: inherit;
+}
+
+.head {
+  position: relative;
+  height: 120px;
+  /* Capa 1: trama de puntos del diseño. Capa 2: degradado de fondo. */
+  background-image: radial-gradient(rgba(40, 70, 130, 0.16) 1.5px, transparent 1.5px),
+    linear-gradient(135deg, var(--color-50) 0%, var(--color-100) 100%);
+  background-size: 15px 15px, cover;
+}
+
+/* Cabecera de hospital: degradado oscuro, como en el Portal de Pacientes. */
+.headDark {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.16) 1.5px, transparent 1.5px),
+    linear-gradient(135deg, var(--color-500) 0%, var(--color-900) 100%);
+  background-size: 15px 15px, cover;
+}
+
+.pill {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--c-accent-deep);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 5px 11px;
+  border-radius: var(--r-pill);
+}
+
+/* Sobre la cabecera oscura la píldora pasa a blanco translúcido. */
+.pillDark {
+  background: rgba(255, 255, 255, 0.18);
+  color: var(--c-white);
+  backdrop-filter: blur(4px);
+}
+
+/* Círculo blanco con el icono en color acento, también sobre cabecera oscura. */
+.badge {
+  position: absolute;
+  left: 50%;
+  bottom: -28px;
+  transform: translateX(-50%);
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  background: var(--c-white);
+  box-shadow: 0 8px 18px rgba(20, 37, 70, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-accent);
+  z-index: 2;
+}
+
+/* Isotipo de Solimat dentro del círculo de 66px. El asset es cuadrado (82x76),
+   así que llena el círculo igual que en el Portal de Pacientes; con el logotipo
+   apaisado quedaba una franja de ~46x10px, ilegible. */
+.logo {
+  display: block;
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+.body {
+  padding: 42px 22px 14px;
+}
+
+.name {
+  margin: 0 0 10px;
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  color: var(--c-text-strong);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 1.32;
+}
+
+.address {
+  font-size: var(--fs-sm);
+  color: var(--c-text-muted);
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+.phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 22px 24px;
+  align-self: flex-start;
+  color: var(--c-accent);
+  font-weight: 600;
+  font-size: var(--fs-md);
+  transition: color var(--t);
+}
+
+.phone:hover {
+  color: var(--c-accent-dark);
+}

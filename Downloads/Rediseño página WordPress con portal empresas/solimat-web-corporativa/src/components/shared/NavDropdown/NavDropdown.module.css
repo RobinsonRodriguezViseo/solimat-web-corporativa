@@ -1,0 +1,82 @@
+.navdd {
+  position: relative;
+  padding-bottom: 14px;
+  margin-bottom: -14px;
+}
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 15px;
+  border: 0;
+  background: transparent;
+  font-family: inherit;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--c-accent);
+  border-radius: 7px;
+  cursor: pointer;
+  transition: var(--t);
+}
+
+.trigger svg {
+  transition: transform 0.25s ease;
+}
+
+.navdd:hover .trigger,
+.navdd:focus-within .trigger {
+  background: var(--c-accent-deep);
+  color: #fff;
+}
+
+.navdd:hover .trigger svg,
+.navdd:focus-within .trigger svg {
+  transform: rotate(180deg);
+}
+
+.menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 238px;
+  background: #f3f6fa;
+  border: 1px solid var(--c-line-soft);
+  border-radius: 12px;
+  box-shadow: var(--sh-3);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0.2s;
+  z-index: 60;
+}
+
+.navdd:hover .menu,
+.navdd:focus-within .menu,
+.menuOpen {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.item {
+  padding: 11px 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--c-text);
+  font-weight: 500;
+  white-space: nowrap;
+  transition: var(--t);
+}
+
+.item:hover {
+  background: #fff;
+  color: var(--c-accent);
+  padding-left: 19px;
+}

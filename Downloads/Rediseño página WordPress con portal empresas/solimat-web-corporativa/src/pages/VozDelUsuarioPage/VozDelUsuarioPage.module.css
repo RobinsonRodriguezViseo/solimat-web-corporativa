@@ -1,0 +1,25 @@
+.section {
+  padding: 56px 0 80px;
+}
+
+.inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.intro {
+  margin-bottom: 32px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+@media (max-width: 760px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

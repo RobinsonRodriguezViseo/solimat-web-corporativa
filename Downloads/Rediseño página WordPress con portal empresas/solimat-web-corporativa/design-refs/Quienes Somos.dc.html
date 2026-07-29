@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="theme.css">
+<style>
+html { scroll-behavior:smooth; }
+a { text-decoration:none; }
+.topbar-link:hover { color:#fff !important; }
+.navdd { position:relative; padding-bottom:14px; margin-bottom:-14px; }
+.navdd__trigger { display:inline-flex; align-items:center; gap:7px; padding:9px 15px; border:0; background:transparent; font-family:inherit; font-size:14.5px; font-weight:500; color:var(--c-accent); border-radius:7px; cursor:pointer; transition:var(--t); }
+.navdd__trigger svg { transition:transform .25s ease; }
+.navdd:hover .navdd__trigger, .navdd:focus-within .navdd__trigger { background:var(--c-accent-deep); color:#fff; }
+.navdd:hover .navdd__trigger svg, .navdd:focus-within .navdd__trigger svg { transform:rotate(180deg); }
+.navdd__menu { position:absolute; top:100%; left:0; min-width:238px; background:#f3f6fa; border:1px solid var(--c-line-soft); border-radius:12px; box-shadow:var(--sh-3); padding:8px; display:flex; flex-direction:column; opacity:0; visibility:hidden; transform:translateY(-6px); transition:opacity .2s ease, transform .2s ease, visibility .2s; z-index:60; }
+.navdd:hover .navdd__menu, .navdd:focus-within .navdd__menu { opacity:1; visibility:visible; transform:translateY(0); }
+.navdd__menu a { padding:11px 15px; border-radius:8px; font-size:14px; color:var(--c-text); font-weight:500; white-space:nowrap; transition:var(--t); }
+.navdd__menu a:hover { background:#fff; color:var(--c-accent); padding-left:19px; }
+.navdd__menu a.is-current { background:var(--c-accent-soft); color:var(--c-accent-dark); font-weight:600; }
+.qs-sec { scroll-margin-top:150px; padding:44px 44px; border-radius:var(--r-lg); margin-bottom:22px; }
+.qs-sec:nth-child(odd) { background:transparent; }
+.qs-sec:nth-child(even) { background:#ffffff; border:1px solid var(--c-line-soft); box-shadow:var(--sh-1); }
+@media (max-width:640px){ .qs-sec { padding:32px 22px; } }
+.qs-eyebrow { color:var(--c-accent); font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:.16em; margin-bottom:10px; }
+.qs-h2 { margin:0 0 20px; font-size:30px; font-weight:700; color:var(--c-accent-deep); letter-spacing:-0.02em; }
+.qs-prose p { margin:0 0 16px; font-size:15.5px; line-height:1.75; color:var(--c-text); }
+.qs-prose p:last-child { margin-bottom:0; }
+.qs-prose strong { color:var(--c-text-strong); font-weight:600; }
+.qs-anchor a { display:block; padding:11px 16px; border-left:2px solid var(--c-line); color:var(--c-text-muted); font-size:14px; font-weight:500; transition:var(--t); }
+.qs-anchor a:hover { color:var(--c-accent); border-left-color:var(--c-accent-line); background:var(--c-accent-softer); }
+.qs-anchor a.is-active { color:var(--c-accent-dark); border-left:2px solid var(--c-accent); background:var(--c-accent-soft); font-weight:600; }
+@media (max-width:960px){ .qs-layout { grid-template-columns:1fr !important; } .qs-anchor { position:static !important; flex-direction:row !important; flex-wrap:wrap; } .qs-anchor a { border-left:0 !important; border-bottom:2px solid var(--c-line); } }
+.ftr-link:hover { color:var(--color-300) !important; }
+</style>
+</helmet>
+
+<div style="min-height:100vh; display:flex; flex-direction:column; background:var(--c-bg);">
+
+<!-- Barra Urgencias -->
+<div style="background:var(--color-900); color:rgba(255,255,255,.82);">
+  <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:16px; height:38px; font-size:12.5px;">
+    <div style="display:flex; align-items:center; gap:8px; font-weight:500; letter-spacing:.04em;">
+      <span style="display:inline-flex; width:7px; height:7px; border-radius:50%; background:#F0455A; box-shadow:0 0 0 3px rgba(240,69,90,.25);"></span>
+      <span style="text-transform:uppercase; letter-spacing:.1em; font-size:11px;">Urgencias 24h</span>
+      <a class="topbar-link" href="tel:900111072" style="color:var(--color-200); font-weight:600;">900 111 072</a>
+      <span style="opacity:.35;">·</span>
+      <a class="topbar-link" href="tel:+34925727272" style="color:rgba(255,255,255,.7);">+34 925 72 72 72 <span style="opacity:.6;">(fuera de España)</span></a>
+    </div>
+    <a class="topbar-link" href="#" style="color:rgba(255,255,255,.82); display:inline-flex; align-items:center; gap:6px;">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Centros de atención
+    </a>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="hdr">
+  <div class="container hdr__bar" style="gap:24px;">
+    <a class="hdr__logo" href="Home Solimat.dc.html" style="display:flex; align-items:center;"><img src="assets/solimat-logo.svg" alt="Solimat" style="height:34px;"></a>
+    <nav style="display:flex; align-items:center; gap:2px; margin-left:8px;">
+      <div class="navdd">
+        <button class="navdd__trigger" type="button">Conócenos <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="navdd__menu">
+          <a class="is-current" href="Quienes Somos.dc.html">Quiénes somos</a>
+          <a href="Nuestros Datos.dc.html">Nuestros datos</a>
+          <a href="Podemos Ser Tu Mutua.dc.html">Podemos ser tu mutua</a>
+          <a href="Trabaja Con Nosotros.dc.html">Trabaja con nosotros</a>
+          <a href="Noticias.dc.html">Noticias</a>
+          <a href="#">¿Podemos ayudarte?</a>
+        </div>
+      </div>
+      <div class="navdd">
+        <button class="navdd__trigger" type="button">Servicios <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="navdd__menu">
+          <a href="#">Nuestro equipo</a>
+          <a href="#">Prestaciones Económicas</a>
+          <a href="#">Asistencia Sanitaria</a>
+          <a href="#">Promoción de la Prevención</a>
+          <a href="http://portal.solimat.com/" target="_blank" rel="noopener">Portal de Servicios</a>
+          <a href="#">¿Podemos ayudarte?</a>
+        </div>
+      </div>
+      <div class="navdd">
+        <button class="navdd__trigger" type="button">Trámites <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="navdd__menu">
+          <a href="Home Solimat.dc.html#perfiles">Para Empresa</a>
+          <a href="Home Solimat.dc.html#perfiles">Para Trabajador</a>
+          <a href="Home Solimat.dc.html#perfiles">Para Autónomo</a>
+          <a href="Home Solimat.dc.html#perfiles">Para Asesoría Laboral</a>
+        </div>
+      </div>
+    </nav>
+    <div style="margin-left:auto; display:flex; align-items:center; gap:10px;">
+      <a class="btn btn--ghost btn--sm" href="https://pacientes.solimat.com/" target="_blank" rel="noopener">Portal del Paciente</a>
+      <a class="btn btn--sm" href="http://portal.solimat.com/" target="_blank" rel="noopener" style="gap:8px;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg>
+        Portal de Servicios
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- Hero de página -->
+<section style="position:relative; overflow:hidden; background:var(--color-900);">
+  <img src="assets/Hospital_San_Jose_de_Solimat.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.28;">
+  <div style="position:absolute; inset:0; background:linear-gradient(95deg, rgba(14,27,51,.92) 0%, rgba(20,37,70,.72) 55%, rgba(31,60,111,.4) 100%);"></div>
+  <div class="container" style="position:relative; padding:56px 0 60px;">
+    <div style="display:flex; align-items:center; gap:8px; font-size:12.5px; color:rgba(255,255,255,.7); margin-bottom:16px;">
+      <a href="Home Solimat.dc.html" style="color:rgba(255,255,255,.7);">Inicio</a>
+      <span style="opacity:.5;">/</span>
+      <span style="color:rgba(255,255,255,.7);">Conócenos</span>
+      <span style="opacity:.5;">/</span>
+      <span style="color:#fff; font-weight:600;">Quiénes somos</span>
+    </div>
+    <h1 style="margin:0 0 12px; color:#fff; font-size:clamp(34px,4.4vw,52px); font-weight:700; letter-spacing:-0.02em; line-height:1.05;">Quiénes somos</h1>
+    <p style="margin:0; max-width:620px; color:rgba(255,255,255,.85); font-size:18px; line-height:1.55;">Una mutua nacida en Castilla-La Mancha en 1933, cercana y comprometida con la salud laboral de empresas, autónomos, trabajadores y asesorías.</p>
+  </div>
+</section>
+
+<!-- Cuerpo -->
+<div class="container" style="padding:24px 0 20px;">
+  <div class="qs-layout" style="display:grid; grid-template-columns:250px 1fr; gap:48px; align-items:start;">
+
+    <!-- Índice lateral -->
+    <nav class="qs-anchor" style="position:sticky; top:96px; display:flex; flex-direction:column; gap:2px;">
+      <a href="#las-mutuas" data-obs="las-mutuas" class="is-active">Las Mutuas</a>
+      <a href="#nuestra-historia" data-obs="nuestra-historia">Nuestra historia</a>
+      <a href="#solimat-hoy" data-obs="solimat-hoy">Solimat hoy</a>
+      <a href="#principios-valores" data-obs="principios-valores">Principios y Valores</a>
+      <a href="#sostenibilidad" data-obs="sostenibilidad">Sostenibilidad y RSC</a>
+    </nav>
+
+    <!-- Contenido -->
+    <div style="min-width:0;">
+
+      <section class="qs-sec" id="las-mutuas">
+        <div class="qs-eyebrow">Qué es una mutua</div>
+        <h2 class="qs-h2">Las Mutuas</h2>
+        <div class="qs-prose">
+          <p>Las Mutuas son asociaciones de empresarios que, autorizadas por el Ministerio de Inclusión, Migraciones y Seguridad Social, tienen por finalidad colaborar en la gestión de la Seguridad Social, bajo la dirección y tutela del mismo, sin ánimo de lucro y asumiendo sus asociados responsabilidad mancomunada.</p>
+          <p>De acuerdo con lo previsto en el artículo 80.2 del Texto Refundido de la Ley General de la Seguridad Social, es su objeto el desarrollo de las siguientes actividades:</p>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-top:22px;">
+          <div style="display:flex; gap:14px; background:#fff; border:1px solid var(--c-line-soft); border-radius:var(--r-md); padding:18px 20px; box-shadow:var(--sh-1);"><span style="flex-shrink:0; width:26px; height:26px; border-radius:7px; background:var(--c-accent-soft); color:var(--c-accent); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px;">1</span><span style="font-size:14px; line-height:1.55; color:var(--c-text);">La gestión de las prestaciones económicas y de la asistencia sanitaria, incluida la rehabilitación, comprendidas en la protección de las contingencias de accidentes de trabajo y enfermedades profesionales de la Seguridad Social, así como de las actividades de prevención de las mismas contingencias que dispensa la acción protectora.</span></div>
+          <div style="display:flex; gap:14px; background:#fff; border:1px solid var(--c-line-soft); border-radius:var(--r-md); padding:18px 20px; box-shadow:var(--sh-1);"><span style="flex-shrink:0; width:26px; height:26px; border-radius:7px; background:var(--c-accent-soft); color:var(--c-accent); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px;">2</span><span style="font-size:14px; line-height:1.55; color:var(--c-text);">La gestión de la prestación económica por incapacidad temporal derivada de contingencias comunes.</span></div>
+          <div style="display:flex; gap:14px; background:#fff; border:1px solid var(--c-line-soft); border-radius:var(--r-md); padding:18px 20px; box-shadow:var(--sh-1);"><span style="flex-shrink:0; width:26px; height:26px; border-radius:7px; background:var(--c-accent-soft); color:var(--c-accent); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px;">3</span><span style="font-size:14px; line-height:1.55; color:var(--c-text);">La gestión de las prestaciones por riesgo durante el embarazo y riesgo durante la lactancia natural.</span></div>
+          <div style="display:flex; gap:14px; background:#fff; border:1px solid var(--c-line-soft); border-radius:var(--r-md); padding:18px 20px; box-shadow:var(--sh-1);"><span style="flex-shrink:0; width:26px; height:26px; border-radius:7px; background:var(--c-accent-soft); color:var(--c-accent); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px;">4</span><span style="font-size:14px; line-height:1.55; color:var(--c-text);">La gestión de las prestaciones económicas por cese en la actividad de los trabajadores por cuenta propia, en los términos establecidos en el Título V de esta misma Ley.</span></div>
+          <div style="display:flex; gap:14px; background:#fff; border:1px solid var(--c-line-soft); border-radius:var(--r-md); padding:18px 20px; box-shadow:var(--sh-1);"><span style="flex-shrink:0; width:26px; height:26px; border-radius:7px; background:var(--c-accent-soft); color:var(--c-accent); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px;">5</span><span style="font-size:14px; line-height:1.55; color:var(--c-text);">La gestión de la prestación por cuidado de menores afectados por cáncer u otra enfermedad grave.</span></div>
+          <div style="display:flex; gap:14px; background:#fff; border:1px solid var(--c-line-soft); border-radius:var(--r-md); padding:18px 20px; box-shadow:var(--sh-1);"><span style="flex-shrink:0; width:26px; height:26px; border-radius:7px; background:var(--c-accent-soft); color:var(--c-accent); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px;">6</span><span style="font-size:14px; line-height:1.55; color:var(--c-text);">Las demás actividades de la Seguridad Social que le sean atribuidas legalmente.</span></div>
+        </div>
+      </section>
+
+      <section class="qs-sec" id="nuestra-historia">
+        <div class="qs-eyebrow">Desde 1933</div>
+        <h2 class="qs-h2">Nuestra historia</h2>
+        <div class="qs-prose">
+          <p>Solimat nació el <strong>16 de abril de 1933</strong> como consecuencia de la unión de varios empresarios toledanos comprometidos con la seguridad de sus trabajadores.</p>
+          <p>A principios de los años 90 inició su expansión en dos sentidos: por un lado, mediante la absorción de otras mutuas de las provincias de Madrid y Ávila, y, por otro, ampliando su presencia a todas las provincias de Castilla-La Mancha.</p>
+          <p>En abril de 1997, por exigencia legal, tuvo que cambiar su nombre originario —Seguros Soliss— por Solimat, para desligarse de forma clara de la compañía de seguros que, al amparo de la mutua, se había creado en los años 30.</p>
+          <p>Fruto del lugar de nacimiento de la entidad y de su expansión por la comunidad autónoma de Castilla-La Mancha, se distingue como la mutua de esta región. Su diferenciación se centra en la cercanía y compromiso con sus usuarios.</p>
+          <p>La entidad —que ofrece cobertura nacional— está formada por un equipo de más de 200 personas, entre sanitarios y personal de gestión, que ejercen su trabajo en los centros que posee en Castilla-La Mancha, Madrid y Ávila.</p>
+        </div>
+      </section>
+
+      <section class="qs-sec" id="solimat-hoy">
+        <div class="qs-eyebrow">Solimat hoy</div>
+        <h2 class="qs-h2">Una mutua referente en Castilla-La Mancha</h2>
+        <div class="qs-prose">
+          <p>Solimat, Mutua Colaboradora con la Seguridad Social nº72, es una de las 18 mutuas colaboradoras con la seguridad social que existen en nuestro país y la única con sede social en Castilla-La Mancha. Su zona de referencia es Castilla-La Mancha, Madrid y Ávila, estas dos últimas provincias fruto de fusiones con otras mutuas y su ámbito de actuación nacional. Cuenta con una población protegida de 150.000 trabajadores, cerca de 12.000 empresas asociadas y 20.000 autónomos adheridos.</p>
+          <p>Posee 11 centros propios de atención directa al trabajador, un Hospital Laboral situado en Toledo, el Hospital San José —único del sector mutual en Castilla-La Mancha— y también cuenta con una amplia red asistencial a nivel nacional para prestar asistencia a cualquier trabajador que lo precise.</p>
+          <p>Formada por más de 200 profesionales pertenecientes al ámbito sanitario y de la gestión, Solimat se ha convertido en una mutua referente en Castilla-La Mancha por sus raíces regionales, por su presencia a lo largo de ella, pero, principalmente, por ofrecer un servicio cercano, personalizado y de calidad a sus empresas mutualistas, asesorías laborales, autónomos y trabajadores protegidos.</p>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:26px;">
+          <div style="background:linear-gradient(135deg, #fbfcfe 0%, #e6ecf4 100%); border:1px solid var(--c-line); border-radius:var(--r-lg); padding:24px; text-align:center;"><div style="font-size:38px; font-weight:700; color:var(--c-accent); line-height:1;">150.000</div><div style="margin-top:8px; font-size:13px; color:var(--c-text-muted); font-weight:500;">Trabajadores protegidos</div></div>
+          <div style="background:linear-gradient(135deg, #fbfcfe 0%, #e6ecf4 100%); border:1px solid var(--c-line); border-radius:var(--r-lg); padding:24px; text-align:center;"><div style="font-size:38px; font-weight:700; color:var(--c-accent); line-height:1;">12.000</div><div style="margin-top:8px; font-size:13px; color:var(--c-text-muted); font-weight:500;">Empresas asociadas</div></div>
+          <div style="background:linear-gradient(135deg, #fbfcfe 0%, #e6ecf4 100%); border:1px solid var(--c-line); border-radius:var(--r-lg); padding:24px; text-align:center;"><div style="font-size:38px; font-weight:700; color:var(--c-accent); line-height:1;">20.000</div><div style="margin-top:8px; font-size:13px; color:var(--c-text-muted); font-weight:500;">Autónomos adheridos</div></div>
+          <div style="background:linear-gradient(135deg, #fbfcfe 0%, #e6ecf4 100%); border:1px solid var(--c-line); border-radius:var(--r-lg); padding:24px; text-align:center;"><div style="font-size:38px; font-weight:700; color:var(--c-accent); line-height:1;">11</div><div style="margin-top:8px; font-size:13px; color:var(--c-text-muted); font-weight:500;">Centros propios</div></div>
+          <div style="background:linear-gradient(135deg, #fbfcfe 0%, #e6ecf4 100%); border:1px solid var(--c-line); border-radius:var(--r-lg); padding:24px; text-align:center;"><div style="font-size:38px; font-weight:700; color:var(--c-accent); line-height:1;">+200</div><div style="margin-top:8px; font-size:13px; color:var(--c-text-muted); font-weight:500;">Profesionales</div></div>
+          <div style="background:linear-gradient(135deg, #fbfcfe 0%, #e6ecf4 100%); border:1px solid var(--c-line); border-radius:var(--r-lg); padding:24px; text-align:center;"><div style="font-size:38px; font-weight:700; color:var(--c-accent); line-height:1;">1933</div><div style="margin-top:8px; font-size:13px; color:var(--c-text-muted); font-weight:500;">Año de fundación</div></div>
+        </div>
+      </section>
+
+      <section class="qs-sec" id="principios-valores">
+        <div class="qs-eyebrow">Nuestra identidad</div>
+        <h2 class="qs-h2">Principios y Valores</h2>
+        <div class="qs-prose">
+          <p>En Solimat es primordial que nuestro comportamiento empresarial sea responsable y que nuestras actuaciones estén basadas en criterios éticos en lo que hacemos y en cómo lo hacemos, respetando siempre la legalidad vigente y las normas de buen gobierno corporativo.</p>
+          <p>Y es que estamos convencidos de que solo una actuación ética, prudente y responsable por nuestra parte hará preservar la reputación de nuestra Entidad y garantizará la profesionalidad y diligencia de nuestro equipo humano y, por consiguiente, nos ayudará en el camino para la consecución de nuestros objetivos.</p>
+          <p><strong>Misión, Visión y Valores.</strong> Nuestra identidad viene marcada por tres elementos fundamentales: nuestra misión, nuestra visión y los valores que nos caracterizan. Son, entre otros, los elementos que caracterizan la personalidad de nuestra organización.</p>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:24px;">
+          <div style="position:relative; overflow:hidden; border-radius:var(--r-lg); min-height:730px; box-shadow:var(--sh-2);">
+            <img src="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/wp-content/uploads/2023/10/solimat_mision.jpg" alt="Misión" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
+            <div style="position:absolute; inset:0; background:#1B305B; opacity:.16; mix-blend-mode:multiply;"></div>
+            <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(14,27,51,0) 0%, rgba(14,27,51,.14) 34%, rgba(14,27,51,.78) 56%, rgba(14,27,51,.96) 100%);"></div>
+            <div style="position:absolute; left:0; right:0; bottom:0; top:380px; padding:0 26px 26px; display:flex; flex-direction:column; text-shadow:0 1px 3px rgba(0,0,0,.35);">
+              <div style="font-size:38px; font-weight:800; color:#fff; letter-spacing:.01em; line-height:1; margin-bottom:14px;">Misión</div>
+              <div style="margin:0;">
+                <p style="margin:0; font-size:13.5px; line-height:1.65; color:rgba(255,255,255,.9);">Gestionar las prestaciones encomendadas por la Seguridad Social, con calidad y cercanía, promoviendo la mejora de la salud de los trabajadores, la competitividad de nuestras empresas y la sostenibilidad del Sistema.</p>
+              </div>
+            </div>
+          </div>
+          <div style="position:relative; overflow:hidden; border-radius:var(--r-lg); min-height:730px; box-shadow:var(--sh-2);">
+            <img src="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/wp-content/uploads/2023/10/solimat_vision.jpg" alt="Visión" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
+            <div style="position:absolute; inset:0; background:#1B305B; opacity:.16; mix-blend-mode:multiply;"></div>
+            <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(14,27,51,0) 0%, rgba(14,27,51,.14) 34%, rgba(14,27,51,.78) 56%, rgba(14,27,51,.96) 100%);"></div>
+            <div style="position:absolute; left:0; right:0; bottom:0; top:380px; padding:0 26px 26px; display:flex; flex-direction:column; text-shadow:0 1px 3px rgba(0,0,0,.35);">
+              <div style="font-size:38px; font-weight:800; color:#fff; letter-spacing:.01em; line-height:1; margin-bottom:14px;">Visión</div>
+              <div style="margin:0;">
+                <p style="margin:0; font-size:13.5px; line-height:1.65; color:rgba(255,255,255,.9);">Ser una organización excelente en el cuidado y promoción de la salud de los trabajadores en nuestro ámbito de actuación, reconocida por el compromiso con las personas; la eficacia, innovación y transparencia en la gestión; y la calidad personalizada en la prestación del servicio.</p>
+              </div>
+            </div>
+          </div>
+          <div style="position:relative; overflow:hidden; border-radius:var(--r-lg); min-height:730px; box-shadow:var(--sh-2);">
+            <img src="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/wp-content/uploads/2023/10/solimat_valores.jpg" alt="Valores" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
+            <div style="position:absolute; inset:0; background:#1B305B; opacity:.16; mix-blend-mode:multiply;"></div>
+            <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(14,27,51,0) 0%, rgba(14,27,51,.14) 34%, rgba(14,27,51,.78) 56%, rgba(14,27,51,.96) 100%);"></div>
+            <div style="position:absolute; left:0; right:0; bottom:0; top:380px; padding:0 26px 26px; display:flex; flex-direction:column; text-shadow:0 1px 3px rgba(0,0,0,.35);">
+              <div style="font-size:38px; font-weight:800; color:#fff; letter-spacing:.01em; line-height:1; margin-bottom:16px;">Valores</div>
+              <div style="margin:0;">
+              <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:9px;">
+                <li style="display:flex; align-items:center; gap:9px; font-size:13.5px; color:rgba(255,255,255,.92);"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-300)" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Confianza y compromiso</li>
+                <li style="display:flex; align-items:center; gap:9px; font-size:13.5px; color:rgba(255,255,255,.92);"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-300)" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Orientación a la persona</li>
+                <li style="display:flex; align-items:center; gap:9px; font-size:13.5px; color:rgba(255,255,255,.92);"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-300)" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Orientación de servicio</li>
+                <li style="display:flex; align-items:center; gap:9px; font-size:13.5px; color:rgba(255,255,255,.92);"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-300)" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Transparencia e integridad</li>
+              </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="qs-sec" id="sostenibilidad" style="background:linear-gradient(rgba(244,247,251,.84), rgba(244,247,251,.92)), url('https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/wp-content/uploads/2023/10/responsabilidad_social_corporativa.jpg') center/cover no-repeat; border:1px solid var(--c-line-soft);">
+        <div class="qs-eyebrow">Compromiso</div>
+        <h2 class="qs-h2">Sostenibilidad y Responsabilidad Social Corporativa</h2>
+        <div class="qs-prose">
+          <h3 style="margin:0 0 12px; font-size:20px; font-weight:700; color:var(--c-accent-deep);">Responsabilidad Social Corporativa</h3>
+          <p>En Solimat siempre se ha tenido en cuenta que la dirección y gestión de cualquier empresa ha de basarse en un sentido de servicio a la Sociedad. Para nosotros representa una actitud de compromiso voluntaria, constante en el tiempo y que justifica nuestro carácter de mutua.</p>
+          <p>Desde Solimat se considera que competitividad y responsabilidad social corporativa constituyen dos elementos clave y esenciales que contribuyen a garantizar la sostenibilidad de nuestra actividad y mantener los compromisos con nuestros mutualistas, colaboradores, trabajadores y la sociedad en general.</p>
+          <p>Por ello, nuestra estrategia de Responsabilidad Social Corporativa (RSC), impulsada por la Alta Dirección implica a todas las áreas de gestión de nuestra organización conforme a unos principios que persiguen el máximo respeto de todos sus stakeholders.</p>
+          <p>El compromiso ético de Solimat y su concepto de la Responsabilidad Social se estructura en torno a los siguientes términos:</p>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin:22px 0 8px;">
+          <div style="background:#fff; border:1px solid var(--c-line-soft); border-left:3px solid var(--c-accent); border-radius:var(--r-md); padding:20px 22px; box-shadow:var(--sh-1);"><div style="font-size:16px; font-weight:700; color:var(--c-accent-deep); margin-bottom:6px;">Cercanía</div><p style="margin:0; font-size:14px; line-height:1.6; color:var(--c-text-muted);">Solimat es una mutua que si por algo se caracteriza es por su constante seguimiento y estrecha relación con todos los agentes de su entorno con los que interactúa fruto del desarrollo de su actividad.</p></div>
+          <div style="background:#fff; border:1px solid var(--c-line-soft); border-left:3px solid var(--c-accent); border-radius:var(--r-md); padding:20px 22px; box-shadow:var(--sh-1);"><div style="font-size:16px; font-weight:700; color:var(--c-accent-deep); margin-bottom:6px;">Accesibilidad</div><p style="margin:0; font-size:14px; line-height:1.6; color:var(--c-text-muted);">Trata de mostrarse como una mutua que está presente en todo momento ante las dificultades y necesidades que puedan aparecer de imprevisto tanto a sus mutualistas como al resto de grupos de su entorno a los cuales afecta su actividad.</p></div>
+          <div style="background:#fff; border:1px solid var(--c-line-soft); border-left:3px solid var(--c-accent); border-radius:var(--r-md); padding:20px 22px; box-shadow:var(--sh-1);"><div style="font-size:16px; font-weight:700; color:var(--c-accent-deep); margin-bottom:6px;">Transparencia</div><p style="margin:0; font-size:14px; line-height:1.6; color:var(--c-text-muted);">Todo el desarrollo de su actividad se realiza con la máxima comunicación e información a las partes implicadas sobre el desarrollo de nuestra actividad. De tal forma que, con ello, se pretende ayudar a que cada colectivo se sienta más identificado con nosotros.</p></div>
+          <div style="background:#fff; border:1px solid var(--c-line-soft); border-left:3px solid var(--c-accent); border-radius:var(--r-md); padding:20px 22px; box-shadow:var(--sh-1);"><div style="font-size:16px; font-weight:700; color:var(--c-accent-deep); margin-bottom:6px;">Fiabilidad</div><p style="margin:0; font-size:14px; line-height:1.6; color:var(--c-text-muted);">El desempeño de nuestros profesionales se caracteriza por su eficiencia y eficacia. Ello supone integridad, responsabilidad y seguridad tanto en los procesos y servicios. Este tipo de actitud se materializa en una gestión de los recursos eficaz y eficiente mediante la cual se consigue contribuir al desarrollo sostenible de nuestra sociedad.</p></div>
+        </div>
+        <div style="margin-top:34px;">
+          <h3 style="margin:0 0 12px; font-size:20px; font-weight:700; color:var(--c-accent-deep);">Política Medioambiental</h3>
+          <div class="qs-prose" style="margin-bottom:20px;"><p>Solimat, consciente de la importancia del medio ambiente como principio básico del compromiso con la sociedad, así como que un servicio de calidad constituye un pilar fundamental para el correcto funcionamiento de la empresa, ha decidido impulsar la implantación de un sistema de Gestión Ambiental que garantice la protección del medioambiente, comprometiéndose en los siguientes principios:</p></div>
+          <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:14px;">
+            <div style="display:flex; gap:14px; background:#fff; border:1px solid var(--c-line-soft); border-radius:var(--r-md); padding:18px 20px; box-shadow:var(--sh-1);"><span style="flex-shrink:0; width:26px; height:26px; border-radius:7px; background:var(--c-accent-soft); color:var(--c-accent); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px;">1</span><span style="font-size:14px; line-height:1.55; color:var(--c-text);">Identificar y evaluar todos los impactos ambientales que se producen como consecuencia del desarrollo de nuestra actividad, tanto en nuestras oficinas como en nuestro Hospital y centros asistenciales, con el objeto de implantar medidas para disminuirlos, prevenir la contaminación, minimizar el consumo de recursos y fomentar la eficiencia y ahorro energéticos en nuestras instalaciones.</span></div>
+            <div style="display:flex; gap:14px; background:#fff; border:1px solid var(--c-line-soft); border-radius:var(--r-md); padding:18px 20px; box-shadow:var(--sh-1);"><span style="flex-shrink:0; width:26px; height:26px; border-radius:7px; background:var(--c-accent-soft); color:var(--c-accent); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px;">2</span><span style="font-size:14px; line-height:1.55; color:var(--c-text);">Velar por el cumplimento de los requisitos ambientales legales que nos son de aplicación, así como de otros requisitos que la organización suscriba relacionados con sus aspectos ambientales.</span></div>
+            <div style="display:flex; gap:14px; background:#fff; border:1px solid var(--c-line-soft); border-radius:var(--r-md); padding:18px 20px; box-shadow:var(--sh-1);"><span style="flex-shrink:0; width:26px; height:26px; border-radius:7px; background:var(--c-accent-soft); color:var(--c-accent); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px;">3</span><span style="font-size:14px; line-height:1.55; color:var(--c-text);">Mantener implicadas y concienciadas a todas las personas de Solimat, fomentando la participación en la gestión y la formación ambiental.</span></div>
+            <div style="display:flex; gap:14px; background:#fff; border:1px solid var(--c-line-soft); border-radius:var(--r-md); padding:18px 20px; box-shadow:var(--sh-1);"><span style="flex-shrink:0; width:26px; height:26px; border-radius:7px; background:var(--c-accent-soft); color:var(--c-accent); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px;">4</span><span style="font-size:14px; line-height:1.55; color:var(--c-text);">Prevenir y evitar los impactos ambientales significativos producidos por la actividad de nuestros centros sanitarios, en especial los producidos por la generación y en el proceso de gestión de los residuos tóxicos y peligrosos.</span></div>
+            <div style="display:flex; gap:14px; background:#fff; border:1px solid var(--c-line-soft); border-radius:var(--r-md); padding:18px 20px; box-shadow:var(--sh-1);"><span style="flex-shrink:0; width:26px; height:26px; border-radius:7px; background:var(--c-accent-soft); color:var(--c-accent); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px;">5</span><span style="font-size:14px; line-height:1.55; color:var(--c-text);">Apoyar el trabajo con proveedores que apliquen normas ambientales coherentes con la política ambiental, promoviendo de esta manera el comportamiento respetuoso con el medio ambiente.</span></div>
+            <div style="display:flex; gap:14px; background:#fff; border:1px solid var(--c-line-soft); border-radius:var(--r-md); padding:18px 20px; box-shadow:var(--sh-1);"><span style="flex-shrink:0; width:26px; height:26px; border-radius:7px; background:var(--c-accent-soft); color:var(--c-accent); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px;">6</span><span style="font-size:14px; line-height:1.55; color:var(--c-text);">Documentar, implementar y mantener al día nuestra Política Ambiental, así como comunicarla a todas las personas de Solimat para que sea conocida, comprendida y aplicada a todos los niveles de la organización.</span></div>
+            <div style="display:flex; gap:14px; background:#fff; border:1px solid var(--c-line-soft); border-radius:var(--r-md); padding:18px 20px; box-shadow:var(--sh-1);"><span style="flex-shrink:0; width:26px; height:26px; border-radius:7px; background:var(--c-accent-soft); color:var(--c-accent); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px;">7</span><span style="font-size:14px; line-height:1.55; color:var(--c-text);">Desarrollar una revisión y mejora continua del Sistema de Gestión Ambiental implantado para mantenerlo activo y efectivo.</span></div>
+            <div style="display:flex; gap:14px; background:#fff; border:1px solid var(--c-line-soft); border-radius:var(--r-md); padding:18px 20px; box-shadow:var(--sh-1);"><span style="flex-shrink:0; width:26px; height:26px; border-radius:7px; background:var(--c-accent-soft); color:var(--c-accent); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px;">8</span><span style="font-size:14px; line-height:1.55; color:var(--c-text);">Poner a disposición no solo a nivel interno, sino de todos nuestros proveedores, colaboradores, clientes y público en general nuestra política ambiental para constatar nuestro compromiso medioambiental.</span></div>
+          </div>
+          <img src="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/wp-content/uploads/2023/10/politica-medioambiental.jpg" alt="Política Medioambiental" style="width:100%; border-radius:var(--r-lg); box-shadow:var(--sh-2); border:1px solid var(--c-line-soft); margin-top:24px;">
+        </div>
+        <div style="margin-top:34px;">
+          <h3 style="margin:0 0 16px; font-size:20px; font-weight:700; color:var(--c-accent-deep);">Pacto Mundial de Naciones Unidas y Objetivos de Desarrollo Sostenible (ODS)</h3>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:start;">
+            <div class="qs-prose">
+              <p>En el año 2015, Solimat dio un paso más en su firme compromiso con la responsabilidad social corporativa aprobando su adhesión al Pacto Mundial de Naciones Unidas y convirtiéndose, por tanto, en el punto de inicio de su compromiso, en la estrategia de la entidad, con los 10 principios que promueve, así como con los Objetivos de Desarrollo Sostenible.</p>
+              <p>Solimat ha seguido avanzando en este compromiso y en noviembre de 2020 formalizó su adhesión al Pacto Mundial —de manera oficial— mediante su inscripción y envío de carta dirigida a Naciones Unidas.</p>
+              <p>Lanzada en el año 2000, Global Compact de Naciones Unidas, en castellano Pacto Mundial, es la mayor iniciativa de sostenibilidad corporativa del mundo. Actualmente hay más de 13.500 entidades adheridas en más de 190 países y cuenta con 76 redes locales. En España más de 2.000 organizaciones han firmado el Pacto Mundial, lo que la convierte en la Red Local con mayor número de entidades adheridas y, por lo tanto, la más importante del mundo.</p>
+            </div>
+            <div class="qs-prose">
+              <p>Esta iniciativa promueve implementar 10 Principios universalmente aceptados para promover el desarrollo sostenible en las áreas de Derechos Humanos y Empresa, Normas Laborales, Medio Ambiente y Lucha contra la Corrupción en las actividades y la estrategia de negocio de las empresas.</p>
+              <p>Así pues, el Pacto Mundial es un marco práctico para desarrollar, implantar y divulgar políticas y prácticas de sostenibilidad empresarial, ofreciendo a sus signatarios una amplia gama de recursos y herramientas de gestión para ayudarles a implementar modelos de negocio y desarrollo sostenible.</p>
+              <p>Solimat, al firmar esta adhesión, se comprometió a alinear sus operaciones con estos Diez Principios universalmente aceptados y canalizar acciones en apoyo de los objetivos de las Naciones Unidas plasmados, actualmente, en los Objetivos de Desarrollo Sostenible (ODS).</p>
+            </div>
+          </div>
+          <img src="https://azrwpcorpo-93d8cef299-eeebcrg6dgb3f4b9.a03.azurefd.net/wp-content/uploads/2023/10/ods.jpg" alt="Pacto Mundial y ODS" style="width:100%; border-radius:var(--r-lg); box-shadow:var(--sh-2); border:1px solid var(--c-line-soft); margin-top:24px;">
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer style="margin-top:auto; background:var(--color-900); color:#fff;">
+  <div class="container" style="padding:56px 0 40px;">
+    <div style="display:grid; grid-template-columns:1.3fr 1fr 1fr 1.1fr; gap:44px;">
+      <div>
+        <img src="assets/logoBlanco.png" alt="Solimat" style="height:52px; margin-bottom:18px;">
+        <p style="margin:0 0 18px; font-size:13.5px; color:rgba(255,255,255,.7); line-height:1.6; font-weight:600; letter-spacing:.02em;">Salud · Experiencia · Compromiso · Integridad · Confianza</p>
+        <div style="display:flex; gap:10px;">
+          <a class="ftr-link" href="https://es.linkedin.com/company/solimat-matepss-" target="_blank" rel="noopener" aria-label="LinkedIn" style="width:36px; height:36px; border-radius:9px; background:rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; color:#fff;"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 002.5 6a2.5 2.5 0 005 0 2.5 2.5 0 00-2.52-2.5zM3 8.98h4v12H3zM9.5 8.98h3.8v1.64h.05c.53-.95 1.83-1.96 3.77-1.96 4.03 0 4.78 2.65 4.78 6.1v6.22h-4v-5.51c0-1.32-.02-3-1.84-3-1.85 0-2.13 1.44-2.13 2.92v5.59h-4z"/></svg></a>
+          <a class="ftr-link" href="https://www.youtube.com/user/Solimat72" target="_blank" rel="noopener" aria-label="YouTube" style="width:36px; height:36px; border-radius:9px; background:rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; color:#fff;"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 00-1.77-1.77C19.34 5.1 12 5.1 12 5.1s-7.34 0-8.83.43A2.5 2.5 0 001.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 001.77 1.77c1.49.43 8.83.43 8.83.43s7.34 0 8.83-.43a2.5 2.5 0 001.77-1.77C23 15.2 23 12 23 12zM9.75 15.5v-7l6 3.5z"/></svg></a>
+          <a class="ftr-link" href="https://www.instagram.com/solimat72/" target="_blank" rel="noopener" aria-label="Instagram" style="width:36px; height:36px; border-radius:9px; background:rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; color:#fff;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a class="ftr-link" href="https://www.facebook.com/profile.php?id=100083202458773" target="_blank" rel="noopener" aria-label="Facebook" style="width:36px; height:36px; border-radius:9px; background:rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; color:#fff;"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0022 12z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--color-200); margin-bottom:16px;">Te puede interesar</div>
+        <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:11px;">
+          <li><a class="ftr-link" href="#" style="color:rgba(255,255,255,.82); font-size:14px;">Perfil del Contratante</a></li>
+          <li><a class="ftr-link" href="http://transparencia.solimat.com/web/index.html" target="_blank" rel="noopener" style="color:rgba(255,255,255,.82); font-size:14px;">Portal de Transparencia</a></li>
+          <li><a class="ftr-link" href="#" style="color:rgba(255,255,255,.82); font-size:14px;">Reclamaciones y quejas</a></li>
+          <li><a class="ftr-link" href="#" style="color:rgba(255,255,255,.82); font-size:14px;">Recursos y Herramientas</a></li>
+          <li><a class="ftr-link" href="#" style="color:rgba(255,255,255,.82); font-size:14px;">Preguntas Frecuentes</a></li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--color-200); margin-bottom:16px;">Enlaces de interés</div>
+        <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:11px;">
+          <li><a class="ftr-link" href="#" style="color:rgba(255,255,255,.82); font-size:14px;">Referencias legislativas</a></li>
+          <li><a class="ftr-link" href="https://www.boe.es/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.82); font-size:14px;">BOE</a></li>
+          <li><a class="ftr-link" href="https://www.insst.es/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.82); font-size:14px;">INSST</a></li>
+          <li><a class="ftr-link" href="https://www.amat.es/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.82); font-size:14px;">AMAT</a></li>
+          <li><a class="ftr-link" href="https://www.seg-social.es/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.82); font-size:14px;">Seguridad Social</a></li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--color-200); margin-bottom:16px;">Contacto</div>
+        <div style="font-size:14px; color:rgba(255,255,255,.82); line-height:1.7;">
+          <div style="font-weight:600; color:#fff; margin-bottom:2px;">Sede Central</div>
+          <div>C/ Berna, 1 — 4ª planta</div>
+          <div>45003 Toledo</div>
+          <div style="margin-top:12px;"><a class="ftr-link" href="tel:925283186" style="color:var(--color-200); font-weight:600;">925 28 31 86</a></div>
+          <div style="margin-top:2px;">contigo@solimat.com</div>
+          <div style="margin-top:12px;"><a class="ftr-link" href="#" style="color:rgba(255,255,255,.82);">Direcciones provinciales →</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="background:var(--color-950); padding:15px 0;">
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; font-size:12.5px; color:rgba(255,255,255,.6);">
+      <span>© {{ year }} Solimat — Mutua Colaboradora con la Seguridad Social Nº 72</span>
+      <div style="display:flex; gap:20px;">
+        <a class="ftr-link" href="#" style="color:rgba(255,255,255,.6);">Aviso legal</a>
+        <a class="ftr-link" href="#" style="color:rgba(255,255,255,.6);">Política de privacidad</a>
+        <a class="ftr-link" href="#" style="color:rgba(255,255,255,.6);">Política de cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    const links = Array.from(document.querySelectorAll('.qs-anchor a'));
+    const byId = {};
+    links.forEach(a => { byId[a.getAttribute('data-obs')] = a; });
+    this._io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          links.forEach(l => l.classList.remove('is-active'));
+          const a = byId[e.target.id];
+          if (a) a.classList.add('is-active');
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+    document.querySelectorAll('.qs-sec').forEach(s => this._io.observe(s));
+  }
+  componentWillUnmount() { if (this._io) this._io.disconnect(); }
+  renderVals() { return { year: new Date().getFullYear() }; }
+}
+</script>
+</body>
+</html>

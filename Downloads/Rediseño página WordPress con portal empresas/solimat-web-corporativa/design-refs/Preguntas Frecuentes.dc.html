@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="theme.css">
+<style>
+a { text-decoration:none; }
+.topbar-link:hover { color:#fff !important; }
+.navdd { position:relative; padding-bottom:14px; margin-bottom:-14px; }
+.navdd__trigger { display:inline-flex; align-items:center; gap:7px; padding:9px 15px; border:0; background:transparent; font-family:inherit; font-size:14.5px; font-weight:500; color:var(--c-accent); border-radius:7px; cursor:pointer; transition:var(--t); }
+.navdd__trigger svg { transition:transform .25s ease; }
+.navdd:hover .navdd__trigger, .navdd:focus-within .navdd__trigger { background:var(--c-accent-deep); color:#fff; }
+.navdd:hover .navdd__trigger svg, .navdd:focus-within .navdd__trigger svg { transform:rotate(180deg); }
+.navdd__menu { position:absolute; top:100%; left:0; min-width:238px; background:#f3f6fa; border:1px solid var(--c-line-soft); border-radius:12px; box-shadow:var(--sh-3); padding:8px; display:flex; flex-direction:column; opacity:0; visibility:hidden; transform:translateY(-6px); transition:opacity .2s ease, transform .2s ease, visibility .2s; z-index:60; }
+.navdd:hover .navdd__menu, .navdd:focus-within .navdd__menu { opacity:1; visibility:visible; transform:translateY(0); }
+.navdd__menu a { padding:11px 15px; border-radius:8px; font-size:14px; color:var(--c-text); font-weight:500; white-space:nowrap; transition:var(--t); }
+.navdd__menu a:hover { background:#fff; color:var(--c-accent); padding-left:19px; }
+.ftr-link:hover { color:var(--color-300) !important; }
+.faq-item { border-bottom:1px solid var(--c-line-soft); }
+.faq-q { width:100%; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:22px 4px; background:none; border:0; cursor:pointer; text-align:left; font-family:inherit; }
+.faq-q:hover .faq-q-text { color:var(--c-accent); }
+.faq-q-text { font-size:16.5px; font-weight:600; color:var(--c-text-strong); line-height:1.4; transition:color var(--t); }
+.faq-ic { flex-shrink:0; width:30px; height:30px; border-radius:50%; background:var(--c-accent-soft); color:var(--c-accent); display:flex; align-items:center; justify-content:center; transition:all var(--t); }
+.faq-ic svg { transition:transform .25s ease; }
+.faq-a { font-size:15px; line-height:1.7; color:var(--c-text-muted); padding:0 4px 24px; max-width:820px; }
+.faq-a a { color:var(--c-accent); font-weight:600; }
+.faq-a a:hover { color:var(--c-accent-dark); }
+.faq-a ul { margin:8px 0 0; padding-left:20px; }
+.faq-a li { margin-bottom:8px; }
+</style>
+</helmet>
+
+<div style="min-height:100vh; display:flex; flex-direction:column; background:var(--c-bg);">
+
+<div style="background:var(--color-900); color:rgba(255,255,255,.82);">
+  <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:16px; height:38px; font-size:12.5px;">
+    <div style="display:flex; align-items:center; gap:8px; font-weight:500; letter-spacing:.04em;">
+      <span style="display:inline-flex; width:7px; height:7px; border-radius:50%; background:#F0455A; box-shadow:0 0 0 3px rgba(240,69,90,.25);"></span>
+      <span style="text-transform:uppercase; letter-spacing:.1em; font-size:11px;">Urgencias 24h</span>
+      <a class="topbar-link" href="tel:900111072" style="color:var(--color-200); font-weight:600;">900 111 072</a>
+      <span style="opacity:.35;">·</span>
+      <a class="topbar-link" href="tel:+34925727272" style="color:rgba(255,255,255,.7);">+34 925 72 72 72 <span style="opacity:.6;">(fuera de España)</span></a>
+    </div>
+    <a class="topbar-link" href="Red De Centros.dc.html" style="color:rgba(255,255,255,.82); display:inline-flex; align-items:center; gap:6px;">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Centros de atención
+    </a>
+  </div>
+</div>
+
+<header class="hdr">
+  <div class="container hdr__bar" style="gap:24px;">
+    <a class="hdr__logo" href="Home Solimat.dc.html" style="display:flex; align-items:center;"><img src="images/solimat-logo.svg" alt="Solimat" style="height:34px;"></a>
+    <nav style="display:flex; align-items:center; gap:2px; margin-left:8px;">
+      <div class="navdd">
+        <button class="navdd__trigger" type="button">Conócenos <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="navdd__menu">
+          <a href="Quienes Somos.dc.html">Quiénes somos</a>
+          <a href="Nuestros Datos.dc.html">Nuestros datos</a>
+          <a href="Podemos Ser Tu Mutua.dc.html">Podemos ser tu mutua</a>
+          <a href="Trabaja Con Nosotros.dc.html">Trabaja con nosotros</a>
+          <a href="Noticias.dc.html">Noticias</a>
+          <a href="Podemos Ayudarte.dc.html">¿Podemos ayudarte?</a>
+        </div>
+      </div>
+      <div class="navdd">
+        <button class="navdd__trigger" type="button">Servicios <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="navdd__menu">
+          <a href="Nuestro Equipo.dc.html">Nuestro equipo</a>
+          <a href="Prestaciones Economicas.dc.html">Prestaciones Económicas</a>
+          <a href="Asistencia Sanitaria.dc.html">Asistencia Sanitaria</a>
+          <a href="Promocion De La Prevencion.dc.html">Promoción de la Prevención</a>
+          <a href="http://portal.solimat.com/" target="_blank" rel="noopener">Portal de Servicios</a>
+          <a href="Podemos Ayudarte.dc.html">¿Podemos ayudarte?</a>
+        </div>
+      </div>
+      <div class="navdd">
+        <button class="navdd__trigger" type="button">Trámites <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="navdd__menu">
+          <a href="Para Empresa.dc.html">Para Empresa</a>
+          <a href="Para Trabajador.dc.html">Para Trabajador</a>
+          <a href="Para Autonomo.dc.html">Para Autónomo</a>
+          <a href="Para Asesoria Laboral.dc.html">Para Asesoría Laboral</a>
+        </div>
+      </div>
+    </nav>
+    <div style="margin-left:auto; display:flex; align-items:center; gap:10px;">
+      <a class="btn btn--ghost btn--sm" href="https://pacientes.solimat.com/" target="_blank" rel="noopener">Portal del Paciente</a>
+      <a class="btn btn--sm" href="http://portal.solimat.com/" target="_blank" rel="noopener" style="gap:8px;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg>
+        Portal de Servicios
+      </a>
+    </div>
+  </div>
+</header>
+
+<section style="position:relative; overflow:hidden; background:var(--color-900);">
+  <div style="position:absolute; inset:0; background:linear-gradient(120deg, var(--color-900) 0%, var(--color-700) 100%);"></div>
+  <div class="container" style="position:relative; padding:56px 0 60px;">
+    <div style="display:flex; align-items:center; gap:8px; font-size:12.5px; color:rgba(255,255,255,.7); margin-bottom:16px;">
+      <a href="Home Solimat.dc.html" style="color:rgba(255,255,255,.7);">Inicio</a>
+      <span style="opacity:.5;">/</span>
+      <span style="color:#fff; font-weight:600;">Preguntas frecuentes</span>
+    </div>
+    <h1 style="margin:0 0 12px; color:#fff; font-size:clamp(34px,4.4vw,52px); font-weight:700; letter-spacing:-0.02em; line-height:1.05;">Preguntas frecuentes</h1>
+    <p style="margin:0; max-width:640px; color:rgba(255,255,255,.85); font-size:18px; line-height:1.55;">Respuestas a las dudas más habituales sobre Solimat, sus servicios y trámites.</p>
+  </div>
+</section>
+
+<section class="container" style="padding:52px 0 80px; max-width:860px;">
+  <div style="background:#fff; border:1px solid var(--c-line-soft); border-radius:var(--r-xl); box-shadow:var(--sh-1); padding:8px 32px;">
+
+    <sc-for list="{{ faqs }}" as="item" hint-placeholder-count="11">
+      <div class="faq-item">
+        <button class="faq-q" onClick="{{ item.toggle }}">
+          <span class="faq-q-text">{{ item.q }}</span>
+          <span class="faq-ic" style="{{ item.icStyle }}">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" style="{{ item.chevStyle }}"><path d="M6 9l6 6 6-6"/></svg>
+          </span>
+        </button>
+        <sc-if value="{{ item.open }}" hint-placeholder-val="{{ false }}">
+          <div class="faq-a" dangerouslySetInnerHTML="{{ item.aHtml }}"></div>
+        </sc-if>
+      </div>
+    </sc-for>
+
+  </div>
+</section>
+
+<footer style="margin-top:auto; background:var(--color-900); color:#fff;">
+  <div class="container" style="padding:56px 0 40px;">
+    <div style="display:grid; grid-template-columns:1.3fr 1fr 1fr 1.1fr; gap:44px;">
+      <div>
+        <img src="images/logoBlanco.png" alt="Solimat" style="height:52px; margin-bottom:18px;">
+        <p style="margin:0 0 18px; font-size:13.5px; color:rgba(255,255,255,.7); line-height:1.6; font-weight:600; letter-spacing:.02em;">Salud · Experiencia · Compromiso · Integridad · Confianza</p>
+        <div style="display:flex; gap:10px;">
+          <a class="ftr-link" href="https://es.linkedin.com/company/solimat-matepss-" target="_blank" rel="noopener" aria-label="LinkedIn" style="width:36px; height:36px; border-radius:9px; background:rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; color:#fff;"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 002.5 6a2.5 2.5 0 005 0 2.5 2.5 0 00-2.52-2.5zM3 8.98h4v12H3zM9.5 8.98h3.8v1.64h.05c.53-.95 1.83-1.96 3.77-1.96 4.03 0 4.78 2.65 4.78 6.1v6.22h-4v-5.51c0-1.32-.02-3-1.84-3-1.85 0-2.13 1.44-2.13 2.92v5.59h-4z"/></svg></a>
+          <a class="ftr-link" href="https://www.youtube.com/user/Solimat72" target="_blank" rel="noopener" aria-label="YouTube" style="width:36px; height:36px; border-radius:9px; background:rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; color:#fff;"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 00-1.77-1.77C19.34 5.1 12 5.1 12 5.1s-7.34 0-8.83.43A2.5 2.5 0 001.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 001.77 1.77c1.49.43 8.83.43 8.83.43s7.34 0 8.83-.43a2.5 2.5 0 001.77-1.77C23 15.2 23 12 23 12zM9.75 15.5v-7l6 3.5z"/></svg></a>
+          <a class="ftr-link" href="https://www.instagram.com/solimat72/" target="_blank" rel="noopener" aria-label="Instagram" style="width:36px; height:36px; border-radius:9px; background:rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; color:#fff;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a class="ftr-link" href="https://www.facebook.com/profile.php?id=100083202458773" target="_blank" rel="noopener" aria-label="Facebook" style="width:36px; height:36px; border-radius:9px; background:rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; color:#fff;"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0022 12z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--color-200); margin-bottom:16px;">Te puede interesar</div>
+        <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:11px;">
+          <li><a class="ftr-link" href="Perfil Del Contratante.dc.html" style="color:rgba(255,255,255,.82); font-size:14px;">Perfil del Contratante</a></li>
+          <li><a class="ftr-link" href="http://transparencia.solimat.com/web/index.html" target="_blank" rel="noopener" style="color:rgba(255,255,255,.82); font-size:14px;">Portal de Transparencia</a></li>
+          <li><a class="ftr-link" href="#" style="color:rgba(255,255,255,.82); font-size:14px;">Reclamaciones y quejas</a></li>
+          <li><a class="ftr-link" href="Recursos Y Herramientas.dc.html" style="color:rgba(255,255,255,.82); font-size:14px;">Recursos y Herramientas</a></li>
+          <li><a class="ftr-link" href="Preguntas Frecuentes.dc.html" style="color:rgba(255,255,255,.82); font-size:14px; font-weight:700;">Preguntas Frecuentes</a></li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--color-200); margin-bottom:16px;">Enlaces de interés</div>
+        <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:11px;">
+          <li><a class="ftr-link" href="Referencias Legislativas.dc.html" style="color:rgba(255,255,255,.82); font-size:14px;">Referencias legislativas</a></li>
+          <li><a class="ftr-link" href="https://www.boe.es/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.82); font-size:14px;">BOE</a></li>
+          <li><a class="ftr-link" href="https://www.insst.es/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.82); font-size:14px;">INSST</a></li>
+          <li><a class="ftr-link" href="https://www.amat.es/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.82); font-size:14px;">AMAT</a></li>
+          <li><a class="ftr-link" href="https://www.seg-social.es/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.82); font-size:14px;">Seguridad Social</a></li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--color-200); margin-bottom:16px;">Contacto</div>
+        <div style="font-size:14px; color:rgba(255,255,255,.82); line-height:1.7;">
+          <div style="font-weight:600; color:#fff; margin-bottom:2px;">Sede Central</div>
+          <div>C/ Berna, 1 — 4ª planta</div>
+          <div>45003 Toledo</div>
+          <div style="margin-top:12px;"><a class="ftr-link" href="tel:925283186" style="color:var(--color-200); font-weight:600;">925 28 31 86</a></div>
+          <div style="margin-top:2px;">contigo@solimat.com</div>
+          <div style="margin-top:12px;"><a class="ftr-link" href="#" style="color:rgba(255,255,255,.82);">Direcciones provinciales →</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="background:var(--color-950); padding:15px 0;">
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; font-size:12.5px; color:rgba(255,255,255,.6);">
+      <span>© {{ year }} Solimat — Mutua Colaboradora con la Seguridad Social Nº 72</span>
+      <div style="display:flex; gap:20px;">
+        <a class="ftr-link" href="#" style="color:rgba(255,255,255,.6);">Aviso legal</a>
+        <a class="ftr-link" href="#" style="color:rgba(255,255,255,.6);">Política de privacidad</a>
+        <a class="ftr-link" href="#" style="color:rgba(255,255,255,.6);">Política de cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { open: 0 };
+
+  raw() {
+    return [
+      { q: "¿Qué es una mutua y qué servicios ofrece Solimat?", a: `<p>Es una asociación privada de empresarios que realiza una colaboración eficaz y eficiente con la Seguridad Social.</p><p style="margin:0;">Su principal actividad es la gestión de prestaciones económicas y la asistencia sanitaria en caso de accidente de trabajo de los trabajadores protegidos.</p>` },
+      { q: "¿Cómo puedo afiliarme a Solimat como trabajador autónomo?", a: `<p style="margin:0;">Si has decido dar el paso para ser trabajador por cuenta propia, necesitas una mutua que te proteja. Dándote de alta con Solimat tienes acceso a todos nuestros servicios. En el siguiente <a href="Para Autonomo.dc.html">enlace</a> te explicamos paso a paso cómo hacerlo o, si lo prefieres, un gestor puede ayudarte con los trámites llamando a tu <a href="#">Dirección Provincial</a>.</p>` },
+      { q: "¿Cuáles son los beneficios de estar protegido por Solimat?", a: `<ul><li>Tener un interlocutor único -gestor- que te ayuda en todas tus gestiones y/o resolución de dudas.</li><li>Asistencia sanitaria centrada en la recuperación de los trabajadores y autónomos protegidos, con una gran calidad asistencial. Nuestros profesionales sanitarios acompañan a los pacientes en su proceso, con un trato cercano y personalizado.</li><li>Acceso a una amplia red de centros en todo el país y al único Hospital laboral en Castilla - La Mancha, el Hospital San José.</li><li>Centros dotados con los últimos avances técnicos en el campo de la medicina y de la fisioterapia.</li><li style="margin:0;">Plataformas de comunicación para ayudarte en tu gestión diaria.</li></ul>` },
+      { q: "¿Cuáles son las prestaciones económicas a las que tengo derecho como trabajador?", a: `<p style="margin:0;">En función de tu situación, puedes acceder a la prestación económica que te corresponda. Conócelas en este <a href="Prestaciones Economicas.dc.html">enlace</a> y sus trámites para solicitarlas. Si tienes alguna duda, ponte en contacto con <a href="#">nosotros</a> y te ayudamos.</p>` },
+      { q: "¿Qué debo hacer en caso de accidente laboral?", a: `<p style="margin:0;">En esta <a href="pdfs/Procedimiento-de-actuacion-en-caso-de-accidente.pdf" target="_blank" rel="noopener">infografía</a> te explicamos qué debes hacer ante cada situación. Si necesitas más información, contacta con nosotros a través del 900 111 072.</p>` },
+      { q: "¿Qué hacer ante desplazamientos al extranjero por trabajo?", a: `<p style="margin:0;">El país de destino determina los trámites a realizar. <a href="pdfs/Asistencia-sanitaria-a-trabajadores-desplazados-al-extranjero.pdf" target="_blank" rel="noopener">Aquí</a> te dejamos información básica. Puedes ampliarla en el 900 111 072.</p>` },
+      { q: "¿Qué diferencia hay entre embarazo de riesgo y riesgo en el embarazo?", a: `<p>Un embarazo de riesgo es un embarazo con cualquier riesgo para la madre o para el feto y que hace aconsejable que la madre tenga unos cuidados especiales.</p><p style="margin:0;">El riesgo en el embarazo está relacionado con el desempeño de la actividad y/o condiciones de trabajo de la gestante, influyendo negativamente en su salud, o en la de tu hijo/a.</p>` },
+      { q: "¿Qué diferencia hay entre accidente laboral y no laboral?", a: `<p>Un accidente laboral es toda lesión corporal que el trabajador sufra con ocasión o por consecuencia del trabajo que se ejecute por cuenta ajena o propia. En este caso, será atendido por los servicios sanitarios de la mutua quiénes son los encargados de determinar la baja y alta del proceso.</p><p style="margin:0;">En cambio, un accidente no laboral es un fenómeno que provoca una lesión funcional o corporal, permanente o temporal y que se produce de forma ajena al trabajo realizado por cuenta propia o ajena, sin ocasión de la prestación del servicio. Recibe la asistencia sanitaria del Sistema Público de Salud y, por tanto, la baja y el alta médica las determinan los médicos de la Seguridad Social.</p>` },
+      { q: "¿Qué es el Sistema Delt@ y para qué sirve?", a: `<p style="margin:0;">El Sistema Delta (Sistema de Declaración Electrónica de Trabajadores Accidentados) es una herramienta informática a través de la cual se comunican los accidentes que ocurren en el trabajo, tanto si es con baja como si no lo es. Puedes acceder <a href="Recursos Y Herramientas.dc.html">aquí</a> para ampliar la información.</p>` },
+      { q: "¿Qué es el Portal de Servicios?", a: `<p style="margin:0;">Es una plataforma de intercambio de información que Solimat pone a disposición como ayuda en la gestión diaria a empresas, asesorías laborales y autónomos. Si quieres tener acceso a ella, pincha <a href="http://portal.solimat.com/" target="_blank" rel="noopener">aquí</a> y te explicamos cómo darte de alta.</p>` },
+    ];
+  }
+
+  renderVals() {
+    const data = this.raw();
+    const faqs = data.map((f, i) => {
+      const open = this.state.open === i;
+      return {
+        q: f.q,
+        aHtml: { __html: f.a },
+        open,
+        icStyle: open ? "background:var(--c-accent);color:#fff;" : "",
+        chevStyle: open ? "transform:rotate(180deg);" : "",
+        toggle: () => this.setState({ open: open ? -1 : i }),
+      };
+    });
+    return { faqs, year: new Date().getFullYear() };
+  }
+}
+</script>
+</body>
+</html>

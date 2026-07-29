@@ -1,0 +1,21 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+  margin-bottom: 22px;
+}
+
+.bar {
+  width: 4px;
+  height: 30px;
+  background: var(--c-accent);
+  border-radius: 2px;
+}
+
+.title {
+  margin: 0;
+  font-size: 27px;
+  font-weight: 700;
+  color: var(--c-accent-deep);
+  letter-spacing: -0.015em;
+}

@@ -1,0 +1,17 @@
+.accordion {
+  background: var(--c-white);
+  border: 1px solid var(--c-line-soft);
+  border-radius: var(--r-xl);
+  box-shadow: var(--sh-1);
+  padding: 8px 32px;
+}
+
+.accordion > *:last-child {
+  border-bottom: 0;
+}
+
+@media (max-width: 700px) {
+  .accordion {
+    padding: 8px 20px;
+  }
+}

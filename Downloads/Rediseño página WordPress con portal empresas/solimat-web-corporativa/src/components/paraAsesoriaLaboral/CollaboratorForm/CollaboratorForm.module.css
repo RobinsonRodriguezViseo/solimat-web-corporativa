@@ -1,0 +1,109 @@
+.card {
+  background: var(--c-surface);
+  border: 1px solid var(--c-line-soft);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-1);
+  padding: 30px 32px;
+}
+
+.title {
+  margin: 0 0 10px;
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--c-text-strong);
+}
+
+.intro {
+  margin: 0 0 22px;
+  font-size: 15px;
+  line-height: 1.68;
+  color: var(--c-text-muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.full {
+  grid-column: 1 / -1;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--c-text-strong);
+  letter-spacing: 0.01em;
+}
+
+.input {
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--c-text-strong);
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  border-radius: 10px;
+  padding: 12px 14px;
+  transition: border-color var(--t), box-shadow var(--t);
+  width: 100%;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--c-accent);
+  box-shadow: 0 0 0 3px var(--c-accent-soft);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 20px 0 24px;
+  cursor: pointer;
+}
+
+.checkbox {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--c-accent);
+  flex-shrink: 0;
+}
+
+.consentText {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--c-text-muted);
+}
+
+.consentText a {
+  color: var(--c-accent);
+  font-weight: 600;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (max-width: 720px) {
+  .card {
+    padding: 24px 20px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

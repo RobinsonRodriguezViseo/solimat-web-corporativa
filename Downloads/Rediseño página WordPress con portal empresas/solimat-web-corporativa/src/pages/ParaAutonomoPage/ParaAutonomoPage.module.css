@@ -1,0 +1,38 @@
+.body {
+  padding: 52px 0 80px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 258px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.content {
+  min-width: 0;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-top: 22px;
+}
+
+.section {
+  scroll-margin-top: 100px;
+  margin-top: 30px;
+}
+
+.sectionLast {
+  scroll-margin-top: 100px;
+  margin-top: 30px;
+}
+
+@media (max-width: 1000px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}

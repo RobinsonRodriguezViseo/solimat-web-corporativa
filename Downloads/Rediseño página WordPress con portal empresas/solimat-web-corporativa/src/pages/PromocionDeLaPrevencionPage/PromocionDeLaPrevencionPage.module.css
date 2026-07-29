@@ -1,0 +1,99 @@
+.body {
+  padding: 52px 0 80px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 258px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.content {
+  min-width: 0;
+}
+
+.intro {
+  background: #fff;
+  border: 1px solid var(--c-line-soft);
+  border-left: 4px solid var(--c-accent);
+  border-radius: var(--r-lg);
+  padding: 26px 30px;
+  box-shadow: var(--sh-1);
+  margin-bottom: 44px;
+  text-wrap: pretty;
+}
+
+.section {
+  scroll-margin-top: 100px;
+  margin-bottom: 48px;
+}
+
+.sectionLast {
+  margin-bottom: 0;
+}
+
+.sectionLead {
+  margin: 0 0 24px;
+  font-size: 15px;
+  color: var(--c-text-muted);
+}
+
+.campusCta {
+  margin-top: 6px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--c-line-soft);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-1);
+  overflow: hidden;
+}
+
+.cardFooter {
+  padding: 26px 32px 30px;
+  border-top: 1px solid var(--c-line-soft);
+}
+
+.featuresTitle {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--c-text-strong);
+  margin-bottom: 18px;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.canalContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 32px 34px;
+}
+
+.canalText {
+  margin: 0 0 20px;
+  font-size: 16px;
+  line-height: 1.68;
+  color: var(--c-text-muted);
+}
+
+.canalCta {
+  align-self: flex-start;
+}
+
+@media (max-width: 1000px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+  }
+}

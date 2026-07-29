@@ -1,0 +1,23 @@
+.group {
+  scroll-margin-top: 100px;
+  margin-bottom: 28px;
+}
+
+.title {
+  margin: 0 0 14px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--c-text-strong);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 11px;
+}
+
+@media (max-width: 1000px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

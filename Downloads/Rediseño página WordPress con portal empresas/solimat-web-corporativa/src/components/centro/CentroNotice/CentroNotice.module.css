@@ -1,0 +1,53 @@
+/* Gama ámbar del aviso: tomada literalmente del diseño de referencia
+   (theme.css solo expone --c-amber para el color base). */
+.notice {
+  position: relative;
+  background: #fff8ec;
+  border: 1px solid #f5d9a6;
+  border-left: 4px solid var(--c-amber);
+  border-radius: var(--r-lg);
+  padding: 22px 26px;
+}
+
+.row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.tag {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--c-amber);
+  color: var(--c-white);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: var(--r-md);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.text {
+  margin: 0;
+  font-size: 14.5px;
+  color: #6b5828;
+  line-height: 1.6;
+}
+
+.updated {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px dashed #e6c98a;
+  font-size: 12.5px;
+  color: #a08a54;
+}
+
+@media (max-width: 640px) {
+  .row {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

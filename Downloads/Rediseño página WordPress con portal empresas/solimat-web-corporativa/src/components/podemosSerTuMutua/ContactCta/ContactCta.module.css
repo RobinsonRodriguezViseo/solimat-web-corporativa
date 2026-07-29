@@ -1,0 +1,96 @@
+.wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--r-xl);
+  box-shadow: var(--sh-3);
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+}
+
+@media (max-width: 900px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+.panel {
+  background: linear-gradient(120deg, var(--color-900) 0%, var(--color-700) 60%, var(--color-500) 100%);
+  padding: 48px 46px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.badge {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  border-radius: 99px;
+  padding: 6px 15px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 20px;
+}
+
+.title {
+  margin: 0 0 16px;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.text {
+  margin: 0 0 30px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 16.5px;
+  line-height: 1.65;
+  max-width: 440px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.emailButton {
+  background: #fff;
+  color: var(--c-accent-deep);
+}
+
+.emailButton:hover {
+  background: var(--color-100);
+  color: var(--c-accent-deep);
+}
+
+.phoneButton {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+
+.phoneButton:hover {
+  background: rgba(255, 255, 255, 0.22);
+  color: #fff;
+}
+
+.media {
+  position: relative;
+  min-width: 0;
+  min-height: 300px;
+}
+
+.image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

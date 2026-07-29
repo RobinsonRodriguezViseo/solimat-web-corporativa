@@ -1,0 +1,91 @@
+.dateField {
+  margin-bottom: 18px;
+}
+
+.dateInput {
+  max-width: 220px;
+}
+
+.descriptionField {
+  margin-bottom: 22px;
+}
+
+.identityIntro {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--c-text-strong);
+  margin-bottom: 14px;
+}
+
+.identityGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 20px;
+  margin-bottom: 22px;
+}
+
+@media (max-width: 640px) {
+  .identityGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.wideField {
+  grid-column: 1 / -1;
+}
+
+.check {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-3);
+  margin-bottom: 14px;
+  cursor: pointer;
+}
+
+.lastCheck {
+  margin-bottom: 24px;
+}
+
+.checkbox {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--c-accent);
+  flex-shrink: 0;
+}
+
+.checkText {
+  font-size: 13.5px;
+  color: var(--c-text-muted);
+  line-height: 1.55;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.submit {
+  border: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: var(--c-accent);
+  color: #fff;
+  font-family: inherit;
+  font-size: 14.5px;
+  font-weight: 600;
+  padding: 12px 22px;
+  border-radius: 9px;
+  transition: background var(--t);
+}
+
+.submit:hover {
+  background: var(--c-accent-dark);
+}
+
+.submit:focus-visible {
+  outline: none;
+  box-shadow: var(--sh-focus);
+}

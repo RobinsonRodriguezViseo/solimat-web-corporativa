@@ -1,0 +1,75 @@
+.introSection {
+  padding: 56px 0 8px;
+}
+
+.intro {
+  max-width: 820px;
+}
+
+.eyebrow {
+  color: var(--c-accent);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  margin-bottom: 12px;
+}
+
+.introText {
+  margin: 0;
+  font-size: 16.5px;
+  line-height: 1.75;
+  color: var(--c-text);
+}
+
+.featuredSection {
+  padding: 40px 0 16px;
+}
+
+.featuredHeader {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.h2 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--c-accent-deep);
+  letter-spacing: -0.01em;
+}
+
+.yearBadge {
+  background: var(--c-accent-soft);
+  color: var(--c-accent-dark);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 11px;
+  border-radius: 99px;
+}
+
+.featuredGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .featuredGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.historySection {
+  padding: 40px 0 76px;
+}
+
+.historyHeading {
+  margin: 0 0 24px;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--c-accent-deep);
+  letter-spacing: -0.01em;
+}

@@ -1,0 +1,24 @@
+.section {
+  padding: 70px 0 10px;
+}
+
+.heading {
+  text-align: center;
+  margin: 0 0 40px;
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--c-accent-deep);
+  letter-spacing: -0.02em;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 720px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
