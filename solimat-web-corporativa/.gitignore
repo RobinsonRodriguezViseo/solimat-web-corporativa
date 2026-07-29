@@ -17,7 +17,7 @@ dist-ssr
 # Las function keys y el PAT del feed se inyectan por variables de entorno.
 # Las variantes locales (.env.local, .env.production...) siguen sin versionarse.
 
-
+.env
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
