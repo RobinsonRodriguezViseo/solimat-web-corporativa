@@ -16,6 +16,10 @@ function extractPlainText(html: string): string {
   return temp.textContent || temp.innerText || '';
 }
 
+function isNews(item: News | (typeof noticias)[number]): item is News {
+  return 'content' in item && 'imageData' in item;
+}
+
 const BackToNoticias = () => (
   <Link className={styles.backLink} to="/noticias">
     <svg
@@ -41,7 +45,6 @@ export default function NoticiaPage() {
   
   // Primero intentar obtener de newsService
   let noticia: News | (typeof noticias)[number] | undefined = id ? getNewsById(id) : undefined;
-  let isFromNewsService = !!noticia;
   
   // Si no está en newsService, intentar como número en noticias estáticas
   if (!noticia) {
@@ -66,7 +69,7 @@ export default function NoticiaPage() {
   let formattedNoticia: NoticiaPublica;
   let fullHtmlContent: string | null = null;
 
-  if (isFromNewsService) {
+  if (isNews(noticia)) {
     const plainText = extractPlainText(noticia.content);
     const excerpt = plainText.substring(0, 150).trim() + (plainText.length > 150 ? '...' : '');
     
