@@ -1,0 +1,31 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+- group: web-corporativa-env
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '20.x'
+
+- script: npm ci
+  displayName: Install dependencies
+  workingDirectory: solimat-web-corporativa
+
+- pwsh: |
+    @"
+    VITE_REACT_APP_MAESTROS_PATH=$(VITE_REACT_APP_MAESTROS_PATH)
+    VITE_REACT_APP_MAESTROS_KEY=$(VITE_REACT_APP_MAESTROS_KEY)
+    VITE_REACT_APP_RED_CENTROS_PATH=$(VITE_REACT_APP_RED_CENTROS_PATH)
+    VITE_REACT_APP_RED_CENTROS_KEY=$(VITE_REACT_APP_RED_CENTROS_KEY)
+    VITE_REACT_APP_GOOGLE_MAPS_API_KEY=$(VITE_REACT_APP_GOOGLE_MAPS_API_KEY)
+    "@ | Out-File -FilePath "$(Build.SourcesDirectory)/solimat-web-corporativa/.env" -Encoding utf8
+  displayName: Create .env for build
+
+- script: npm run build
+  displayName: Build
+  workingDirectory: solimat-web-corporativa
