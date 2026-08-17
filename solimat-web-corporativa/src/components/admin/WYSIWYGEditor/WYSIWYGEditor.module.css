@@ -40,6 +40,21 @@
   cursor: not-allowed;
 }
 
+.sizeSelect {
+  padding: 6px 8px;
+  border: 1px solid var(--color-200);
+  border-radius: 4px;
+  background: #fff;
+  color: var(--color-text-primary);
+  font-size: 13px;
+  min-width: 92px;
+}
+
+.sizeSelect:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .separator {
   width: 1px;
   height: 24px;
@@ -55,7 +70,20 @@
   color: var(--color-text-primary);
   outline: none;
   word-wrap: break-word;
+  direction: ltr !important;
+  unicode-bidi: plaintext;
+  text-align: left;
+}
+
+.editor p,
+.editor li,
+.editor span,
+.editor a,
+.editor strong,
+.editor em,
+.editor u {
   direction: ltr;
+  unicode-bidi: isolate;
   text-align: left;
 }
 
@@ -112,6 +140,12 @@
     padding: 5px 8px;
     font-size: 12px;
     min-width: 28px;
+  }
+
+  .sizeSelect {
+    padding: 5px 6px;
+    font-size: 12px;
+    min-width: 78px;
   }
 
   .editor {

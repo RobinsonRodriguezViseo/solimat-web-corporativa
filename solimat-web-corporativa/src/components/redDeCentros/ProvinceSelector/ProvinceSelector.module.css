@@ -52,41 +52,84 @@
   text-transform: uppercase;
   letter-spacing: 0.14em;
   color: var(--c-text-soft);
-  margin-bottom: var(--s-1);
+  margin-bottom: var(--s-2);
 }
 
 .selectWrap {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  min-width: 260px;
+  background: var(--c-white);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-1);
+  transition: border-color var(--t), box-shadow var(--t), transform var(--t);
 }
 
 .select {
   appearance: none;
   border: 0;
-  border-bottom: 2px solid var(--c-line);
   background: transparent;
   font-family: inherit;
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 17px;
+  font-weight: 600;
   color: var(--c-text-strong);
-  padding: 6px 34px 8px 2px;
+  padding: 12px 44px 12px 14px;
   cursor: pointer;
-  min-width: 230px;
-  transition: border-color var(--t);
+  min-width: 260px;
+  line-height: 1.25;
 }
 
 .select:focus {
   outline: none;
-  border-bottom-color: var(--c-accent);
+}
+
+.selectWrap:hover {
+  border-color: var(--c-accent-line);
+  box-shadow: var(--sh-2);
+  transform: translateY(-1px);
+}
+
+.selectWrap:focus-within {
+  border-color: var(--c-accent);
+  box-shadow: var(--sh-focus);
+  transform: none;
+}
+
+.select:disabled {
+  cursor: not-allowed;
+  color: var(--c-text-soft);
+}
+
+.selectWrapDisabled {
+  background: var(--c-bg-subtle);
+  border-color: var(--c-line-soft);
+  box-shadow: none;
+  transform: none;
+}
+
+.selectWrapDisabled:hover {
+  border-color: var(--c-line-soft);
+  box-shadow: none;
+  transform: none;
 }
 
 .chevron {
   position: absolute;
-  right: var(--s-1);
+  right: 12px;
   top: 50%;
   transform: translateY(-50%);
   pointer-events: none;
   color: var(--c-accent);
+  opacity: 0.82;
+  transition: transform var(--t), opacity var(--t);
+}
+
+.selectWrap:hover .chevron,
+.selectWrap:focus-within .chevron {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.05);
 }
 
 @media (max-width: 720px) {
@@ -97,9 +140,12 @@
   .select {
     min-width: 0;
     width: 100%;
+    font-size: 16px;
   }
 
   .selectWrap {
     display: block;
+    width: 100%;
+    min-width: 0;
   }
 }

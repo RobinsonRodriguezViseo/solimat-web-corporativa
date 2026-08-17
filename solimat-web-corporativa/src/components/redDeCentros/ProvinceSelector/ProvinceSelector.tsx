@@ -39,7 +39,7 @@ export default function ProvinceSelector({
         <label className={styles.label} htmlFor={selectId}>
           Provincia
         </label>
-        <div className={styles.selectWrap}>
+        <div className={`${styles.selectWrap} ${disabled ? styles.selectWrapDisabled : ''}`}>
           <select
             id={selectId}
             className={styles.select}
