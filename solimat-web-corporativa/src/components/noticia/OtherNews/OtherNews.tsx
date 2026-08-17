@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
-import type { Noticia } from '../../../data/noticias';
+import type { NoticiaPublica } from '../../../data/noticias';
 import Container from '../../shared/Container';
 import styles from './OtherNews.module.css';
 
 interface OtherNewsProps {
-  noticias: Noticia[];
+  noticias: NoticiaPublica[];
 }
 
 export default function OtherNews({ noticias }: OtherNewsProps) {

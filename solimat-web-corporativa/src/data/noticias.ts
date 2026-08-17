@@ -38,6 +38,17 @@ export interface Noticia {
   url?: string;
 }
 
+export type NoticiaPublica = {
+  id: number | string;
+  image: string;
+  date: string;
+  title: string;
+  excerpt: string;
+  blocks?: Block[];
+  url?: string;
+  content?: string;
+};
+
 const P = (text: string): Block => ({ kind: 'p', text });
 const H = (text: string): Block => ({ kind: 'h', text });
 const Q = (text: string, author?: string): Block => ({ kind: 'quote', text, author });
@@ -370,5 +381,10 @@ const EXCERPTS_LISTADO: Record<number, string> = {
   24: 'Iluminando de rosa la fachada de su Hospital como símbolo de la lucha contra esta enfermedad. Toledo, 18 de octubre de 2022.– Cada año, el 19 de octubre, se celebra el Día Mundial contra el Cáncer de Mama como recordatorio del compromiso de toda la sociedad en la lucha contra…',
 };
 
-export const getExcerptListado = (noticia: Noticia): string =>
-  EXCERPTS_LISTADO[noticia.id] ?? noticia.excerpt;
+export const getExcerptListado = (noticia: Pick<NoticiaPublica, 'id' | 'excerpt'>): string => {
+  if (typeof noticia.id === 'number') {
+    return EXCERPTS_LISTADO[noticia.id] ?? noticia.excerpt;
+  }
+
+  return noticia.excerpt;
+};

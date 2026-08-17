@@ -57,7 +57,7 @@ function cleanHTML(html: string): string {
       }
 
       if (tag === 'span') {
-        const fontSize = elem.style.fontSize?.trim();
+        const fontSize = elem instanceof HTMLElement ? elem.style.fontSize.trim() : '';
 
         if (fontSize && ALLOWED_FONT_SIZES.has(fontSize)) {
           return `<span style="font-size:${fontSize}">${content}</span>`;

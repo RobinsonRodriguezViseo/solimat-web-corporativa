@@ -5,8 +5,8 @@ import ShareLinks from '../../components/noticia/ShareLinks';
 import Breadcrumb from '../../components/shared/Breadcrumb';
 import Button from '../../components/shared/Button';
 import Container from '../../components/shared/Container';
-import { getNoticiaById, noticias, type Block } from '../../data/noticias';
-import { getNewsById, getPublishedNews } from '../../services/newsService';
+import { getNoticiaById, noticias, type Block, type NoticiaPublica } from '../../data/noticias';
+import { getNewsById, getPublishedNews, type News } from '../../services/newsService';
 import styles from './NoticiaPage.module.css';
 
 // Extraer texto plano del HTML
@@ -40,7 +40,7 @@ export default function NoticiaPage() {
   const { id } = useParams<{ id: string }>();
   
   // Primero intentar obtener de newsService
-  let noticia: any = id ? getNewsById(id) : undefined;
+  let noticia: News | (typeof noticias)[number] | undefined = id ? getNewsById(id) : undefined;
   let isFromNewsService = !!noticia;
   
   // Si no está en newsService, intentar como número en noticias estáticas
@@ -63,7 +63,7 @@ export default function NoticiaPage() {
 
   // Para noticias del newsService, usar el HTML completo
   // Para noticias estáticas, usar el sistema de blocks
-  let formattedNoticia: any;
+  let formattedNoticia: NoticiaPublica;
   let fullHtmlContent: string | null = null;
 
   if (isFromNewsService) {
@@ -85,7 +85,7 @@ export default function NoticiaPage() {
   }
 
   const blocks: Block[] = formattedNoticia.blocks ?? [{ kind: 'p', text: formattedNoticia.excerpt }];
-  const allNoticias = [...noticias, ...getPublishedNews().map((n) => {
+  const allNoticias: NoticiaPublica[] = [...noticias, ...getPublishedNews().map((n) => {
     const plainText = extractPlainText(n.content);
     const excerpt = plainText.substring(0, 150).trim() + (plainText.length > 150 ? '...' : '');
     

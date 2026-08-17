@@ -3,7 +3,7 @@ import FeaturedArticle from '../../components/noticias/FeaturedArticle';
 import NoticiasGrid from '../../components/noticias/NoticiasGrid';
 import Container from '../../components/shared/Container';
 import PageHero from '../../components/shared/PageHero';
-import { getExcerptListado, noticias as staticNoticias } from '../../data/noticias';
+import { getExcerptListado, noticias as staticNoticias, type NoticiaPublica } from '../../data/noticias';
 import { getPublishedNews } from '../../services/newsService';
 import type { News } from '../../services/newsService';
 import styles from './NoticiasPage.module.css';
@@ -16,7 +16,7 @@ function extractPlainText(html: string): string {
 }
 
 // Convertir noticia del newsService al formato de la página
-function convertNewsToNoticia(news: News) {
+function convertNewsToNoticia(news: News): NoticiaPublica {
   // Extraer texto plano y luego tomar los primeros 150 caracteres
   const plainText = extractPlainText(news.content);
   const excerpt = plainText.substring(0, 150).trim() + (plainText.length > 150 ? '...' : '');
@@ -32,7 +32,7 @@ function convertNewsToNoticia(news: News) {
 }
 
 export default function NoticiasPage() {
-  const [allNoticias, setAllNoticias] = useState([...staticNoticias]);
+  const [allNoticias, setAllNoticias] = useState<NoticiaPublica[]>([...staticNoticias]);
 
   useEffect(() => {
     // Obtener noticias publicadas del newsService

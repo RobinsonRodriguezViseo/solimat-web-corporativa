@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import { getExcerptListado, type Noticia } from '../../../data/noticias';
+import { getExcerptListado, type NoticiaPublica } from '../../../data/noticias';
 import styles from './NoticiasGrid.module.css';
 
 interface NoticiasGridProps {
-  noticias: Noticia[];
+  noticias: NoticiaPublica[];
 }
 
 export default function NoticiasGrid({ noticias }: NoticiasGridProps) {
